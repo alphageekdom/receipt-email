@@ -416,203 +416,348 @@
           font-size: 14px;
         }
       }
+      /* ===== SECTION 3: ORDER META ===== */
+
+      .meta-cell {
+        padding: 32px 32px 8px;
+      }
+      .meta-card {
+        background-color: #fff5f0;
+        border: 1px solid #f7e1d8;
+        border-radius: 10px;
+      }
+      .meta-card-cell {
+        padding: 20px 24px;
+      }
+      .meta-row td {
+        padding: 6px 0;
+        vertical-align: top;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      }
+      .meta-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #b56576;
+        margin: 0;
+      }
+      .meta-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: #4a2c3a;
+        line-height: 1.4;
+        margin: 4px 0 0;
+      }
+      .meta-value.accent {
+        color: #d6336c;
+      }
+
+      /* Order Meta responsive */
+      @media only screen and (max-width: 480px) {
+        .meta-cell {
+          padding: 22px 18px 6px;
+        }
+        .meta-card-cell {
+          padding: 18px 18px;
+        }
+        .meta-value {
+          font-size: 13px;
+        }
+      }
     </style>
   </head>
 
   <body>
-    <!-- ─── Preheader (hidden inbox preview) ─── -->
-    <div
-      style="
-        display: none;
-        max-height: 0;
-        overflow: hidden;
-        mso-hide: all;
-        font-size: 1px;
-        color: #f4ede4;
-        line-height: 1px;
-      "
-    >
-      Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's
-      your receipt.
-    </div>
-    <div style="display: none; max-height: 0; overflow: hidden">
-      &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
-    </div>
+    <script type="text/template">
+         <!-- ─── Preheader (hidden inbox preview) ─── -->
+      <div
+        style="
+          display: none;
+          max-height: 0;
+          overflow: hidden;
+          mso-hide: all;
+          font-size: 1px;
+          color: #f4ede4;
+          line-height: 1px;
+        "
+      >
+        Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's
+        your receipt.
+      </div>
+      <div style="display: none; max-height: 0; overflow: hidden">
+        &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
+      </div>
 
-    <!-- ─── Outer wrapper (paints page background) ─── -->
-    <table
-      role="presentation"
-      class="wrapper"
-      width="100%"
-      cellspacing="0"
-      cellpadding="0"
-      border="0"
-      align="center"
-    >
-      <tbody>
-        <tr>
-          <td class="wrapper-cell" align="center">
-            <!-- ─── Inner email card (600px) ─── -->
-            <table
-              role="presentation"
-              class="email responsive-table"
-              width="600"
-              cellspacing="0"
-              cellpadding="0"
-              border="0"
-              align="center"
-            >
-              <tbody>
-                <!-- ─── Section 1: Header ─── -->
-                <tr>
-                  <td>
-                    <!-- Utility strip -->
-                    <table
-                      role="presentation"
-                      class="utility-strip"
-                      width="100%"
-                      cellspacing="0"
-                      cellpadding="0"
-                      border="0"
-                    >
-                      <tbody>
-                        <tr>
-                          <td class="utility-cell" align="left" valign="middle">
-                            <a
-                              href="tel:{{ company.phone_number }}"
-                              class="utility-phone"
-                              >{{ company.phone_number }}</a
+      <!-- ─── Outer wrapper (paints page background) ─── -->
+      <table
+        role="presentation"
+        class="wrapper"
+        width="100%"
+        cellspacing="0"
+        cellpadding="0"
+        border="0"
+        align="center"
+      >
+        <tbody>
+          <tr>
+            <td class="wrapper-cell" align="center">
+              <!-- ─── Inner email card (600px) ─── -->
+              <table
+                role="presentation"
+                class="email responsive-table"
+                width="600"
+                cellspacing="0"
+                cellpadding="0"
+                border="0"
+                align="center"
+              >
+                <tbody>
+                  <!-- ─── Section 1: Header ─── -->
+                  <tr>
+                    <td>
+                      <!-- Utility strip -->
+                      <table
+                        role="presentation"
+                        class="utility-strip"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="utility-cell" align="left" valign="middle">
+                              <a
+                                href="tel:{{ company.phone_number }}"
+                                class="utility-phone"
+                                >{{ company.phone_number }}</a
+                              >
+                            </td>
+                            <td
+                              class="utility-cell"
+                              align="right"
+                              valign="middle"
                             >
-                          </td>
-                          <td
-                            class="utility-cell"
-                            align="right"
-                            valign="middle"
-                          >
-                            <a
-                              href="{{ company.contact_page }}"
-                              class="utility-link"
-                              >Contact</a
-                            >
-                            <span class="utility-sep">·</span>
-                            <a
-                              href="{{ company.support_page }}"
-                              class="utility-link"
-                              >Unsubscribe</a
-                            >
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                              <a
+                                href="{{ company.contact_page }}"
+                                class="utility-link"
+                                >Contact</a
+                              >
+                              <span class="utility-sep">·</span>
+                              <a
+                                href="{{ company.support_page }}"
+                                class="utility-link"
+                                >Unsubscribe</a
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
 
-                    <!-- Brand block + greeting -->
-                    <table
-                      role="presentation"
-                      class="brand-block"
-                      width="100%"
-                      cellspacing="0"
-                      cellpadding="0"
-                      border="0"
-                    >
-                      <tbody>
-                        <tr>
-                          <td class="brand-cell" align="center">
-                            <!-- Confetti dots -->
-                            <span class="dot d1"></span>
-                            <span class="dot d2"></span>
-                            <span class="dot d3"></span>
-                            <span class="dot d4"></span>
-                            <span class="dot d5"></span>
-                            <span class="dot d6"></span>
-                            <span class="dot d7"></span>
+                      <!-- Brand block + greeting -->
+                      <table
+                        role="presentation"
+                        class="brand-block"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="brand-cell" align="center">
+                              <!-- Confetti dots -->
+                              <span class="dot d1"></span>
+                              <span class="dot d2"></span>
+                              <span class="dot d3"></span>
+                              <span class="dot d4"></span>
+                              <span class="dot d5"></span>
+                              <span class="dot d6"></span>
+                              <span class="dot d7"></span>
 
-                            <!-- Brand wordmark -->
-                            <h1 class="brand-wordmark">
-                              {{ company.company_name }}
-                            </h1>
-                            <div class="brand-tag">
-                              Tiny cakes &middot; Big joy
-                            </div>
-
-                            <!-- Greeting -->
-                            <div class="greeting">
-                              <div class="greeting-kicker">
-                                // Order Confirmation
+                              <!-- Brand wordmark -->
+                              <h1 class="brand-wordmark">
+                                {{ company.company_name }}
+                              </h1>
+                              <div class="brand-tag">
+                                Tiny cakes &middot; Big joy
                               </div>
-                              <p class="greeting-title">
-                                Hey {{ customer.first_name }},<br />
-                                <strong>your cupcakes are in the oven.</strong>
-                              </p>
-                              <p class="greeting-sub">
-                                Order received and our bakers are already on it.
-                                We'll ping you the moment they're ready for
-                                pickup. Here's everything you need below.
-                              </p>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
 
-                <!-- ─── Section 2: Status Ribbon ─── -->
-                <tr>
-                  <td>
-                    <table
-                      role="presentation"
-                      class="ribbon"
-                      width="100%"
-                      cellspacing="0"
-                      cellpadding="0"
-                      border="0"
-                    >
-                      <tbody>
-                        <tr>
-                          <td class="ribbon-cell">
-                            <table
-                              role="presentation"
-                              width="100%"
-                              cellspacing="0"
-                              cellpadding="0"
-                              border="0"
-                            >
-                              <tbody>
-                                <tr>
-                                  <td class="ribbon-step done" width="28%">
-                                    <div class="ribbon-icon">&#10003;</div>
-                                    <span class="ribbon-label">Confirmed</span>
-                                  </td>
-                                  <td class="ribbon-line-cell" width="8%">
-                                    <div class="ribbon-line done">&nbsp;</div>
-                                  </td>
-                                  <td class="ribbon-step active" width="28%">
-                                    <div class="ribbon-icon">&#127874;</div>
-                                    <span class="ribbon-label">Baking</span>
-                                  </td>
-                                  <td class="ribbon-line-cell" width="8%">
-                                    <div class="ribbon-line">&nbsp;</div>
-                                  </td>
-                                  <td class="ribbon-step next" width="28%">
-                                    <div class="ribbon-icon">&#127872;</div>
-                                    <span class="ribbon-label">Ready</span>
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
+                              <!-- Greeting -->
+                              <div class="greeting">
+                                <div class="greeting-kicker">
+                                  // Order Confirmation
+                                </div>
+                                <p class="greeting-title">
+                                  Hey {{ customer.first_name }},<br />
+                                  <strong>your cupcakes are in the oven.</strong>
+                                </p>
+                                <p class="greeting-sub">
+                                  Order received and our bakers are already on it.
+                                  We'll ping you the moment they're ready for
+                                  pickup. Here's everything you need below.
+                                </p>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
 
-                <!-- ─── Section 3: Order Meta goes here ─── -->
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                  <!-- ─── Section 2: Status Ribbon ─── -->
+                  <tr>
+                    <td>
+                      <table
+                        role="presentation"
+                        class="ribbon"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="ribbon-cell">
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td class="ribbon-step done" width="28%">
+                                      <div class="ribbon-icon">&#10003;</div>
+                                      <span class="ribbon-label">Confirmed</span>
+                                    </td>
+                                    <td class="ribbon-line-cell" width="8%">
+                                      <div class="ribbon-line done">&nbsp;</div>
+                                    </td>
+                                    <td class="ribbon-step active" width="28%">
+                                      <div class="ribbon-icon">&#127874;</div>
+                                      <span class="ribbon-label">Baking</span>
+                                    </td>
+                                    <td class="ribbon-line-cell" width="8%">
+                                      <div class="ribbon-line">&nbsp;</div>
+                                    </td>
+                                    <td class="ribbon-step next" width="28%">
+                                      <div class="ribbon-icon">&#127872;</div>
+                                      <span class="ribbon-label">Ready</span>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 3: Order Meta ─── -->
+                  <tr>
+                    <td class="meta-cell">
+                      <table
+                        role="presentation"
+                        class="meta-card"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="meta-card-cell">
+                              <table
+                                role="presentation"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                              >
+                                <tbody>
+                                  <tr class="meta-row">
+                                    <td width="50%">
+                                      <p class="meta-label">Order No.</p>
+                                      <p class="meta-value accent">
+                                        #{{ order.number }}
+                                      </p>
+                                    </td>
+                                    <td width="50%">
+                                      <p class="meta-label">Placed</p>
+                                      <p class="meta-value">
+                                        {{ order.placed_at }}
+                                      </p>
+                                    </td>
+                                  </tr>
+                                  <tr class="meta-row">
+                                    <td>
+                                      <p class="meta-label">Method</p>
+                                      <p class="meta-value">
+                                        {{ order.fulfillment_method }}
+                                      </p>
+                                    </td>
+                                    <td>
+                                      <p class="meta-label">Payment</p>
+                                      <p class="meta-value">
+                                        {{ order.payment_method }}
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 4: Items List goes here ─── -->
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </script>
+
+    <div id="result"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+    <script>
+     <!-- LiquidJS browser build (dev only) -->
+<script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+
+<script>
+  const template = document.querySelector('[type="text/template"]');
+  const result   = document.querySelector('#result');
+  const engine   = new liquidjs.Liquid();
+
+  engine
+    .parseAndRender(template.innerHTML, {
+      customer: {
+        id: 12345,
+        first_name: 'Chad',
+      },
+      company: {
+        company_name:  'Sugar & Sprinkle',
+        phone_number:  '1-888-SPRINKL',
+        contact_page:  'https://www.sugarandsprinkle.com/contact',
+        support_page:  'https://www.sugarandsprinkle.com/unsubscribe',
+      },
+      order: {
+        number:             'SS-20471',
+        placed_at:          'April 25, 2026 · 2:14 PM',
+        fulfillment_method: 'Pickup',
+        payment_method:     'Visa ending 4421',
+      },
+    })
+    .then((html) => (result.innerHTML = html));
+</script>
+    </script>
   </body>
 </html>
