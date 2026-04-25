@@ -1,977 +1,1003 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <!-- Encoding & device -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="description"
-            content="Discover the latest tech treasures with your BestBuy order. From gadgets to appliances, shop confidently and enjoy seamless delivery. Elevate your shopping experience today!">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
-            rel="stylesheet">
-        <title>BestBuy | Email Receipt</title>
-        <!--[if (gte mso 9)|(IE)]>
-		<style type="text/css">
-			body, div, table, td, span, a, p {font-family: Arial, Helvetica, sans-serif !important; }
-		</style>
-	<![endif]-->
+    <!-- Apple / iOS rendering -->
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="color-scheme" content="light only" />
+    <meta name="supported-color-schemes" content="light only" />
+    <meta
+      name="format-detection"
+      content="telephone=no, date=no, address=no, email=no"
+    />
 
-        <style type="text/css">
-            /* CLIENT SPECIFIC STYLES */
-            body,
-            table,
-            td,
-            a {
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            }
+    <!-- Document identity -->
+    <title>Sugar &amp; Sprinkle · Order Receipt</title>
+    <meta
+      name="description"
+      content="Your Sugar & Sprinkle order is in the oven. Review your receipt and pickup details."
+    />
 
-            table,
-            td {
-                mso-table-lspace: 0pt;
-                mso-table-rspace: 0pt;
-            }
+    <!-- Outlook fallback -->
+    <!--[if (gte mso 9)|(IE)]>
+      <style type="text/css">
+        body,
+        div,
+        table,
+        td,
+        span,
+        a,
+        p {
+          font-family: 'Quicksand', Arial, Helvetica, sans-serif !important;
+        }
+      </style>
+    <![endif]-->
 
-            img {
-                -ms-interpolation-mode: bicubic;
-            }
+    <!-- Webfonts: Caveat for headlines, Quicksand for body/UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-            /* RESET STYLES */
-            img {
-                border: 0;
-                height: auto;
-                line-height: 100%;
-                outline: none;
-                text-decoration: none;
-            }
+    <style type="text/css">
+      /* ===== BASE & RESETS ===== */
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
 
-            #product-img {
-                width: 200px;
-                height: 200px;
-                object-fit: contain;
-                object-position: center;
-            }
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+        border-collapse: collapse;
+      }
 
-            table {
-                border-collapse: collapse !important;
-            }
+      img {
+        -ms-interpolation-mode: bicubic;
+        border: 0;
+        outline: none;
+        text-decoration: none;
+        display: block;
+        height: auto;
+        line-height: 100%;
+      }
 
-            .border_tbl {
-                border-collapse: separate !important;
-            }
+      body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background-color: #f4ede4;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        line-height: 1.5;
+        color: #4a2c3a;
+      }
 
-            body {
+      a {
+        text-decoration: none;
+      }
 
-                height: 100% !important;
-                Margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-            }
+      /* ===== CLIENT BLUE-LINK OVERRIDES ===== */
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
 
-            .big_btn {
-                width: 500px;
-            }
+      u + #body a {
+        color: inherit;
+        text-decoration: none;
+        font-size: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+      }
 
-            /* IOS BLUE LINKS */
-            a[x-apple-data-detectors] {
-                color: inherit !important;
-                text-decoration: none !important;
-                font-size: inherit !important;
-                font-family: inherit !important;
-                font-weight: inherit !important;
-                line-height: inherit !important;
-            }
+      /* ===== LAYOUT CONTAINERS ===== */
+      .wrapper {
+        width: 100%;
+        background-color: #f4ede4;
+        padding: 32px 12px;
+      }
 
-            /* GMAIL BLUE LINKS */
-            u+#body a {
-                color: inherit;
-                text-decoration: none;
-                font-size: inherit;
-                font-family: inherit;
-                font-weight: inherit;
-                line-height: inherit;
-            }
+      .email {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.04),
+          0 12px 32px rgba(214, 51, 108, 0.08);
+      }
 
-            @media only screen and (max-width: 600px) {
-                .responsive-table {
-                    width: 480px !important;
-                }
+      /* ===== GLOBAL RESPONSIVE BREAKPOINTS ===== */
+      @media only screen and (max-width: 600px) {
+        .responsive-table {
+          width: 100% !important;
+        }
+        .dw {
+          width: 100% !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
+          display: block !important;
+        }
+        .db {
+          display: block !important;
+          text-align: center !important;
+        }
+      }
 
-                .image {
-                    width: 100% !important;
-                    height: auto !important;
-                }
+      @media only screen and (max-width: 480px) {
+        .wrapper {
+          padding: 16px 8px;
+        }
+      }
+    </style>
+  </head>
 
-                .db {
-                    display: block !important;
-                    text-align: center !important;
-                }
+  <body
+    id="body"
+    style="
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #f9f6ee;
+      font-family: Poppins, Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.2;
+      color: #000000;
+    "
+  >
+    <script type="text/template">
+      <!-- START OF PREVIEW TEXT -->
+      <div style="display: none; max-height: 0; overflow: hidden;">
+          Your BestBuy Order Has Been Received...
+      </div>
+      <div style="display: none; max-height: 0; overflow: hidden;">
 
-                .dw {
-                    width: 100% !important;
-                    min-width: 100% !important;
-                    max-width: 100% !important;
-                }
+          &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
 
-                .big_btn {
-                    width: 250px !important;
-                }
+      </div>
+      <!-- END OF PREVIEW TEXT -->
+      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+          <tbody>
+              <tr>
+                  <td style="padding: 0;" align="center">
+                      <!-- START EMAIL (600PX) -->
+                      <table class="responsive-table" role="presentation" width="600" cellspacing="0" cellpadding="0"
+                          border="0" align="center"
+                          style="background: #FFFFFF; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
+                          <tbody>
+                              <!-- START OF HEADER -->
+                              <tr>
+                                  <td style="background-color: #0046BE; color: #FFFFFF; padding: 10px; max-width: 100%;"
+                                      align="center">
+                                      <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
+                                          cellpadding="0" border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <table role="presentation" width="90%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td align="left">
+                                                                      <img src="/img/best-buy-logo.png"
+                                                                          alt="Best Buy Logo" width="50" />
+                                                                      <img src="/img/geek-squad.png"
+                                                                          alt="Best Buy Logo" width="50" />
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                                  <td>
+                                                      <table role="presentation" width="90%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td style="font-weight: 500; font-family: Poppins, Arial, Helvetica, sans-serif;"
+                                                                      align="right">
+                                                                      <a href="tel:18882378289" target="_blank"
+                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 14px; letter-spacing: 1px; text-decoration: none; color: #FFFFFF; font-weight: 600; display: block;">
+                                                                          {{ company.phone_number }}</a>
+                                                                      <a href="https://www.example.com"
+                                                                          target="_blank"
+                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1px; text-decoration: none; color: #FFFFFF; font-weight: 300; display: block;">
+                                                                          UNSUBSCRIBE</a>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF HEADER -->
+                              <!-- START OF ORDER INFO -->
+                              <tr>
+                                  <td style="color: #000000; ; text-align: left; font-weight: 300; font-size: 24px; margin: 0;"
+                                      align="center">
+                                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                          border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td width="100%" style="padding: 20px;">
+                                                      <table role="presentation" width="100%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td align="left">
+                                                                      <img src="/img/checkmark.svg" alt="checkmark"
+                                                                          width="40" height="40"
+                                                                          style="font-weight: 800; display: inline-block;" />
+                                                                      <h3
+                                                                          style="margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                          Here's your order information</h3>
+                                                                      <p
+                                                                          style="font-size: 18px; margin-bottom: 8px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                          {{ customer.first_name }},
+                                                                          we're getting your
+                                                                          order
+                                                                          ready. Thanks
+                                                                          for shopping with Best
+                                                                          Buy.</p>
+                                                                      <p
+                                                                          style="font-size: 18px; margin-bottom: 10px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                          Order
+                                                                          number:
+                                                                          <span
+                                                                              style="font-weight: 600; color: #0046BE;">{{
+                                                                              order.id }}</span>
+                                                                      </p>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <tr>
+                                                  <td width="100%" style="padding: 20px;" align="center">
+                                                      <table>
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td align="center">
+                                                                      <a href="{{ order.tracking-order }}"
+                                                                          target="_blank"
+                                                                          style="font-size: 14px; font-family: Poppins, Arial, Helvetica, sans-serif; color: #3d3d3d; text-decoration: none; border-radius: 20px; -webkit-border-radius: 20px; background-color: #FFF204; border-top: 10px solid #FFF204; border-bottom: 10px solid #FFF204; border-right: 30px solid #FFF204; border-left: 30px solid #FFF204; display: inline-block; text-transform: uppercase;"
+                                                                          class="big_btn">View
+                                                                          Order Details</a>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF ORDER INFO -->
+                              <!-- START OF BORDER -->
+                              <tr>
+                                  <td>
+                                      <table class="responsive-table border-tbl" role="presentation" width="580"
+                                          cellspacing="0" cellpadding="0" align="center"
+                                          style="border: 1px solid #d3d3d3; border-radius: 20px;">
+                                          <tbody>
+                                              <!-- START OF STORE INFO -->
+                                              <tr>
+                                                  <td align="center">
+                                                      <table class="responsive-table" role="presentation" width="540"
+                                                          cellspacing="0" cellpadding="0" border="0" align="center"
+                                                          style="margin-top: 1rem;">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td class="dw db" width="260">
+                                                                      <table role="presentation" width="100%"
+                                                                          cellspacing="0" cellpadding="0" border="0"
+                                                                          align="center" bgcolor="#F0F2F4">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td align="left"
+                                                                                      style="padding: 2rem; color: #3d3d3d;">
+                                                                                      <p
+                                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 400; margin: 0;">
+                                                                                          In-Store Pickup</p>
+                                                                                      <p
+                                                                                          style="font-size: 20px; font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; margin: 0; padding-top: .3rem;">
+                                                                                          Waiting
+                                                                                          to be Fulfilled
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          Your order is being picked
+                                                                                          up
+                                                                                          at:</p>
+                                                                                      <a href="https://www.example.com"
+                                                                                          target="_blank"
+                                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; color: #0046BE; font-size: 1.5rem; font-weight: 800; text-decoration: none;">Best
+                                                                                          Buy
+                                                                                          {{ order.pickup_city }}</a>
+                                                                                      <p
+                                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1.5rem; font-weight: 800; margin: 0;">
+                                                                                          {{ order.pickup_address }}
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1.5rem; font-weight: 800; margin: 0;">
+                                                                                          {{ order.pickup_city }},
+                                                                                          {{ order.pickup_state }} {{
+                                                                                          order.pickup_zipcode }}
+                                                                                      </p>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <!-- END OF STORE INFO -->
+                                              <ul>
+                                                  {% assign items = order.items_ids | split: ", " %}
+                                                  {% assign items_titles = order.items_titles | split: ", " %}
+                                                  {% assign items_colors = order.items_colors | split: ", " %}
+                                                  {% assign items_page = order.items_page | split: ", " %}
+                                                  {% assign items_images = order.items_images | split: ", " %}
+                                                  {% assign items_quantities = order.items_quantities | split: ", " %}
+                                                  {% assign items_skus = order.items_skus | split: ", " %}
+                                                  {% assign items_models = order.items_models | split: ", " %}
+                                                  {% assign items_prices = order.items_prices | split:
+                                                  ", " | money:"USD" %}
 
-                .outlet_img {
-                    margin: 0 !important;
-                }
-            }
+                                                  {%- for item in items -%}
+                                                  <!-- START OF ITEMS -->
+                                                  <tr>
+                                                      <td align="left">
+                                                          <table class="responsive-table" role="presentation"
+                                                              width="540" cellspacing="0" cellpadding="0" border="0"
+                                                              align="center" style="margin-bottom: 1rem;">
+                                                              <tbody>
+                                                                  <tr>
+                                                                      <td class="dw db" width="260"
+                                                                          style="padding: 2rem 0;">
+                                                                          <table role="presentation" width="100%"
+                                                                              cellspacing="0" cellpadding="0"
+                                                                              border="0" align="center">
+                                                                              <tbody>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <a href="{{ items_page[forloop.index0] }}"
+                                                                                              target="_blank">
+                                                                                              <img src="{{ items_images[forloop.index0] }}"
+                                                                                                  alt="{{ items_titles[forloop.index0] }}"
+                                                                                                  title="{{ items_titles[forloop.index0] }}"
+                                                                                                  width="100"
+                                                                                                  style="object-fit: cover; object-position: center;"
+                                                                                                  id="product-img" />
+                                                                                          </a>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <p
+                                                                                              style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif; margin-top: 1rem;">
+                                                                                              <span
+                                                                                                  style="font-weight: 500;">Model
+                                                                                                  #:</span> {{
+                                                                                              items_models[forloop.index0]
+                                                                                              }}
+                                                                                          </p>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <p
+                                                                                              style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                              <span
+                                                                                                  style="font-weight: 500;">SKU:</span>
+                                                                                              {{
+                                                                                              items_skus[forloop.index0]
+                                                                                              }}
+                                                                                          </p>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <p
+                                                                                              style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                              <span
+                                                                                                  style="font-weight: 500;">Qty:</span>
+                                                                                              {{
+                                                                                              items_quantities[forloop.index0]
+                                                                                              }}
+                                                                                          </p>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                              </tbody>
+                                                                          </table>
+                                                                      </td>
+                                                                      <td class="dw db" width="260">
+                                                                          <table role="presentation" width="90%"
+                                                                              cellspacing="0" cellpadding="0"
+                                                                              border="0" align="center">
+                                                                              <tbody>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <a href="{{ items_page[forloop.index0] }}"
+                                                                                              target="_blank"
+                                                                                              style="font-size: 1.2rem; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif; text-decoration: none;">{{
+                                                                                              items_titles[forloop.index0]
+                                                                                              }} – {{
+                                                                                              items_colors[forloop.index0]
+                                                                                              }}</a>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                                  <tr>
+                                                                                      <td>
+                                                                                          <p
+                                                                                              style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                              $ {{
+                                                                                              items_prices[forloop.index0]
+                                                                                              }}</p>
+                                                                                      </td>
+                                                                                  </tr>
+                                                                              </tbody>
+                                                                          </table>
+                                                                      </td>
+                                                                  </tr>
+                                                              </tbody>
+                                                          </table>
+                                                      </td>
+                                                  </tr>
+                                                  {% endfor %}
+                                              </ul>
+                                              <!-- END OF ITEMS -->
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF BORDER -->
+                              <!-- START ORDER SUMMARY -->
+                              <tr>
+                                  <td>
+                                      <table class="responsive-table border-tbl" role="presentation" width="580"
+                                          cellspacing="0" cellpadding="0" align="center"
+                                          style="border: 1px solid #d3d3d3; border-radius: 20px; margin-top: 1rem;">
+                                          <tbody>
+                                              <!-- START OF PICKUP INFO -->
+                                              <tr>
+                                                  <td style="padding-top: 30px;" align="center">
+                                                      <table role="presentation" width="90%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td
+                                                                      style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                      <h2
+                                                                          style="margin: 0; padding: 20px 0px; font-size: 2rem;">
 
-            @media only screen and (max-width: 480px) {
-                h2 {
-                    font-size: 1.5rem !important;
-                }
+                                                                          Your Order Summary.
+                                                                      </h2>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <!-- END OF PICKUP INFO -->
+                                              <!-- START OF ITEMS -->
+                                              <tr>
+                                                  <td>
+                                                      <table class="responsive-table" role="presentation" width="540"
+                                                          cellspacing="0" cellpadding="0" border="0" align="center"
+                                                          style="margin-bottom: 1rem;">
+                                                          <tbody>
+                                                              <!-- START OF COSTS -->
+                                                              <tr>
+                                                                  <td width="260">
+                                                                      <table role="presentation" width="100%"
+                                                                          cellspacing="0" cellpadding="0" border="0"
+                                                                          align="center">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td align="left"
+                                                                                      style="padding: 0 20px;">
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          SUBTOTAL
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          SHIPPING
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          SALES TAX
+                                                                                      </p>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                                  <td width="260">
+                                                                      <table role="presentation" width="90%"
+                                                                          cellspacing="0" cellpadding="0" border="0"
+                                                                          align="center">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td align="right"
+                                                                                      style="padding: 0 20px;">
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          ${{ order.subtotal }}
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          {{ order.shipping_price }}
+                                                                                      </p>
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          ${{ order.sales_tax }}
+                                                                                      </p>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                              <!-- END OF COSTS -->
+                                                              <!-- START OF BORDER -->
+                                                              <tr>
+                                                                  <td
+                                                                      style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
+                                                                  </td>
+                                                                  <td
+                                                                      style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
+                                                                  </td>
+                                                                  <td
+                                                                      style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
+                                                                  </td>
+                                                              </tr>
+                                                              <!-- END OF BORDER -->
+                                                              <!-- START OF TOTAL -->
+                                                              <tr>
+                                                                  <td width="260">
+                                                                      <table role="presentation" width="100%"
+                                                                          cellspacing="0" cellpadding="0" border="0"
+                                                                          align="center">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td align="left"
+                                                                                      style="padding: 0 20px;">
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                                          SUBTOTAL
+                                                                                      </p>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                                  <td width="260">
+                                                                      <table role="presentation" width="90%"
+                                                                          cellspacing="0" cellpadding="0" border="0"
+                                                                          align="center">
+                                                                          <tbody>
+                                                                              <tr>
+                                                                                  <td align="right">
+                                                                                      <p
+                                                                                          style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif; padding: 0 20px;">
+                                                                                          ${{ order.total }}
+                                                                                      </p>
+                                                                                  </td>
+                                                                              </tr>
+                                                                          </tbody>
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                              <!-- END OF TOTAL -->
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <!-- END OF ITEMS -->
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF ORDER SUMMARY -->
+                              <!-- START OF ADDITIONAL INFO -->
+                              <tr>
+                                  <td>
+                                      <table class="responsive-table border-tbl" role="presentation" width="580"
+                                          cellspacing="0" cellpadding="0" align="center"
+                                          style="border: 1px solid #d3d3d3; border-radius: 20px; margin-top: 1rem;">
+                                          <tbody>
+                                              <!-- START OF PICKUP INFO -->
+                                              <tr>
+                                                  <td style="padding: 30px 0;" align="center">
+                                                      <table role="presentation" width="90%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td
+                                                                      style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                      <h2 style="margin: 0; font-size: 1.5rem;">
+                                                                          What you should know.
+                                                                      </h2>
+                                                                      <p style="margin-top: 0;">For Order Pickup</p>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td
+                                                                      style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                      <h3 style="margin: 0; font-size: 1rem;">
+                                                                          When Your Order is Ready.
+                                                                      </h3>
+                                                                      <p style="margin-top: 0; font-size: 14px;">We'll
+                                                                          send a separate
+                                                                          email
+                                                                          with further
+                                                                          instructions when item(s) are ready for
+                                                                          pickup.
+                                                                      </p>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td
+                                                                      style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                      <h3 style="margin: 0; font-size: 1rem;">
+                                                                          Bring to the Location.
+                                                                      </h3>
+                                                                      <p style="margin-top: 0; font-size: 14px;">Your
+                                                                          government-issued
+                                                                          photo
+                                                                          ID.
+                                                                          Your order number.
+                                                                      </p>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                              <!-- END OF PICKUP INFO -->
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF ADDITIONAL INFO -->
+                              <!-- START BANNER IMG -->
+                              <tr>
+                                  <td style="padding-top: 30px;" align="center">
+                                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                          border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <img src="/img/bestbuy-banner.jpg" alt="Best Buy Banner"
+                                                          title="Best Buy Banner" width="100%"
+                                                          style="display: block;" />
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END BANNER IMG -->
+                              <!-- START OF OPTIONS -->
+                              <tr>
+                                  <td style="padding: 40px;" class="options">
+                                      <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
+                                          cellpadding="0" border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td>
+                                                      <table class="responsive-table" role="presentation" width="50%"
+                                                          cellspacing="0" cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td class="dw db" width="260"
+                                                                      style="padding-right: 10px; margin-bottom: 20px;">
+                                                                      <img src="/img/outlet.jpg" alt="Outlet Box"
+                                                                          title="Outlet Box" width="250" />
+                                                                      <h4
+                                                                          style="font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1rem; margin-bottom: 10px;">
+                                                                          Clearance, open-box and more.</h4>
+                                                                      <p
+                                                                          style="font-size: 12px; margin-bottom: 10px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                                          Save when you shop Best Buy Outlet for
+                                                                          clearance, open-box, refurbished,
+                                                                          pre-owned items.</p>
+                                                                      <a href="{{ company.outlet }}"
+                                                                          class="btn btn-info"
+                                                                          style="background-color: #FFF204; border-radius: 5px; font-size: 15px; font-weight: bold; text-decoration: none;  padding: 10px; display: inline-block; color: #3d3d3d;cursor: pointer; font-family: Poppins, Arial, Helvetica, sans-serif; text-align: center;">Shop
+                                                                          Best Buy Outlet</a>
+                                                                  </td>
+                                                                  <td class="dw db" width="260"
+                                                                      style="padding-left: 10px;">
+                                                                      <img src="/img/envelope.jpg"
+                                                                          alt="Email Envelope" title="Email Envelope"
+                                                                          width="250" style="margin-top: -45px;"
+                                                                          class="outlet_img" />
+                                                                      <h4
+                                                                          style="margin-bottom: 10px; font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1rem;">
+                                                                          Get the latest deals and more.</h4>
+                                                                      <p
+                                                                          style="font-size: 12px; font-weight: 400; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;">
+                                                                          Sign up and stay connected.</p>
+                                                                      <a href="{{ company.signup_page }}"
+                                                                          class="btn btn-info"
+                                                                          style="background-color: #FFF204; border-radius: 5px; font-size: 15px; font-weight: bold; text-decoration: none;  padding: 10px; display: inline-block; color: #3d3d3d;cursor: pointer; font-family: Poppins, Arial, Helvetica, sans-serif;text-align: center;">Sign
+                                                                          Up</a>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF OPTIONS -->
+                              <!-- START OF LINKS -->
+                              <tr bgcolor="#0046BE">
+                                  <td align="center">
+                                      <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
+                                          cellpadding="0" border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td width="100%">
+                                                      <table role="presentation" width="100%" cellspacing="0"
+                                                          cellpadding="0" border="0" align="center">
+                                                          <tbody>
+                                                              <tr>
+                                                                  <td align="center" style="padding: 1.5rem 0;">
+                                                                      <a href="{{ company.deal_of_day_page }}"
+                                                                          target="_blank"
+                                                                          style="text-decoration: none; color: #F0F2F4;">Deal
+                                                                          of the Day</a>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td style="background-color: #F0F2F4;" height="1">
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td align="center" style="padding: 1.5rem 0;">
+                                                                      <a href="{{ company.mobile_app_page }}"
+                                                                          target="_blank"
+                                                                          style="text-decoration: none; color: #F0F2F4;">Mobile
+                                                                          App</a>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td style="background-color: #F0F2F4;" height="1">
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td align="center" style="padding: 1.5rem 0;">
+                                                                      <a href="{{ company.credit_card_page }}"
+                                                                          target="_blank"
+                                                                          style="text-decoration: none; color: #F0F2F4;">Credit
+                                                                          Cards</a>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td style="background-color: #F0F2F4;" height="1">
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td align="center" style="padding: 1.5rem 0;">
+                                                                      <a href="{{ company.support_page }}"
+                                                                          target="_blank"
+                                                                          style="text-decoration: none; color: #F0F2F4;">Support
+                                                                          Center</a>
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td style="background-color: #F0F2F4;" height="1">
+                                                                  </td>
+                                                              </tr>
+                                                              <tr>
+                                                                  <td align="center" style="padding: 2rem 0;">
+                                                                      <h3
+                                                                          style="color: #F0F2F4; margin: 0; padding-bottom: 1rem; font-weight: 400; font-size: 1.1rem;">
+                                                                          Follow Us & Share Your Story
+                                                                      </h3>
+                                                                      <a href="https://icons8.com/icon/87298/facebook-f"
+                                                                          target="_blank"><img
+                                                                              src="img/white-facebook.png"
+                                                                              alt="Facebook" title="Facebook"
+                                                                              width="18" height="18" border="0"
+                                                                              style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
+                                                                      </a>
 
-                .responsive-table {
-                    width: 100% !important;
-                }
+                                                                      <a href="https://icons8.com/icon/A4DsujzAX4rw/twitterx"
+                                                                          target="_blank"><img
+                                                                              src="img/white-x-twitter.png"
+                                                                              alt="X Twitter" title="X Twitter"
+                                                                              width="18" height="18" border="0"
+                                                                              style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
+                                                                      </a>
 
-                button {
-                    width: 300px !important;
-                }
+                                                                      <a href="https://icons8.com/icon/x-m7muFV2A25/pinterest-p"
+                                                                          target="_blank"><img
+                                                                              src="img/white-pinterest.png"
+                                                                              alt="Pinterest" title="Pinterest"
+                                                                              width="18" height="18" border="0"
+                                                                              style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
+                                                                      </a>
 
-                .border-tbl {
-                    width: 100% !important;
-                }
-            }
-        </style>
-    </head>
+                                                                      <a href="https://icons8.com/icon/32309/instagram"
+                                                                          target="_blank"><img
+                                                                              src="img/white-instagram.png"
+                                                                              alt="Instagram" title="Instagram"
+                                                                              width="18" height="18" border="0"
+                                                                              style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
+                                                                      </a>
 
-    <body id="body"
-        style="margin: 0 !important; padding: 0 !important; background-color: #F9F6EE; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.2; color: #000000;">
-        <script type="text/template">
-        <!-- START OF PREVIEW TEXT -->
-        <div style="display: none; max-height: 0; overflow: hidden;">
-            Your BestBuy Order Has Been Received...
-        </div>
-        <div style="display: none; max-height: 0; overflow: hidden;">
-
-            &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
-
-        </div>
-        <!-- END OF PREVIEW TEXT -->
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
-            <tbody>
-                <tr>
-                    <td style="padding: 0;" align="center">
-                        <!-- START EMAIL (600PX) -->
-                        <table class="responsive-table" role="presentation" width="600" cellspacing="0" cellpadding="0"
-                            border="0" align="center"
-                            style="background: #FFFFFF; box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;">
-                            <tbody>
-                                <!-- START OF HEADER -->
-                                <tr>
-                                    <td style="background-color: #0046BE; color: #FFFFFF; padding: 10px; max-width: 100%;"
-                                        align="center">
-                                        <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
-                                            cellpadding="0" border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <table role="presentation" width="90%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="left">
-                                                                        <img src="/img/best-buy-logo.png"
-                                                                            alt="Best Buy Logo" width="50" />
-                                                                        <img src="/img/geek-squad.png"
-                                                                            alt="Best Buy Logo" width="50" />
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                    <td>
-                                                        <table role="presentation" width="90%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="font-weight: 500; font-family: Poppins, Arial, Helvetica, sans-serif;"
-                                                                        align="right">
-                                                                        <a href="tel:18882378289" target="_blank"
-                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 14px; letter-spacing: 1px; text-decoration: none; color: #FFFFFF; font-weight: 600; display: block;">
-                                                                            {{ company.phone_number }}</a>
-                                                                        <a href="https://www.example.com"
-                                                                            target="_blank"
-                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 10px; letter-spacing: 1px; text-decoration: none; color: #FFFFFF; font-weight: 300; display: block;">
-                                                                            UNSUBSCRIBE</a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF HEADER -->
-                                <!-- START OF ORDER INFO -->
-                                <tr>
-                                    <td style="color: #000000; ; text-align: left; font-weight: 300; font-size: 24px; margin: 0;"
-                                        align="center">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
-                                            border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="100%" style="padding: 20px;">
-                                                        <table role="presentation" width="100%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="left">
-                                                                        <img src="/img/checkmark.svg" alt="checkmark"
-                                                                            width="40" height="40"
-                                                                            style="font-weight: 800; display: inline-block;" />
-                                                                        <h3
-                                                                            style="margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                            Here's your order information</h3>
-                                                                        <p
-                                                                            style="font-size: 18px; margin-bottom: 8px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                            {{ customer.first_name }},
-                                                                            we're getting your
-                                                                            order
-                                                                            ready. Thanks
-                                                                            for shopping with Best
-                                                                            Buy.</p>
-                                                                        <p
-                                                                            style="font-size: 18px; margin-bottom: 10px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                            Order
-                                                                            number:
-                                                                            <span
-                                                                                style="font-weight: 600; color: #0046BE;">{{
-                                                                                order.id }}</span>
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="100%" style="padding: 20px;" align="center">
-                                                        <table>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="center">
-                                                                        <a href="{{ order.tracking-order }}"
-                                                                            target="_blank"
-                                                                            style="font-size: 14px; font-family: Poppins, Arial, Helvetica, sans-serif; color: #3d3d3d; text-decoration: none; border-radius: 20px; -webkit-border-radius: 20px; background-color: #FFF204; border-top: 10px solid #FFF204; border-bottom: 10px solid #FFF204; border-right: 30px solid #FFF204; border-left: 30px solid #FFF204; display: inline-block; text-transform: uppercase;"
-                                                                            class="big_btn">View
-                                                                            Order Details</a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF ORDER INFO -->
-                                <!-- START OF BORDER -->
-                                <tr>
-                                    <td>
-                                        <table class="responsive-table border-tbl" role="presentation" width="580"
-                                            cellspacing="0" cellpadding="0" align="center"
-                                            style="border: 1px solid #d3d3d3; border-radius: 20px;">
-                                            <tbody>
-                                                <!-- START OF STORE INFO -->
-                                                <tr>
-                                                    <td align="center">
-                                                        <table class="responsive-table" role="presentation" width="540"
-                                                            cellspacing="0" cellpadding="0" border="0" align="center"
-                                                            style="margin-top: 1rem;">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="dw db" width="260">
-                                                                        <table role="presentation" width="100%"
-                                                                            cellspacing="0" cellpadding="0" border="0"
-                                                                            align="center" bgcolor="#F0F2F4">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="left"
-                                                                                        style="padding: 2rem; color: #3d3d3d;">
-                                                                                        <p
-                                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 400; margin: 0;">
-                                                                                            In-Store Pickup</p>
-                                                                                        <p
-                                                                                            style="font-size: 20px; font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; margin: 0; padding-top: .3rem;">
-                                                                                            Waiting
-                                                                                            to be Fulfilled
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            Your order is being picked
-                                                                                            up
-                                                                                            at:</p>
-                                                                                        <a href="https://www.example.com"
-                                                                                            target="_blank"
-                                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; color: #0046BE; font-size: 1.5rem; font-weight: 800; text-decoration: none;">Best
-                                                                                            Buy
-                                                                                            {{ order.pickup_city }}</a>
-                                                                                        <p
-                                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1.5rem; font-weight: 800; margin: 0;">
-                                                                                            {{ order.pickup_address }}
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1.5rem; font-weight: 800; margin: 0;">
-                                                                                            {{ order.pickup_city }},
-                                                                                            {{ order.pickup_state }} {{
-                                                                                            order.pickup_zipcode }}
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <!-- END OF STORE INFO -->
-                                                <ul>
-                                                    {% assign items = order.items_ids | split: ", " %}
-                                                    {% assign items_titles = order.items_titles | split: ", " %}
-                                                    {% assign items_colors = order.items_colors | split: ", " %}
-                                                    {% assign items_page = order.items_page | split: ", " %}
-                                                    {% assign items_images = order.items_images | split: ", " %}
-                                                    {% assign items_quantities = order.items_quantities | split: ", " %}
-                                                    {% assign items_skus = order.items_skus | split: ", " %}
-                                                    {% assign items_models = order.items_models | split: ", " %}
-                                                    {% assign items_prices = order.items_prices | split:
-                                                    ", " | money:"USD" %}
-
-                                                    {%- for item in items -%}
-                                                    <!-- START OF ITEMS -->
-                                                    <tr>
-                                                        <td align="left">
-                                                            <table class="responsive-table" role="presentation"
-                                                                width="540" cellspacing="0" cellpadding="0" border="0"
-                                                                align="center" style="margin-bottom: 1rem;">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="dw db" width="260"
-                                                                            style="padding: 2rem 0;">
-                                                                            <table role="presentation" width="100%"
-                                                                                cellspacing="0" cellpadding="0"
-                                                                                border="0" align="center">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <a href="{{ items_page[forloop.index0] }}"
-                                                                                                target="_blank">
-                                                                                                <img src="{{ items_images[forloop.index0] }}"
-                                                                                                    alt="{{ items_titles[forloop.index0] }}"
-                                                                                                    title="{{ items_titles[forloop.index0] }}"
-                                                                                                    width="100"
-                                                                                                    style="object-fit: cover; object-position: center;"
-                                                                                                    id="product-img" />
-                                                                                            </a>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p
-                                                                                                style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif; margin-top: 1rem;">
-                                                                                                <span
-                                                                                                    style="font-weight: 500;">Model
-                                                                                                    #:</span> {{
-                                                                                                items_models[forloop.index0]
-                                                                                                }}
-                                                                                            </p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p
-                                                                                                style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                                <span
-                                                                                                    style="font-weight: 500;">SKU:</span>
-                                                                                                {{
-                                                                                                items_skus[forloop.index0]
-                                                                                                }}
-                                                                                            </p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p
-                                                                                                style="font-size: 18px; margin: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                                <span
-                                                                                                    style="font-weight: 500;">Qty:</span>
-                                                                                                {{
-                                                                                                items_quantities[forloop.index0]
-                                                                                                }}
-                                                                                            </p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </td>
-                                                                        <td class="dw db" width="260">
-                                                                            <table role="presentation" width="90%"
-                                                                                cellspacing="0" cellpadding="0"
-                                                                                border="0" align="center">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <a href="{{ items_page[forloop.index0] }}"
-                                                                                                target="_blank"
-                                                                                                style="font-size: 1.2rem; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif; text-decoration: none;">{{
-                                                                                                items_titles[forloop.index0]
-                                                                                                }} – {{
-                                                                                                items_colors[forloop.index0]
-                                                                                                }}</a>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>
-                                                                                            <p
-                                                                                                style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                                $ {{
-                                                                                                items_prices[forloop.index0]
-                                                                                                }}</p>
-                                                                                        </td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                    {% endfor %}
-                                                </ul>
-                                                <!-- END OF ITEMS -->
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF BORDER -->
-                                <!-- START ORDER SUMMARY -->
-                                <tr>
-                                    <td>
-                                        <table class="responsive-table border-tbl" role="presentation" width="580"
-                                            cellspacing="0" cellpadding="0" align="center"
-                                            style="border: 1px solid #d3d3d3; border-radius: 20px; margin-top: 1rem;">
-                                            <tbody>
-                                                <!-- START OF PICKUP INFO -->
-                                                <tr>
-                                                    <td style="padding-top: 30px;" align="center">
-                                                        <table role="presentation" width="90%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                        <h2
-                                                                            style="margin: 0; padding: 20px 0px; font-size: 2rem;">
-
-                                                                            Your Order Summary.
-                                                                        </h2>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <!-- END OF PICKUP INFO -->
-                                                <!-- START OF ITEMS -->
-                                                <tr>
-                                                    <td>
-                                                        <table class="responsive-table" role="presentation" width="540"
-                                                            cellspacing="0" cellpadding="0" border="0" align="center"
-                                                            style="margin-bottom: 1rem;">
-                                                            <tbody>
-                                                                <!-- START OF COSTS -->
-                                                                <tr>
-                                                                    <td width="260">
-                                                                        <table role="presentation" width="100%"
-                                                                            cellspacing="0" cellpadding="0" border="0"
-                                                                            align="center">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="left"
-                                                                                        style="padding: 0 20px;">
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            SUBTOTAL
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            SHIPPING
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            SALES TAX
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td width="260">
-                                                                        <table role="presentation" width="90%"
-                                                                            cellspacing="0" cellpadding="0" border="0"
-                                                                            align="center">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="right"
-                                                                                        style="padding: 0 20px;">
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            ${{ order.subtotal }}
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            {{ order.shipping_price }}
-                                                                                        </p>
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            ${{ order.sales_tax }}
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <!-- END OF COSTS -->
-                                                                <!-- START OF BORDER -->
-                                                                <tr>
-                                                                    <td
-                                                                        style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
-                                                                    </td>
-                                                                    <td
-                                                                        style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
-                                                                    </td>
-                                                                    <td
-                                                                        style="font-size: 16px; line-height: 20px; word-break: normal; border-bottom-width: 1px; border-bottom-color: #EAEEEB; border-bottom-style: solid; padding-top: 10px;">
-                                                                    </td>
-                                                                </tr>
-                                                                <!-- END OF BORDER -->
-                                                                <!-- START OF TOTAL -->
-                                                                <tr>
-                                                                    <td width="260">
-                                                                        <table role="presentation" width="100%"
-                                                                            cellspacing="0" cellpadding="0" border="0"
-                                                                            align="center">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="left"
-                                                                                        style="padding: 0 20px;">
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                                            SUBTOTAL
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td width="260">
-                                                                        <table role="presentation" width="90%"
-                                                                            cellspacing="0" cellpadding="0" border="0"
-                                                                            align="center">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td align="right">
-                                                                                        <p
-                                                                                            style="font-size: 18px; font-weight: 400; margin-top: 10px; font-family: Poppins, Arial, Helvetica, sans-serif; padding: 0 20px;">
-                                                                                            ${{ order.total }}
-                                                                                        </p>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <!-- END OF TOTAL -->
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <!-- END OF ITEMS -->
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF ORDER SUMMARY -->
-                                <!-- START OF ADDITIONAL INFO -->
-                                <tr>
-                                    <td>
-                                        <table class="responsive-table border-tbl" role="presentation" width="580"
-                                            cellspacing="0" cellpadding="0" align="center"
-                                            style="border: 1px solid #d3d3d3; border-radius: 20px; margin-top: 1rem;">
-                                            <tbody>
-                                                <!-- START OF PICKUP INFO -->
-                                                <tr>
-                                                    <td style="padding: 30px 0;" align="center">
-                                                        <table role="presentation" width="90%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td
-                                                                        style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                        <h2 style="margin: 0; font-size: 1.5rem;">
-                                                                            What you should know.
-                                                                        </h2>
-                                                                        <p style="margin-top: 0;">For Order Pickup</p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td
-                                                                        style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                        <h3 style="margin: 0; font-size: 1rem;">
-                                                                            When Your Order is Ready.
-                                                                        </h3>
-                                                                        <p style="margin-top: 0; font-size: 14px;">We'll
-                                                                            send a separate
-                                                                            email
-                                                                            with further
-                                                                            instructions when item(s) are ready for
-                                                                            pickup.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td
-                                                                        style="color: #3d3d3d; margin: 0; padding-bottom: 0; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                        <h3 style="margin: 0; font-size: 1rem;">
-                                                                            Bring to the Location.
-                                                                        </h3>
-                                                                        <p style="margin-top: 0; font-size: 14px;">Your
-                                                                            government-issued
-                                                                            photo
-                                                                            ID.
-                                                                            Your order number.
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                                <!-- END OF PICKUP INFO -->
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF ADDITIONAL INFO -->
-                                <!-- START BANNER IMG -->
-                                <tr>
-                                    <td style="padding-top: 30px;" align="center">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
-                                            border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <img src="/img/bestbuy-banner.jpg" alt="Best Buy Banner"
-                                                            title="Best Buy Banner" width="100%"
-                                                            style="display: block;" />
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END BANNER IMG -->
-                                <!-- START OF OPTIONS -->
-                                <tr>
-                                    <td style="padding: 40px;" class="options">
-                                        <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
-                                            cellpadding="0" border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <table class="responsive-table" role="presentation" width="50%"
-                                                            cellspacing="0" cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="dw db" width="260"
-                                                                        style="padding-right: 10px; margin-bottom: 20px;">
-                                                                        <img src="/img/outlet.jpg" alt="Outlet Box"
-                                                                            title="Outlet Box" width="250" />
-                                                                        <h4
-                                                                            style="font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1rem; margin-bottom: 10px;">
-                                                                            Clearance, open-box and more.</h4>
-                                                                        <p
-                                                                            style="font-size: 12px; margin-bottom: 10px; font-weight: 400; font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                                            Save when you shop Best Buy Outlet for
-                                                                            clearance, open-box, refurbished,
-                                                                            pre-owned items.</p>
-                                                                        <a href="{{ company.outlet }}"
-                                                                            class="btn btn-info"
-                                                                            style="background-color: #FFF204; border-radius: 5px; font-size: 15px; font-weight: bold; text-decoration: none;  padding: 10px; display: inline-block; color: #3d3d3d;cursor: pointer; font-family: Poppins, Arial, Helvetica, sans-serif; text-align: center;">Shop
-                                                                            Best Buy Outlet</a>
-                                                                    </td>
-                                                                    <td class="dw db" width="260"
-                                                                        style="padding-left: 10px;">
-                                                                        <img src="/img/envelope.jpg"
-                                                                            alt="Email Envelope" title="Email Envelope"
-                                                                            width="250" style="margin-top: -45px;"
-                                                                            class="outlet_img" />
-                                                                        <h4
-                                                                            style="margin-bottom: 10px; font-weight: 600; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 1rem;">
-                                                                            Get the latest deals and more.</h4>
-                                                                        <p
-                                                                            style="font-size: 12px; font-weight: 400; font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;">
-                                                                            Sign up and stay connected.</p>
-                                                                        <a href="{{ company.signup_page }}"
-                                                                            class="btn btn-info"
-                                                                            style="background-color: #FFF204; border-radius: 5px; font-size: 15px; font-weight: bold; text-decoration: none;  padding: 10px; display: inline-block; color: #3d3d3d;cursor: pointer; font-family: Poppins, Arial, Helvetica, sans-serif;text-align: center;">Sign
-                                                                            Up</a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF OPTIONS -->
-                                <!-- START OF LINKS -->
-                                <tr bgcolor="#0046BE">
-                                    <td align="center">
-                                        <table class="responsive-table" role="presentation" width="100%" cellspacing="0"
-                                            cellpadding="0" border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td width="100%">
-                                                        <table role="presentation" width="100%" cellspacing="0"
-                                                            cellpadding="0" border="0" align="center">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td align="center" style="padding: 1.5rem 0;">
-                                                                        <a href="{{ company.deal_of_day_page }}"
-                                                                            target="_blank"
-                                                                            style="text-decoration: none; color: #F0F2F4;">Deal
-                                                                            of the Day</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="background-color: #F0F2F4;" height="1">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align="center" style="padding: 1.5rem 0;">
-                                                                        <a href="{{ company.mobile_app_page }}"
-                                                                            target="_blank"
-                                                                            style="text-decoration: none; color: #F0F2F4;">Mobile
-                                                                            App</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="background-color: #F0F2F4;" height="1">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align="center" style="padding: 1.5rem 0;">
-                                                                        <a href="{{ company.credit_card_page }}"
-                                                                            target="_blank"
-                                                                            style="text-decoration: none; color: #F0F2F4;">Credit
-                                                                            Cards</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="background-color: #F0F2F4;" height="1">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align="center" style="padding: 1.5rem 0;">
-                                                                        <a href="{{ company.support_page }}"
-                                                                            target="_blank"
-                                                                            style="text-decoration: none; color: #F0F2F4;">Support
-                                                                            Center</a>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="background-color: #F0F2F4;" height="1">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align="center" style="padding: 2rem 0;">
-                                                                        <h3
-                                                                            style="color: #F0F2F4; margin: 0; padding-bottom: 1rem; font-weight: 400; font-size: 1.1rem;">
-                                                                            Follow Us & Share Your Story
-                                                                        </h3>
-                                                                        <a href="https://icons8.com/icon/87298/facebook-f"
-                                                                            target="_blank"><img
-                                                                                src="img/white-facebook.png"
-                                                                                alt="Facebook" title="Facebook"
-                                                                                width="18" height="18" border="0"
-                                                                                style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
-                                                                        </a>
-
-                                                                        <a href="https://icons8.com/icon/A4DsujzAX4rw/twitterx"
-                                                                            target="_blank"><img
-                                                                                src="img/white-x-twitter.png"
-                                                                                alt="X Twitter" title="X Twitter"
-                                                                                width="18" height="18" border="0"
-                                                                                style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
-                                                                        </a>
-
-                                                                        <a href="https://icons8.com/icon/x-m7muFV2A25/pinterest-p"
-                                                                            target="_blank"><img
-                                                                                src="img/white-pinterest.png"
-                                                                                alt="Pinterest" title="Pinterest"
-                                                                                width="18" height="18" border="0"
-                                                                                style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
-                                                                        </a>
-
-                                                                        <a href="https://icons8.com/icon/32309/instagram"
-                                                                            target="_blank"><img
-                                                                                src="img/white-instagram.png"
-                                                                                alt="Instagram" title="Instagram"
-                                                                                width="18" height="18" border="0"
-                                                                                style="border:1px solid #FFF; border-radius: 50%; color:white; padding: 5px;" />
-                                                                        </a>
-
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF LINKS -->
-                                <!-- START OF FOOTER -->
-                                <tr>
-                                    <td style="background-color: #FFF204; color: #3d3d3d; padding:0 10px;">
-                                        <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
-                                            border="0" align="center">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="color: #3D3D3D; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px; padding: 0 20px;"
-                                                        align="center">
-                                                        <p
-                                                            style="font-family: Poppins, Arial, Helvetica, sans-serif; text-align: left;">
-                                                            Your privacy is important to Best Buy. For more information
-                                                            on
-                                                            how
-                                                            Best Buy protects your privacy, steps you can take to
-                                                            protect
-                                                            your
-                                                            personal information and alerts on privacy risks facing
-                                                            consumers,
-                                                            please visit the <a href="{{ company.privacy_page }}"
-                                                                target="_blank"
-                                                                style="text-decoration: underline; color: inherit;">Best
-                                                                Buy Privacy Hub</a>.
-                                                        </p>
-                                                        <p style="font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                            Best Buy {{ company.street }}, {{ company.city }}, {{
-                                                            company.state }}
-                                                            {{ company.zipcode }}
-                                                        </p>
-                                                        <p style="font-family: Poppins, Arial, Helvetica, sans-serif;">
-                                                            &copy; 2023 Best Buy. All rights reserved.</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <!-- END OF FOOTER -->
-                            </tbody>
-                        </table>
-                        <!-- END EMAIL (600PX) -->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                                                  </td>
+                                                              </tr>
+                                                          </tbody>
+                                                      </table>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF LINKS -->
+                              <!-- START OF FOOTER -->
+                              <tr>
+                                  <td style="background-color: #FFF204; color: #3d3d3d; padding:0 10px;">
+                                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+                                          border="0" align="center">
+                                          <tbody>
+                                              <tr>
+                                                  <td style="color: #3D3D3D; font-family: Poppins, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; line-height: 20px; padding: 0 20px;"
+                                                      align="center">
+                                                      <p
+                                                          style="font-family: Poppins, Arial, Helvetica, sans-serif; text-align: left;">
+                                                          Your privacy is important to Best Buy. For more information
+                                                          on
+                                                          how
+                                                          Best Buy protects your privacy, steps you can take to
+                                                          protect
+                                                          your
+                                                          personal information and alerts on privacy risks facing
+                                                          consumers,
+                                                          please visit the <a href="{{ company.privacy_page }}"
+                                                              target="_blank"
+                                                              style="text-decoration: underline; color: inherit;">Best
+                                                              Buy Privacy Hub</a>.
+                                                      </p>
+                                                      <p style="font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                          Best Buy {{ company.street }}, {{ company.city }}, {{
+                                                          company.state }}
+                                                          {{ company.zipcode }}
+                                                      </p>
+                                                      <p style="font-family: Poppins, Arial, Helvetica, sans-serif;">
+                                                          &copy; 2023 Best Buy. All rights reserved.</p>
+                                                  </td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </td>
+                              </tr>
+                              <!-- END OF FOOTER -->
+                          </tbody>
+                      </table>
+                      <!-- END EMAIL (600PX) -->
+                  </td>
+              </tr>
+          </tbody>
+      </table>
 
 
 
-        <ul>
-            {% assign items = order.items_ids | split: ", " %}
-            {% assign items_titles = order.items_titles | split: ", " %}
-            {% assign items_colors = order.items_colors | split: ", " %}
-            {% assign items_styles = order.items_styles | split: ", " %}
-            {% assign items_page = order.items_page | split: ", " %}
-            {% assign items_images = order.items_images | split: ", " %}
-            {% assign items_quantities = order.items_quantities | split: ", " %}
-            {% assign items_prices = order.items_prices | split: ", " %}
+      <ul>
+          {% assign items = order.items_ids | split: ", " %}
+          {% assign items_titles = order.items_titles | split: ", " %}
+          {% assign items_colors = order.items_colors | split: ", " %}
+          {% assign items_styles = order.items_styles | split: ", " %}
+          {% assign items_page = order.items_page | split: ", " %}
+          {% assign items_images = order.items_images | split: ", " %}
+          {% assign items_quantities = order.items_quantities | split: ", " %}
+          {% assign items_prices = order.items_prices | split: ", " %}
 
-            {%- for item in items -%}
+          {%- for item in items -%}
 
-            {% endfor %}
+          {% endfor %}
 
-        </ul>
-        </script>
-        <div id="result"></div>
+      </ul>
+    </script>
+    <div id="result"></div>
 
-        <!-- Liquid For Development -->
-        <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
-        <script>
-            const template = document.querySelector('[type="text/template"]');
-            const result = document.querySelector("#result");
-            const engine = new liquidjs.Liquid();
+    <!-- Liquid For Development -->
+    <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+    <script>
+      const template = document.querySelector('[type="text/template"]');
+      const result = document.querySelector('#result');
+      const engine = new liquidjs.Liquid();
 
-            engine
-                .parseAndRender(template.innerHTML, {
-                    customer: {
-                        id: 12345,
-                        first_name: 'Chad',
-                    },
-                    company: {
-                        company_name: "Best Buy",
-                        street: "7601 Penn Avenue South",
-                        city: " Richfield",
-                        state: "MN",
-                        zipcode: "55423-3645",
-                        home_page: "https://www.bestbuy.com/",
-                        contact_page: "https://www.bestbuy.com/contact-us",
-                        privacy_page: "https://www.bestbuy.com/site/help-topics/privacy-policy/pcmcat204400050062.c?id=pcmcat204400050062",
-                        signup_page: "https://www.bestbuy.com/site/best-buy-membership/my-best-buy/pcmcat309300050007.c?id=pcmcat309300050007",
-                        outlet_page: "https://www.bestbuy.com/site/electronics/outlet-refurbished-clearance/pcmcat142300050026.c?id=pcmcat142300050026",
-                        deal_of_day_page: "https://www.bestbuy.com/site/electronics/top-deals/pcmcat1563299784494.c?id=pcmcat1563299784494&ref=212&loc=1693892332&ds_rl=1260402&gad_source=1&gclid=CjwKCAiAvdCrBhBREiwAX6-6UiXcxQRA2VcCVnh6gZQ4uuE-WcoVaR5SAghs4H31-e1aGFOdiS4gTxoCg4gQAvD_BwE&gclsrc=aw.ds",
-                        mobile_app_page: "https://www.bestbuy.com/site/misc/mobile-app/pcmcat208500050016.c?id=pcmcat208500050016",
-                        credit_card_page: "https://www.bestbuy.com/site/misc/financing-rewards/pcmcat102500050032.c?id=pcmcat102500050032",
-                        support_page: "https://www.bestbuy.com/support",
-                        phone_number: "1-888-BEST BUY",
-                    },
-                    order: {
-                        id: "BBY55-111222333444",
-                        tracking_url: "https://www.example.com",
-                        pickup_address: "3756 Mesa Drive",
-                        pickup_city: "Las Vegas",
-                        pickup_state: "NV",
-                        pickup_zipcode: "88901-5555",
-                        pickup_country: "USA",
-                        items_total: 4,
-                        items_ids: "34532, 6543, 8796, 4556",
-                        items_models: "MQTP3LL/A, WDBAJP0050BBK-WESN, MTL73LL/A, 4556",
-                        items_skus: "6501017, 6406512, 6534641, 6296126",
-                        items_titles: "Beats Studio, Easystore 5TB External USB 3.0 Portable Hard Drive, Apple - MacBook Pro 14 Laptop - M3 chip, Thule - Accent Backpack",
-                        items_colors: "Rose Gold, Black, Space Gray, Black",
-                        items_page: "https://www.bestbuy.com/site/beats-solo-wireless-on-ear-headphones-rose-gold/6383126.p?skuId=6383126, https://www.bestbuy.com/site/wd-easystore-5tb-external-usb-3-0-portable-hard-drive-black/6406512.p?skuId=6406512, https://www.bestbuy.com/site/apple-macbook-pro-14-laptop-m3-chip-8gb-memory-10-core-gpu-512gb-ssd-latest-model-space-gray/6534641.p?skuId=6534641, https://www.bestbuy.com/site/thule-accent-backpack-23l-bundle-for-15-6-laptop-w-subterra-powershuttle-10-tablet-sleeve-safezone-water-bottle-holder-black/6296126.p?skuId=6296126",
-                        items_images: "./img/beats-headphones.jpg, ./img/external-hard-drive.jpg, ./img/macbook.jpg, ./img/backpack.jpg",
-                        items_quantities: "1, 2, 3, 1",
-                        items_prices: '199.99, 134.99, 1449.00, 129.95',
-                        subtotal: "4,946.92",
-                        total: "5,379.47",
-                        shipping_price: "Free",
-                        sales_tax: "414.55"
-                    }
-                })
-                .then((html) => (result.innerHTML = html));
-        </script>
-    </body>
-
+      engine
+        .parseAndRender(template.innerHTML, {
+          customer: {
+            id: 12345,
+            first_name: 'Chad',
+          },
+          company: {
+            company_name: 'Best Buy',
+            street: '7601 Penn Avenue South',
+            city: ' Richfield',
+            state: 'MN',
+            zipcode: '55423-3645',
+            home_page: 'https://www.bestbuy.com/',
+            contact_page: 'https://www.bestbuy.com/contact-us',
+            privacy_page:
+              'https://www.bestbuy.com/site/help-topics/privacy-policy/pcmcat204400050062.c?id=pcmcat204400050062',
+            signup_page:
+              'https://www.bestbuy.com/site/best-buy-membership/my-best-buy/pcmcat309300050007.c?id=pcmcat309300050007',
+            outlet_page:
+              'https://www.bestbuy.com/site/electronics/outlet-refurbished-clearance/pcmcat142300050026.c?id=pcmcat142300050026',
+            deal_of_day_page:
+              'https://www.bestbuy.com/site/electronics/top-deals/pcmcat1563299784494.c?id=pcmcat1563299784494&ref=212&loc=1693892332&ds_rl=1260402&gad_source=1&gclid=CjwKCAiAvdCrBhBREiwAX6-6UiXcxQRA2VcCVnh6gZQ4uuE-WcoVaR5SAghs4H31-e1aGFOdiS4gTxoCg4gQAvD_BwE&gclsrc=aw.ds',
+            mobile_app_page:
+              'https://www.bestbuy.com/site/misc/mobile-app/pcmcat208500050016.c?id=pcmcat208500050016',
+            credit_card_page:
+              'https://www.bestbuy.com/site/misc/financing-rewards/pcmcat102500050032.c?id=pcmcat102500050032',
+            support_page: 'https://www.bestbuy.com/support',
+            phone_number: '1-888-BEST BUY',
+          },
+          order: {
+            id: 'BBY55-111222333444',
+            tracking_url: 'https://www.example.com',
+            pickup_address: '3756 Mesa Drive',
+            pickup_city: 'Las Vegas',
+            pickup_state: 'NV',
+            pickup_zipcode: '88901-5555',
+            pickup_country: 'USA',
+            items_total: 4,
+            items_ids: '34532, 6543, 8796, 4556',
+            items_models: 'MQTP3LL/A, WDBAJP0050BBK-WESN, MTL73LL/A, 4556',
+            items_skus: '6501017, 6406512, 6534641, 6296126',
+            items_titles:
+              'Beats Studio, Easystore 5TB External USB 3.0 Portable Hard Drive, Apple - MacBook Pro 14 Laptop - M3 chip, Thule - Accent Backpack',
+            items_colors: 'Rose Gold, Black, Space Gray, Black',
+            items_page:
+              'https://www.bestbuy.com/site/beats-solo-wireless-on-ear-headphones-rose-gold/6383126.p?skuId=6383126, https://www.bestbuy.com/site/wd-easystore-5tb-external-usb-3-0-portable-hard-drive-black/6406512.p?skuId=6406512, https://www.bestbuy.com/site/apple-macbook-pro-14-laptop-m3-chip-8gb-memory-10-core-gpu-512gb-ssd-latest-model-space-gray/6534641.p?skuId=6534641, https://www.bestbuy.com/site/thule-accent-backpack-23l-bundle-for-15-6-laptop-w-subterra-powershuttle-10-tablet-sleeve-safezone-water-bottle-holder-black/6296126.p?skuId=6296126',
+            items_images:
+              './img/beats-headphones.jpg, ./img/external-hard-drive.jpg, ./img/macbook.jpg, ./img/backpack.jpg',
+            items_quantities: '1, 2, 3, 1',
+            items_prices: '199.99, 134.99, 1449.00, 129.95',
+            subtotal: '4,946.92',
+            total: '5,379.47',
+            shipping_price: 'Free',
+            sales_tax: '414.55',
+          },
+        })
+        .then((html) => (result.innerHTML = html));
+    </script>
+  </body>
 </html>
