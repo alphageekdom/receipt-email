@@ -2,25 +2,25 @@
 <html lang="en">
   <head>
     <!-- Encoding & device -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Apple / iOS rendering -->
-    <meta name="x-apple-disable-message-reformatting" />
-    <meta name="color-scheme" content="light only" />
-    <meta name="supported-color-schemes" content="light only" />
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light only">
     <meta
       name="format-detection"
       content="telephone=no, date=no, address=no, email=no"
-    />
+    >
 
     <!-- Document identity -->
     <title>Sugar &amp; Sprinkle · Order Receipt</title>
     <meta
       name="description"
       content="Your Sugar & Sprinkle order is in the oven. Review your receipt and pickup details."
-    />
+    >
 
     <!-- Outlook fallback -->
     <!--[if (gte mso 9)|(IE)]>
@@ -38,12 +38,12 @@
     <![endif]-->
 
     <!-- Webfonts: Caveat for headlines, Quicksand for body/UI -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap"
       rel="stylesheet"
-    />
+    >
 
     <style type="text/css">
       /* ===== BASE & RESETS ===== */
@@ -468,192 +468,221 @@
 
       /* ===== SECTION 4: ITEMS LIST ===== */
 
-.items-cell {
-  padding: 24px 32px 8px;
-}
+      .items-cell {
+        padding: 24px 32px 8px;
+      }
 
-/* Section heading (used here + summary later) */
-.section-heading {
-  font-family: 'Caveat', 'Quicksand', cursive;
-  font-size: 28px;
-  font-weight: 700;
-  color: #d6336c;
-  line-height: 1;
-  margin: 0 0 4px;
-}
-.section-sub {
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #b56576;
-  margin: 0 0 18px;
-}
+      /* Section heading (used here + summary later) */
+      .section-heading {
+        font-family: 'Caveat', 'Quicksand', cursive;
+        font-size: 28px;
+        font-weight: 700;
+        color: #d6336c;
+        line-height: 1;
+        margin: 0 0 4px;
+      }
+      .section-sub {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #b56576;
+        margin: 0 0 18px;
+      }
 
-/* Item row */
-.item {
-  border-bottom: 1px dashed #f0c8d3;
-}
-.item.last { border-bottom: 0; }
-.item-cell {
-  padding: 16px 0;
-}
+      /* Item row */
+      .item {
+        border-bottom: 1px dashed #f0c8d3;
+      }
+      .item.last {
+        border-bottom: 0;
+      }
+      .item-cell {
+        padding: 16px 0;
+      }
 
-/* Thumbnail */
-.item-thumb {
-  width: 72px;
-  vertical-align: middle;
-}
-.item-thumb img {
-  width: 72px;
-  height: 72px;
-  border-radius: 12px;
-  display: block;
-  object-fit: cover;
-  background-color: #ffe4ec;
-}
+      /* Thumbnail */
+      .item-thumb {
+        width: 72px;
+        vertical-align: middle;
+      }
+      .item-thumb img {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        display: block;
+        object-fit: cover;
+        background-color: #ffe4ec;
+      }
 
-/* Body (name, flavor, qty pill) */
-.item-body {
-  padding-left: 16px;
-  vertical-align: middle;
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-}
-.item-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: #4a2c3a;
-  line-height: 1.3;
-  margin: 0;
-}
-.item-flavor {
-  font-size: 12px;
-  color: #b56576;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  line-height: 1.4;
-  margin: 3px 0 0;
-}
-.item-qty {
-  display: inline-block;
-  background-color: #fff5f0;
-  color: #d6336c;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 10px;
-  margin-top: 6px;
-}
+      /* Body (name, flavor, qty pill) */
+      .item-body {
+        padding-left: 16px;
+        vertical-align: middle;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      }
+      .item-name {
+        font-size: 15px;
+        font-weight: 700;
+        color: #4a2c3a;
+        line-height: 1.3;
+        margin: 0;
+      }
+      .item-flavor {
+        font-size: 12px;
+        color: #b56576;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        line-height: 1.4;
+        margin: 3px 0 0;
+      }
+      .item-qty {
+        display: inline-block;
+        background-color: #fff5f0;
+        color: #d6336c;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 10px;
+        margin-top: 6px;
+      }
 
-/* Price (right-aligned) */
-.item-price {
-  vertical-align: middle;
-  text-align: right;
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: #4a2c3a;
-  white-space: nowrap;
-}
+      /* Price (right-aligned) */
+      .item-price {
+        vertical-align: middle;
+        text-align: right;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #4a2c3a;
+        white-space: nowrap;
+      }
 
-/* Items responsive */
-@media only screen and (max-width: 480px) {
-  .items-cell { padding: 20px 18px 4px; }
-  .section-heading { font-size: 24px; }
-  .item-thumb,
-  .item-thumb img { width: 60px; }
-  .item-thumb img { height: 60px; }
-  .item-body { padding-left: 12px; }
-  .item-name { font-size: 14px; }
-  .item-flavor { font-size: 11px; }
-  .item-price { font-size: 14px; }
-}
+      /* Items responsive */
+      @media only screen and (max-width: 480px) {
+        .items-cell {
+          padding: 20px 18px 4px;
+        }
+        .section-heading {
+          font-size: 24px;
+        }
+        .item-thumb,
+        .item-thumb img {
+          width: 60px;
+        }
+        .item-thumb img {
+          height: 60px;
+        }
+        .item-body {
+          padding-left: 12px;
+        }
+        .item-name {
+          font-size: 14px;
+        }
+        .item-flavor {
+          font-size: 11px;
+        }
+        .item-price {
+          font-size: 14px;
+        }
+      }
 
-/* ===== SECTION 5: ORDER SUMMARY ===== */
+      /* ===== SECTION 5: ORDER SUMMARY ===== */
 
-.summary-cell {
-  padding: 8px 32px 32px;
-}
-.summary-card {
-  background-color: #fff5f0;
-  border-radius: 10px;
-}
-.summary-card-cell {
-  padding: 20px 24px;
-}
+      .summary-cell {
+        padding: 8px 32px 32px;
+      }
+      .summary-card {
+        background-color: #fff5f0;
+        border-radius: 10px;
+      }
+      .summary-card-cell {
+        padding: 20px 24px;
+      }
 
-/* Standard rows */
-.summary-row td {
-  padding: 6px 0;
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-}
-.summary-label {
-  color: #6d4357;
-  font-weight: 500;
-  text-align: left;
-}
-.summary-value {
-  color: #4a2c3a;
-  font-weight: 600;
-  text-align: right;
-  white-space: nowrap;
-}
+      /* Standard rows */
+      .summary-row td {
+        padding: 6px 0;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      .summary-label {
+        color: #6d4357;
+        font-weight: 500;
+        text-align: left;
+      }
+      .summary-value {
+        color: #4a2c3a;
+        font-weight: 600;
+        text-align: right;
+        white-space: nowrap;
+      }
 
-/* Discount row override (green for savings) */
-.summary-row.discount .summary-value {
-  color: #2a8a5f;
-}
+      /* Discount row override (green for savings) */
+      .summary-row.discount .summary-value {
+        color: #2a8a5f;
+      }
 
-/* Divider between charges and total */
-.summary-divider {
-  height: 1px;
-  background-color: #f0c8d3;
-  margin: 8px 0;
-  font-size: 0;
-  line-height: 0;
-}
+      /* Divider between charges and total */
+      .summary-divider {
+        height: 1px;
+        background-color: #f0c8d3;
+        margin: 8px 0;
+        font-size: 0;
+        line-height: 0;
+      }
 
-/* Total row — uppercase label + script-style amount */
-.summary-row.total td {
-  padding-top: 12px;
-}
-.summary-total-label {
-  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #4a2c3a;
-  text-align: left;
-}
-.summary-total-value {
-  font-family: 'Caveat', 'Quicksand', cursive;
-  font-size: 32px;
-  font-weight: 700;
-  color: #d6336c;
-  line-height: 1;
-  text-align: right;
-  white-space: nowrap;
-}
+      /* Total row — uppercase label + script-style amount */
+      .summary-row.total td {
+        padding-top: 12px;
+      }
+      .summary-total-label {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4a2c3a;
+        text-align: left;
+      }
+      .summary-total-value {
+        font-family: 'Caveat', 'Quicksand', cursive;
+        font-size: 32px;
+        font-weight: 700;
+        color: #d6336c;
+        line-height: 1;
+        text-align: right;
+        white-space: nowrap;
+      }
 
-/* Summary responsive */
-@media only screen and (max-width: 480px) {
-  .summary-cell { padding: 6px 18px 22px; }
-  .summary-card-cell { padding: 18px 18px; }
-  .summary-row td { font-size: 13px; }
-  .summary-total-value { font-size: 28px; }
-  .summary-total-label { font-size: 12px; letter-spacing: 0.14em; }
-}
+      /* Summary responsive */
+      @media only screen and (max-width: 480px) {
+        .summary-cell {
+          padding: 6px 18px 22px;
+        }
+        .summary-card-cell {
+          padding: 18px 18px;
+        }
+        .summary-row td {
+          font-size: 13px;
+        }
+        .summary-total-value {
+          font-size: 28px;
+        }
+        .summary-total-label {
+          font-size: 12px;
+          letter-spacing: 0.14em;
+        }
+      }
     </style>
   </head>
 
   <body>
-    <script type="text/template">
-         <!-- ─── Preheader (hidden inbox preview) ─── -->
+    <template id="email">
+      <!-- ─── Preheader (hidden inbox preview) ─── -->
       <div
         style="
           display: none;
@@ -665,8 +694,7 @@
           line-height: 1px;
         "
       >
-        Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's
-        your receipt.
+        Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's your receipt.
       </div>
       <div style="display: none; max-height: 0; overflow: hidden">
         &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
@@ -714,8 +742,9 @@
                               <a
                                 href="tel:{{ company.phone_number }}"
                                 class="utility-phone"
-                                >{{ company.phone_number }}</a
                               >
+                                {{- company.phone_number -}}
+                              </a>
                             </td>
                             <td
                               class="utility-cell"
@@ -763,23 +792,18 @@
                               <h1 class="brand-wordmark">
                                 {{ company.company_name }}
                               </h1>
-                              <div class="brand-tag">
-                                Tiny cakes &middot; Big joy
-                              </div>
+                              <div class="brand-tag">Tiny cakes &middot; Big joy</div>
 
                               <!-- Greeting -->
                               <div class="greeting">
-                                <div class="greeting-kicker">
-                                  // Order Confirmation
-                                </div>
+                                <div class="greeting-kicker">// Order Confirmation</div>
                                 <p class="greeting-title">
-                                  Hey {{ customer.first_name }},<br />
+                                  Hey {{ customer.first_name }},<br>
                                   <strong>your cupcakes are in the oven.</strong>
                                 </p>
                                 <p class="greeting-sub">
-                                  Order received and our bakers are already on it.
-                                  We'll ping you the moment they're ready for
-                                  pickup. Here's everything you need below.
+                                  Order received and our bakers are already on it. We'll ping you the moment they're
+                                  ready for pickup. Here's everything you need below.
                                 </p>
                               </div>
                             </td>
@@ -865,9 +889,7 @@
                                   <tr class="meta-row">
                                     <td width="50%">
                                       <p class="meta-label">Order No.</p>
-                                      <p class="meta-value accent">
-                                        #{{ order.number }}
-                                      </p>
+                                      <p class="meta-value accent">#{{ order.number }}</p>
                                     </td>
                                     <td width="50%">
                                       <p class="meta-label">Placed</p>
@@ -900,103 +922,117 @@
                   </tr>
 
                   <!-- ─── Section 4: Items List ─── -->
-<tr>
-  <td class="items-cell">
+                  <tr>
+                    <td class="items-cell">
+                      <!-- Heading -->
+                      <h2 class="section-heading">your sweet haul</h2>
+                      <p class="section-sub">// {{ order.items.size }} flavors &middot; baked fresh</p>
 
-    <!-- Heading -->
-    <h2 class="section-heading">your sweet haul</h2>
-    <p class="section-sub">// {{ order.items.size }} flavors &middot; baked fresh</p>
+                      <!-- Looped items -->
+                      {% for item in order.items %}
+                        <table
+                          role="presentation"
+                          class="item {% if forloop.last %}last{% endif %}"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="item-thumb item-cell">
+                                <img
+                                  src="{{ item.image_url }}"
+                                  alt="{{ item.name }}"
+                                  title="{{ item.name }}"
+                                  width="72"
+                                  height="72"
+                                >
+                              </td>
+                              <td class="item-body item-cell">
+                                <p class="item-name">{{ item.name }}</p>
+                                <p class="item-flavor">{{ item.flavor }}</p>
+                                <span class="item-qty">Qty {{ item.quantity }}</span>
+                              </td>
+                              <td class="item-price item-cell">${{ item.price }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      {% endfor %}
+                    </td>
+                  </tr>
 
-    <!-- Looped items -->
-    {% for item in order.items %}
-    <table role="presentation" class="item {% if forloop.last %}last{% endif %}" width="100%" cellspacing="0" cellpadding="0" border="0">
-      <tbody>
-        <tr>
-          <td class="item-thumb item-cell">
-            <img src="{{ item.image_url }}" alt="{{ item.name }}" title="{{ item.name }}" width="72" height="72" />
-          </td>
-          <td class="item-body item-cell">
-            <p class="item-name">{{ item.name }}</p>
-            <p class="item-flavor">{{ item.flavor }}</p>
-            <span class="item-qty">Qty {{ item.quantity }}</span>
-          </td>
-          <td class="item-price item-cell">
-            ${{ item.price }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    {% endfor %}
+                  <!-- ─── Section 5: Order Summary ─── -->
+                  <tr>
+                    <td class="summary-cell">
+                      <table
+                        role="presentation"
+                        class="summary-card"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="summary-card-cell">
+                              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                  <!-- Subtotal -->
+                                  <tr class="summary-row">
+                                    <td class="summary-label">Subtotal</td>
+                                    <td class="summary-value">${{ order.subtotal }}</td>
+                                  </tr>
 
-  </td>
-</tr>
+                                  <!-- Discount (conditional) -->
+                                  {% if order.discount %}
+                                    <tr class="summary-row discount">
+                                      <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
+                                      <td class="summary-value">&minus;${{ order.discount.amount }}</td>
+                                    </tr>
+                                  {% endif %}
 
-<!-- ─── Section 5: Order Summary ─── -->
-<tr>
-  <td class="summary-cell">
-    <table role="presentation" class="summary-card" width="100%" cellspacing="0" cellpadding="0" border="0">
-      <tbody>
-        <tr>
-          <td class="summary-card-cell">
-            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-              <tbody>
+                                  <!-- Delivery fee -->
+                                  <tr class="summary-row">
+                                    <td class="summary-label">Delivery fee</td>
+                                    <td class="summary-value">${{ order.delivery_fee }}</td>
+                                  </tr>
 
-                <!-- Subtotal -->
-                <tr class="summary-row">
-                  <td class="summary-label">Subtotal</td>
-                  <td class="summary-value">${{ order.subtotal }}</td>
-                </tr>
+                                  <!-- Tax -->
+                                  <tr class="summary-row">
+                                    <td class="summary-label">Tax</td>
+                                    <td class="summary-value">${{ order.tax }}</td>
+                                  </tr>
 
-                <!-- Discount (conditional) -->
-                {% if order.discount %}
-                <tr class="summary-row discount">
-                  <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
-                  <td class="summary-value">&minus;${{ order.discount.amount }}</td>
-                </tr>
-                {% endif %}
+                                  <!-- Divider -->
+                                  <tr>
+                                    <td colspan="2">
+                                      <div class="summary-divider">&nbsp;</div>
+                                    </td>
+                                  </tr>
 
-                <!-- Delivery fee -->
-                <tr class="summary-row">
-                  <td class="summary-label">Delivery fee</td>
-                  <td class="summary-value">${{ order.delivery_fee }}</td>
-                </tr>
+                                  <!-- Total -->
+                                  <tr class="summary-row total">
+                                    <td class="summary-total-label">Total</td>
+                                    <td class="summary-total-value">${{ order.total }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
 
-                <!-- Tax -->
-                <tr class="summary-row">
-                  <td class="summary-label">Tax</td>
-                  <td class="summary-value">${{ order.tax }}</td>
-                </tr>
-
-                <!-- Divider -->
-                <tr>
-                  <td colspan="2">
-                    <div class="summary-divider">&nbsp;</div>
-                  </td>
-                </tr>
-
-                <!-- Total -->
-                <tr class="summary-row total">
-                  <td class="summary-total-label">Total</td>
-                  <td class="summary-total-value">${{ order.total }}</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </td>
-</tr>
-
-<!-- ─── Section 6: Pickup Card goes here ─── -->
+                  <!-- ─── Section 6: Pickup Card goes here ─── -->
                 </tbody>
               </table>
             </td>
           </tr>
         </tbody>
       </table>
-    </script>
+    </template>
 
     <div id="result"></div>
 
@@ -1004,7 +1040,7 @@
     <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
 
     <script>
-      const template = document.querySelector('[type="text/template"]');
+      const template = document.querySelector('#email');
       const result = document.querySelector('#result');
       const engine = new liquidjs.Liquid();
 

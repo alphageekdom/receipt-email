@@ -1,0 +1,25 @@
+{
+  "name": "receipt-email",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alphageekdom/receipt-email.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alphageekdom/receipt-email/issues"
+  },
+  "homepage": "https://github.com/alphageekdom/receipt-email#readme",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.10.2",
+    "prettier": "^3.8.3"
+  }
+}
