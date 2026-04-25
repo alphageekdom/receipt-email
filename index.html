@@ -571,6 +571,83 @@
   .item-flavor { font-size: 11px; }
   .item-price { font-size: 14px; }
 }
+
+/* ===== SECTION 5: ORDER SUMMARY ===== */
+
+.summary-cell {
+  padding: 8px 32px 32px;
+}
+.summary-card {
+  background-color: #fff5f0;
+  border-radius: 10px;
+}
+.summary-card-cell {
+  padding: 20px 24px;
+}
+
+/* Standard rows */
+.summary-row td {
+  padding: 6px 0;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+.summary-label {
+  color: #6d4357;
+  font-weight: 500;
+  text-align: left;
+}
+.summary-value {
+  color: #4a2c3a;
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Discount row override (green for savings) */
+.summary-row.discount .summary-value {
+  color: #2a8a5f;
+}
+
+/* Divider between charges and total */
+.summary-divider {
+  height: 1px;
+  background-color: #f0c8d3;
+  margin: 8px 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Total row — uppercase label + script-style amount */
+.summary-row.total td {
+  padding-top: 12px;
+}
+.summary-total-label {
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #4a2c3a;
+  text-align: left;
+}
+.summary-total-value {
+  font-family: 'Caveat', 'Quicksand', cursive;
+  font-size: 32px;
+  font-weight: 700;
+  color: #d6336c;
+  line-height: 1;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Summary responsive */
+@media only screen and (max-width: 480px) {
+  .summary-cell { padding: 6px 18px 22px; }
+  .summary-card-cell { padding: 18px 18px; }
+  .summary-row td { font-size: 13px; }
+  .summary-total-value { font-size: 28px; }
+  .summary-total-label { font-size: 12px; letter-spacing: 0.14em; }
+}
     </style>
   </head>
 
@@ -854,7 +931,65 @@
   </td>
 </tr>
 
-<!-- ─── Section 5: Order Summary goes here ─── -->
+<!-- ─── Section 5: Order Summary ─── -->
+<tr>
+  <td class="summary-cell">
+    <table role="presentation" class="summary-card" width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tbody>
+        <tr>
+          <td class="summary-card-cell">
+            <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+              <tbody>
+
+                <!-- Subtotal -->
+                <tr class="summary-row">
+                  <td class="summary-label">Subtotal</td>
+                  <td class="summary-value">${{ order.subtotal }}</td>
+                </tr>
+
+                <!-- Discount (conditional) -->
+                {% if order.discount %}
+                <tr class="summary-row discount">
+                  <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
+                  <td class="summary-value">&minus;${{ order.discount.amount }}</td>
+                </tr>
+                {% endif %}
+
+                <!-- Delivery fee -->
+                <tr class="summary-row">
+                  <td class="summary-label">Delivery fee</td>
+                  <td class="summary-value">${{ order.delivery_fee }}</td>
+                </tr>
+
+                <!-- Tax -->
+                <tr class="summary-row">
+                  <td class="summary-label">Tax</td>
+                  <td class="summary-value">${{ order.tax }}</td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                  <td colspan="2">
+                    <div class="summary-divider">&nbsp;</div>
+                  </td>
+                </tr>
+
+                <!-- Total -->
+                <tr class="summary-row total">
+                  <td class="summary-total-label">Total</td>
+                  <td class="summary-total-value">${{ order.total }}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </td>
+</tr>
+
+<!-- ─── Section 6: Pickup Card goes here ─── -->
                 </tbody>
               </table>
             </td>
@@ -865,60 +1000,65 @@
 
     <div id="result"></div>
 
+    <!-- LiquidJS browser build (dev only) -->
     <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+
     <script>
-     <!-- LiquidJS browser build (dev only) -->
-<script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
+      const template = document.querySelector('[type="text/template"]');
+      const result = document.querySelector('#result');
+      const engine = new liquidjs.Liquid();
 
-<script>
-  const template = document.querySelector('[type="text/template"]');
-  const result   = document.querySelector('#result');
-  const engine   = new liquidjs.Liquid();
-
-  engine
-    .parseAndRender(template.innerHTML, {
-      customer: {
-        id: 12345,
-        first_name: 'Chad',
-      },
-      company: {
-        company_name:  'Sugar & Sprinkle',
-        phone_number:  '1-888-SPRINKL',
-        contact_page:  'https://www.sugarandsprinkle.com/contact',
-        support_page:  'https://www.sugarandsprinkle.com/unsubscribe',
-      },
-      order: {
-        number:             'SS-20471',
-        placed_at:          'April 25, 2026 · 2:14 PM',
-        fulfillment_method: 'Pickup',
-        payment_method:     'Visa ending 4421',
-      },
-      items: [
-  {
-    name: "Strawberry Shortcake Dream",
-    flavor: "Vanilla bean cake · fresh strawberry buttercream",
-    quantity: 6,
-    price: "18.00",
-    image_url: "img/strawberry-shortcake-dream.jpg",
-  },
-  {
-    name: "Cookies & Cream Cloud",
-    flavor: "Chocolate cake · cookie crumble frosting",
-    quantity: 4,
-    price: "12.00",
-    image_url: "img/cookies-and-cream-cloud.jpg",
-  },
-  {
-    name: "Lemon Lavender Bliss",
-    flavor: "Lemon cake · honey lavender swiss meringue",
-    quantity: 2,
-    price: "7.00",
-    image_url: "img/lemon-lavender-bliss.jpg",
-  },
-],
-    })
-    .then((html) => (result.innerHTML = html));
-</script>
+      engine
+        .parseAndRender(template.innerHTML, {
+          customer: {
+            id: 12345,
+            first_name: 'Chad',
+          },
+          company: {
+            company_name: 'Sugar & Sprinkle',
+            phone_number: '1-888-SPRINKL',
+            contact_page: 'https://www.sugarandsprinkle.com/contact',
+            support_page: 'https://www.sugarandsprinkle.com/unsubscribe',
+          },
+          order: {
+            number: 'SS-20471',
+            placed_at: 'April 25, 2026 · 2:14 PM',
+            fulfillment_method: 'Pickup',
+            payment_method: 'Visa ending 4421',
+            subtotal: '37.00',
+            delivery_fee: '0.00',
+            tax: '2.84',
+            total: '34.84',
+            discount: {
+              code: 'FIRSTBITE',
+              amount: '5.00',
+            },
+            items: [
+              {
+                name: 'Strawberry Shortcake Dream',
+                flavor: 'Vanilla bean cake · fresh strawberry buttercream',
+                quantity: 6,
+                price: '18.00',
+                image_url: 'img/strawberry-shortcake-dream.jpg',
+              },
+              {
+                name: 'Cookies & Cream Cloud',
+                flavor: 'Chocolate cake · cookie crumble frosting',
+                quantity: 4,
+                price: '12.00',
+                image_url: 'img/cookies-and-cream-cloud.jpg',
+              },
+              {
+                name: 'Lemon Lavender Bliss',
+                flavor: 'Lemon cake · honey lavender swiss meringue',
+                quantity: 2,
+                price: '7.00',
+                image_url: 'img/lemon-lavender-bliss.jpg',
+              },
+            ],
+          },
+        })
+        .then((html) => (result.innerHTML = html));
     </script>
   </body>
 </html>
