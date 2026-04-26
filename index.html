@@ -563,14 +563,12 @@
       }
 
       /* Item row */
-      .item {
-        border-bottom: 1px dashed #f0c8d3;
-      }
-      .item.last {
-        border-bottom: 0;
-      }
       .item-cell {
         padding: 16px 0;
+        border-bottom: 1px dashed #f0c8d3;
+      }
+      .item.last .item-cell {
+        border-bottom: 0;
       }
 
       /* Thumbnail */
@@ -1427,14 +1425,14 @@
                       <!-- Items -->
                       <table
                         role="presentation"
-                        class="item"
+                        class="items"
                         width="100%"
                         cellspacing="0"
                         cellpadding="0"
                         border="0"
                       >
                         <tbody>
-                          <tr>
+                          <tr class="item">
                             <td class="item-thumb item-cell">
                               <img
                                 src="img/strawberry-shortcake-dream.jpg"
@@ -1454,18 +1452,7 @@
                               <span class="item-unit">$4.00 each</span>
                             </td>
                           </tr>
-                        </tbody>
-                      </table>
-                      <table
-                        role="presentation"
-                        class="item"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
+                          <tr class="item">
                             <td class="item-thumb item-cell">
                               <img
                                 src="img/lemon-lavender-bliss.jpg"
@@ -1485,18 +1472,7 @@
                               <span class="item-unit">$4.50 each</span>
                             </td>
                           </tr>
-                        </tbody>
-                      </table>
-                      <table
-                        role="presentation"
-                        class="item last"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
+                          <tr class="item last">
                             <td class="item-thumb item-cell">
                               <img
                                 src="img/cookies-and-cream-cloud.jpg"
