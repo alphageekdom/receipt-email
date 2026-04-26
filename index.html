@@ -118,6 +118,21 @@
         line-height: inherit;
       }
 
+      /* ===== SCREEN-READER-ONLY UTILITY ===== */
+      /* For text that must reach assistive tech but stay invisible to
+         sighted users (e.g., "current step" in the order status ribbon). */
+      .sr-only {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
+
       /* ===== KEYBOARD FOCUS INDICATORS ===== */
       /* :focus-visible is supported in Apple Mail, iOS Mail, and Gmail web;
          older Outlook ignores it harmlessly. Provides a visible target for
@@ -1320,9 +1335,11 @@
                               >
                                 <tbody>
                                   <tr>
-                                    <td class="ribbon-step active" width="28%">
+                                    <td class="ribbon-step active" width="28%" aria-current="step">
                                       <div class="ribbon-icon" aria-hidden="true">&#10003;</div>
-                                      <span class="ribbon-label">Confirmed</span>
+                                      <span class="ribbon-label">
+                                        Confirmed<span class="sr-only"> — current step</span>
+                                      </span>
                                     </td>
                                     <td class="ribbon-line-cell" width="8%" aria-hidden="true">
                                       <div class="ribbon-line">&nbsp;</div>
