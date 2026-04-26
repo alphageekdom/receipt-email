@@ -847,6 +847,121 @@
           padding: 20px 18px;
         }
       }
+
+      /* ===== SECTION 8: FOOTER ===== */
+
+      .footer-cell {
+        background-color: #4a2c3a;
+        padding: 36px 32px 28px;
+        text-align: center;
+        color: #ffe4ec;
+      }
+
+      /* Brand wordmark */
+      .footer-wordmark {
+        font-family: 'Caveat', 'Quicksand', cursive;
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 1;
+        margin: 0 0 8px;
+      }
+      .footer-tag {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: #f0c8d3;
+        margin: 0 0 22px;
+      }
+
+      /* Social pills */
+      .footer-social {
+        margin: 0 auto 22px;
+      }
+      .footer-social-cell {
+        padding: 0 4px;
+      }
+      .footer-social-link {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        background-color: #6d4357;
+        border-radius: 50%;
+        color: #ffe4ec !important;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      /* Link row */
+      .footer-links {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #f0c8d3;
+        margin: 0 0 20px;
+        line-height: 1.8;
+      }
+      .footer-link {
+        color: #f0c8d3 !important;
+        text-decoration: none;
+        margin: 0 6px;
+      }
+      .footer-link-sep {
+        color: #6d4357;
+      }
+
+      /* Legal block */
+      .footer-legal {
+        border-top: 1px solid #6d4357;
+        padding-top: 20px;
+        margin-top: 8px;
+      }
+      .footer-legal-line {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        color: #b09199;
+        line-height: 1.7;
+        margin: 0 0 6px;
+      }
+      .footer-legal-line:last-child {
+        margin-bottom: 0;
+      }
+      .footer-legal-link {
+        color: #f0c8d3 !important;
+        text-decoration: underline;
+      }
+
+      /* Footer responsive */
+      @media only screen and (max-width: 480px) {
+        .footer-cell {
+          padding: 28px 20px 24px;
+        }
+        .footer-wordmark {
+          font-size: 28px;
+        }
+        .footer-social-link {
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+          font-size: 11px;
+        }
+        .footer-links {
+          font-size: 10px;
+          letter-spacing: 0.12em;
+        }
+        .footer-legal-line {
+          font-size: 10px;
+        }
+      }
     </style>
   </head>
 
@@ -1322,7 +1437,97 @@
                     </td>
                   </tr>
 
-                  <!-- ─── Section 8: Footer goes here ─── -->
+                  <!-- ─── Section 8: Footer ─── -->
+                  <tr>
+                    <td class="footer-cell" align="center">
+                      <!-- Brand mark -->
+                      <h4 class="footer-wordmark">{{ company.company_name }}</h4>
+                      <p class="footer-tag">Tiny cakes &middot; Big joy</p>
+
+                      <!-- Social row -->
+                      <table
+                        role="presentation"
+                        class="footer-social"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                        align="center"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="footer-social-cell">
+                              <a
+                                href="{{ company.social.instagram }}"
+                                target="_blank"
+                                class="footer-social-link"
+                                title="Instagram"
+                                >IG</a
+                              >
+                            </td>
+                            <td class="footer-social-cell">
+                              <a
+                                href="{{ company.social.tiktok }}"
+                                target="_blank"
+                                class="footer-social-link"
+                                title="TikTok"
+                                >TT</a
+                              >
+                            </td>
+                            <td class="footer-social-cell">
+                              <a
+                                href="{{ company.social.pinterest }}"
+                                target="_blank"
+                                class="footer-social-link"
+                                title="Pinterest"
+                                >PT</a
+                              >
+                            </td>
+                            <td class="footer-social-cell">
+                              <a
+                                href="{{ company.social.facebook }}"
+                                target="_blank"
+                                class="footer-social-link"
+                                title="Facebook"
+                                >FB</a
+                              >
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <!-- Link row -->
+                      <p class="footer-links">
+                        <a href="{{ company.menu_page }}" class="footer-link">Menu</a>
+                        <span class="footer-link-sep">&middot;</span>
+                        <a href="{{ company.deal_of_day_page }}" class="footer-link">Daily flavor</a>
+                        <span class="footer-link-sep">&middot;</span>
+                        <a href="{{ company.mobile_app_page }}" class="footer-link">App</a>
+                        <span class="footer-link-sep">&middot;</span>
+                        <a href="{{ company.contact_page }}" class="footer-link">Help</a>
+                      </p>
+
+                      <!-- Legal -->
+                      <div class="footer-legal">
+                        <p class="footer-legal-line">
+                          You're getting this because you placed an order at {{ company.company_name }}.
+                        </p>
+                        <p class="footer-legal-line">
+                          Read our
+                          <a href="{{ company.privacy_page }}" class="footer-legal-link">Privacy Policy</a>
+                          or
+                          <a href="{{ company.support_page }}" class="footer-legal-link">unsubscribe</a>.
+                        </p>
+                        <p class="footer-legal-line">
+                          {{ company.company_name }} &middot; {{ company.street }}, {{ company.city }},
+                          {{ company.state }}
+                          {{ company.zipcode }}
+                        </p>
+                        <p class="footer-legal-line">
+                          &copy; 2026 {{ company.company_name }}. Baked with love in {{ company.city }}.
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </td>
@@ -1358,6 +1563,16 @@
             zipcode: '11201',
             referral_page: 'https://www.sugarandsprinkle.com/refer',
             signup_page: 'https://www.sugarandsprinkle.com/rewards',
+            menu_page: 'https://www.sugarandsprinkle.com/menu',
+            deal_of_day_page: 'https://www.sugarandsprinkle.com/daily-flavor',
+            mobile_app_page: 'https://www.sugarandsprinkle.com/app',
+            privacy_page: 'https://www.sugarandsprinkle.com/privacy',
+            social: {
+              instagram: 'https://www.instagram.com/sugarandsprinkle',
+              tiktok: 'https://www.tiktok.com/@sugarandsprinkle',
+              pinterest: 'https://www.pinterest.com/sugarandsprinkle',
+              facebook: 'https://www.facebook.com/sugarandsprinkle',
+            },
           },
           order: {
             number: 'SS-20471',
