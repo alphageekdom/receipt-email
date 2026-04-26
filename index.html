@@ -1095,8 +1095,7 @@
   </head>
 
   <body>
-    <template id="email">
-      <!-- ─── Preheader (hidden inbox preview) ─── -->
+    <!-- ─── Preheader (hidden inbox preview) ─── -->
       <div
         style="
           display: none;
@@ -1807,93 +1806,5 @@
           </tr>
         </tbody>
       </table>
-    </template>
-
-    <div id="result"></div>
-
-    <!-- LiquidJS browser build (dev only) -->
-    <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
-
-    <script>
-      const template = document.querySelector('#email');
-      const result = document.querySelector('#result');
-      const engine = new liquidjs.Liquid();
-
-      engine
-        .parseAndRender(template.innerHTML, {
-          customer: {
-            id: 12345,
-            first_name: 'Lauren',
-          },
-          company: {
-            company_name: 'Sugar & Sprinkle',
-            phone_number: '1-888-SPRINKL',
-            contact_page: 'https://www.sugarandsprinkle.com/contact',
-            unsubscribe_page: 'https://www.sugarandsprinkle.com/unsubscribe',
-            street: '418 Buttercream Lane',
-            city: 'Brooklyn',
-            state: 'NY',
-            zipcode: '11201',
-            referral_page: 'https://www.sugarandsprinkle.com/refer',
-            menu_page: 'https://www.sugarandsprinkle.com/menu',
-            privacy_page: 'https://www.sugarandsprinkle.com/privacy',
-            social: {
-              instagram: 'https://www.instagram.com/sugarandsprinkle',
-              tiktok: 'https://www.tiktok.com/@sugarandsprinkle',
-              pinterest: 'https://www.pinterest.com/sugarandsprinkle',
-              facebook: 'https://www.facebook.com/sugarandsprinkle',
-            },
-          },
-          order: {
-            number: 'SS-20471',
-            placed_at: 'April 25, 2026 · 2:14 PM',
-            fulfillment_method: 'Pickup',
-            payment_method: 'Visa ending 4421',
-            subtotal: '37.00',
-            delivery_fee: '0.00',
-            tax: '2.84',
-            total: '34.84',
-            discount: {
-              code: 'FIRSTBITE',
-              amount: '5.00',
-            },
-            tracking_url: 'https://www.sugarandsprinkle.com/track/SS-20471',
-            web_view_url: 'https://www.sugarandsprinkle.com/receipts/SS-20471',
-            modification_deadline: 'Friday, April 25 at 8:00 PM',
-            pickup: {
-              date: 'Saturday, April 26',
-              window: 'Between 11:00 AM – 1:00 PM',
-            },
-
-            items: [
-              {
-                name: 'Strawberry Shortcake Dream',
-                flavor: 'Vanilla bean cake · fresh strawberry buttercream',
-                quantity: 6,
-                unit_price: '3.00',
-                price: '18.00',
-                image_url: 'img/strawberry-shortcake-dream.jpg',
-              },
-              {
-                name: 'Cookies & Cream Cloud',
-                flavor: 'Chocolate cake · cookie crumble frosting',
-                quantity: 4,
-                unit_price: '3.00',
-                price: '12.00',
-                image_url: 'img/cookies-and-cream-cloud.jpg',
-              },
-              {
-                name: 'Lemon Lavender Bliss',
-                flavor: 'Lemon cake · honey lavender swiss meringue',
-                quantity: 2,
-                unit_price: '3.50',
-                price: '7.00',
-                image_url: 'img/lemon-lavender-bliss.jpg',
-              },
-            ],
-          },
-        })
-        .then((html) => (result.innerHTML = html));
-    </script>
   </body>
 </html>
