@@ -118,6 +118,28 @@
         line-height: inherit;
       }
 
+      /* ===== KEYBOARD FOCUS INDICATORS ===== */
+      /* :focus-visible is supported in Apple Mail, iOS Mail, and Gmail web;
+         older Outlook ignores it harmlessly. Provides a visible target for
+         keyboard users without affecting mouse-click rendering. */
+      a:focus-visible {
+        outline: 2px solid #d6336c;
+        outline-offset: 2px;
+        border-radius: 2px;
+      }
+      .pickup-cta:focus-visible {
+        outline: 3px solid #4a2c3a;
+        outline-offset: 3px;
+      }
+      .utility-phone:focus-visible,
+      .utility-link:focus-visible,
+      .footer-link:focus-visible,
+      .footer-legal-link:focus-visible,
+      .footer-credit-link:focus-visible,
+      .footer-social-link:focus-visible {
+        outline-color: #f0c8d3;
+      }
+
       /* ===== ELEMENT DEFAULTS RESET (Outlook user-agent margins) ===== */
       p,
       h1,
