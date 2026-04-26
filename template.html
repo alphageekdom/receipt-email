@@ -1108,7 +1108,7 @@
           line-height: 1px;
         "
       >
-        Hey Maya — your cupcakes are in the oven 🧁 Here's your receipt.
+        Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's your receipt.
       </div>
       <div style="display: none; max-height: 0; overflow: hidden">
         &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
@@ -1160,10 +1160,10 @@
                           <tr>
                             <td class="utility-cell" align="left" valign="middle">
                               <a
-                                href="tel:(626) 555-0148"
+                                href="tel:{{ company.phone_number }}"
                                 class="utility-phone"
                               >
-                                (626) 555-0148
+                                {{- company.phone_number -}}
                               </a>
                             </td>
                             <td
@@ -1172,13 +1172,13 @@
                               valign="middle"
                             >
                               <a
-                                href="#"
+                                href="{{ order.web_view_url }}"
                                 class="utility-link"
                                 >View online</a
                               >
                               <span class="utility-sep">·</span>
                               <a
-                                href="#"
+                                href="{{ company.contact_page }}"
                                 class="utility-link"
                                 >Contact</a
                               >
@@ -1213,7 +1213,7 @@
 
                               <!-- Brand wordmark -->
                               <h1 class="brand-wordmark">
-                                Sugar &amp; Sprinkle
+                                {{ company.company_name }}
                               </h1>
                               <div class="brand-tag">Tiny cakes &middot; Big joy</div>
 
@@ -1221,7 +1221,7 @@
                               <div class="greeting">
                                 <div class="greeting-kicker">// Order Confirmation</div>
                                 <p class="greeting-title">
-                                  Hey Maya,<br>
+                                  Hey {{ customer.first_name }},<br>
                                   <strong>your cupcakes are in the oven.</strong>
                                 </p>
                                 <!--[if mso | IE]>
@@ -1322,12 +1322,12 @@
                                   <tr class="meta-row">
                                     <td width="50%">
                                       <p class="meta-label">Order No.</p>
-                                      <p class="meta-value accent">#1048</p>
+                                      <p class="meta-value accent">#{{ order.number }}</p>
                                     </td>
                                     <td width="50%">
                                       <p class="meta-label">Placed</p>
                                       <p class="meta-value">
-                                        April 25, 2026
+                                        {{ order.placed_at }}
                                       </p>
                                     </td>
                                   </tr>
@@ -1335,13 +1335,13 @@
                                     <td width="50%">
                                       <p class="meta-label">Method</p>
                                       <p class="meta-value">
-                                        Pickup
+                                        {{ order.fulfillment_method }}
                                       </p>
                                     </td>
                                     <td width="50%">
                                       <p class="meta-label">Payment</p>
                                       <p class="meta-value">
-                                        Visa ending in 4242
+                                        {{ order.payment_method }}
                                       </p>
                                     </td>
                                   </tr>
@@ -1359,105 +1359,43 @@
                     <td class="items-cell">
                       <!-- Heading -->
                       <h2 class="section-heading">your sweet haul</h2>
-                      <p class="section-sub">// 3 flavors &middot; baked fresh</p>
+                      <p class="section-sub">// {{ order.items.size }} flavors &middot; baked fresh</p>
 
-                      <!-- Items -->
-                      <table
-                        role="presentation"
-                        class="item"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="item-thumb item-cell">
-                              <img
-                                src="img/strawberry-shortcake-dream.jpg"
-                                alt="Strawberry Shortcake Dream"
-                                title="Strawberry Shortcake Dream"
-                                width="72"
-                                height="72"
-                                style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
-                              >
-                            </td>
-                            <td class="item-body item-cell">
-                              <p class="item-name">Strawberry Shortcake Dream</p>
-                              <p class="item-flavor">Vanilla bean cake, strawberry buttercream</p>
-                              <span class="item-qty">Qty 4</span>
-                            </td>
-                            <td class="item-price item-cell">
-                              $16.00
-                              <span class="item-unit">$4.00 each</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table
-                        role="presentation"
-                        class="item"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="item-thumb item-cell">
-                              <img
-                                src="img/lemon-lavender-bliss.jpg"
-                                alt="Lemon Lavender Bliss"
-                                title="Lemon Lavender Bliss"
-                                width="72"
-                                height="72"
-                                style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
-                              >
-                            </td>
-                            <td class="item-body item-cell">
-                              <p class="item-name">Lemon Lavender Bliss</p>
-                              <p class="item-flavor">Lemon sponge, honey-lavender frosting</p>
-                              <span class="item-qty">Qty 3</span>
-                            </td>
-                            <td class="item-price item-cell">
-                              $13.50
-                              <span class="item-unit">$4.50 each</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table
-                        role="presentation"
-                        class="item last"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="item-thumb item-cell">
-                              <img
-                                src="img/cookies-and-cream-cloud.jpg"
-                                alt="Cookies &amp; Cream Cloud"
-                                title="Cookies &amp; Cream Cloud"
-                                width="72"
-                                height="72"
-                                style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
-                              >
-                            </td>
-                            <td class="item-body item-cell">
-                              <p class="item-name">Cookies &amp; Cream Cloud</p>
-                              <p class="item-flavor">Chocolate cake, cookies-and-cream mousse</p>
-                              <span class="item-qty">Qty 3</span>
-                            </td>
-                            <td class="item-price item-cell">
-                              $12.50
-                              <span class="item-unit">$4.17 each</span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <!-- Looped items -->
+                      {% for item in order.items %}
+                        <table
+                          role="presentation"
+                          class="item {% if forloop.last %}last{% endif %}"
+                          width="100%"
+                          cellspacing="0"
+                          cellpadding="0"
+                          border="0"
+                        >
+                          <tbody>
+                            <tr>
+                              <td class="item-thumb item-cell">
+                                <img
+                                  src="{{ item.image_url }}"
+                                  alt="{{ item.name }}"
+                                  title="{{ item.name }}"
+                                  width="72"
+                                  height="72"
+                                  style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
+                                >
+                              </td>
+                              <td class="item-body item-cell">
+                                <p class="item-name">{{ item.name }}</p>
+                                <p class="item-flavor">{{ item.flavor }}</p>
+                                <span class="item-qty">Qty {{ item.quantity }}</span>
+                              </td>
+                              <td class="item-price item-cell">
+                                ${{ item.price }}
+                                <span class="item-unit">${{ item.unit_price }} each</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      {% endfor %}
                     </td>
                   </tr>
 
@@ -1480,19 +1418,29 @@
                                   <!-- Subtotal -->
                                   <tr class="summary-row">
                                     <td class="summary-label">Subtotal</td>
-                                    <td class="summary-value">$42.00</td>
+                                    <td class="summary-value">${{ order.subtotal }}</td>
                                   </tr>
 
-                                  <!-- Discount -->
-                                  <tr class="summary-row discount">
-                                    <td class="summary-label">Sweet deal (SWEET5)</td>
-                                    <td class="summary-value">&minus;$5.00</td>
-                                  </tr>
+                                  <!-- Discount (conditional) -->
+                                  {% if order.discount %}
+                                    <tr class="summary-row discount">
+                                      <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
+                                      <td class="summary-value">&minus;${{ order.discount.amount }}</td>
+                                    </tr>
+                                  {% endif %}
+
+                                  <!-- Delivery fee (hidden for pickup or zero-fee orders) -->
+                                  {% if order.fulfillment_method != 'Pickup' and order.delivery_fee != '0.00' %}
+                                    <tr class="summary-row">
+                                      <td class="summary-label">Delivery fee</td>
+                                      <td class="summary-value">${{ order.delivery_fee }}</td>
+                                    </tr>
+                                  {% endif %}
 
                                   <!-- Tax -->
                                   <tr class="summary-row">
                                     <td class="summary-label">Tax</td>
-                                    <td class="summary-value">$3.12</td>
+                                    <td class="summary-value">${{ order.tax }}</td>
                                   </tr>
 
                                   <!-- Divider -->
@@ -1505,7 +1453,7 @@
                                   <!-- Total -->
                                   <tr class="summary-row total">
                                     <td class="summary-total-label">Total</td>
-                                    <td class="summary-total-value">$40.12</td>
+                                    <td class="summary-total-value">${{ order.total }}</td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -1532,8 +1480,8 @@
                           <tr>
                             <td class="pickup-card-cell">
                               <!-- Heading -->
-                              <p class="pickup-kicker">// Pickup Details</p>
-                              <h3 class="pickup-title">See you soon, Maya!</h3>
+                              <p class="pickup-kicker">// {{ order.fulfillment_method }} Details</p>
+                              <h3 class="pickup-title">See you soon, {{ customer.first_name }}!</h3>
 
                               <!-- When + Where (2-column) -->
                               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;">
@@ -1542,19 +1490,20 @@
                                     <td class="pickup-col dw db" width="50%">
                                       <span class="pickup-label">When</span>
                                       <p class="pickup-value">
-                                        Today
+                                        {{ order.pickup.date -}}
                                         <br>
-                                        3:00 PM &ndash; 4:00 PM
+                                        {{ order.pickup.window }}
                                       </p>
                                     </td>
                                     <td class="pickup-col dw db" width="50%">
                                       <span class="pickup-label">Where</span>
                                       <p class="pickup-value">
-                                        Sugar &amp; Sprinkle
+                                        {{ company.company_name -}}
                                         <br>
-                                        124 Frosting Lane
+                                        {{ company.street -}}
                                         <br>
-                                        Pasadena, CA 91101
+                                        {{ company.city }}, {{ company.state }}
+                                        {{ company.zipcode }}
                                       </p>
                                     </td>
                                   </tr>
@@ -1564,7 +1513,7 @@
                               <!-- Modification window -->
                               <p class="pickup-note">
                                 Need to make changes? Let us know by
-                                <strong>1:30 PM</strong>
+                                <strong>{{ order.modification_deadline }}</strong>
                                 and we'll sort it out.
                               </p>
 
@@ -1577,7 +1526,7 @@
                                       <v:roundrect
                                         xmlns:v="urn:schemas-microsoft-com:vml"
                                         xmlns:w="urn:schemas-microsoft-com:office:word"
-                                        href="#"
+                                        href="{{ order.tracking_url }}"
                                         style="height:44px;v-text-anchor:middle;width:220px;"
                                         arcsize="50%"
                                         stroke="f"
@@ -1587,7 +1536,7 @@
                                       </v:roundrect>
                                       <![endif]-->
                                       <!--[if !mso]><!-- -->
-                                      <a href="#" target="_blank" class="pickup-cta">
+                                      <a href="{{ order.tracking_url }}" target="_blank" class="pickup-cta">
                                         Track my order &rarr;
                                       </a>
                                       <!--<![endif]-->
@@ -1617,13 +1566,13 @@
                           <tr>
                             <td class="support-card-cell">
                               <p class="support-text">
-                                Questions about order <strong>#1048</strong>?
-                                <a href="#" target="_blank" class="support-link">
+                                Questions about order <strong>#{{ order.number }}</strong>?
+                                <a href="{{ company.contact_page }}" target="_blank" class="support-link">
                                   Contact our bakers
                                 </a>
                                 or call
-                                <a href="tel:(626) 555-0148" class="support-link">
-                                  (626) 555-0148
+                                <a href="tel:{{ company.phone_number }}" class="support-link">
+                                  {{- company.phone_number -}}
                                 </a>.
                               </p>
                             </td>
@@ -1657,7 +1606,7 @@
                                       <p class="extras-text">
                                         Send them a sweet treat &mdash; get $5 off your next dozen.
                                       </p>
-                                      <a href="#" target="_blank" class="extras-link">
+                                      <a href="{{ company.referral_page }}" target="_blank" class="extras-link">
                                         Share the love
                                       </a>
                                     </td>
@@ -1675,7 +1624,7 @@
                   <tr>
                     <td class="footer-cell" align="center">
                       <!-- Brand mark -->
-                      <h4 class="footer-wordmark">Sugar &amp; Sprinkle</h4>
+                      <h4 class="footer-wordmark">{{ company.company_name }}</h4>
                       <p class="footer-tag">Tiny cakes &middot; Big joy</p>
 
                       <!-- Social row -->
@@ -1691,7 +1640,7 @@
                           <tr>
                             <td class="footer-social-cell">
                               <a
-                                href="#"
+                                href="{{ company.social.instagram }}"
                                 target="_blank"
                                 class="footer-social-link"
                                 title="Instagram"
@@ -1707,7 +1656,7 @@
                             </td>
                             <td class="footer-social-cell">
                               <a
-                                href="#"
+                                href="{{ company.social.tiktok }}"
                                 target="_blank"
                                 class="footer-social-link"
                                 title="TikTok"
@@ -1723,7 +1672,7 @@
                             </td>
                             <td class="footer-social-cell">
                               <a
-                                href="#"
+                                href="{{ company.social.pinterest }}"
                                 target="_blank"
                                 class="footer-social-link"
                                 title="Pinterest"
@@ -1739,7 +1688,7 @@
                             </td>
                             <td class="footer-social-cell">
                               <a
-                                href="#"
+                                href="{{ company.social.facebook }}"
                                 target="_blank"
                                 class="footer-social-link"
                                 title="Facebook"
@@ -1759,31 +1708,31 @@
 
                       <!-- Link row -->
                       <p class="footer-links">
-                        <a href="#" class="footer-link">Menu</a>
+                        <a href="{{ company.menu_page }}" class="footer-link">Menu</a>
                         <span class="footer-link-sep">&middot;</span>
-                        <a href="#" class="footer-link">Track order</a>
+                        <a href="{{ order.tracking_url }}" class="footer-link">Track order</a>
                         <span class="footer-link-sep">&middot;</span>
-                        <a href="#" class="footer-link">Help</a>
+                        <a href="{{ company.contact_page }}" class="footer-link">Help</a>
                       </p>
 
                       <!-- Legal -->
                       <div class="footer-legal">
                         <p class="footer-legal-line">
-                          You're getting this because you placed an order at Sugar &amp; Sprinkle.
+                          You're getting this because you placed an order at {{ company.company_name }}.
                         </p>
                         <p class="footer-legal-line">
                           Read our
-                          <a href="#" class="footer-legal-link">Privacy Policy</a>
+                          <a href="{{ company.privacy_page }}" class="footer-legal-link">Privacy Policy</a>
                           or
-                          <a href="#" class="footer-legal-link">unsubscribe</a>.
+                          <a href="{{ company.unsubscribe_page }}" class="footer-legal-link">unsubscribe</a>.
                         </p>
                         <p class="footer-legal-line">
-                          Sugar &amp; Sprinkle &middot; 124 Frosting Lane, Pasadena,
-                          CA
-                          91101
+                          {{ company.company_name }} &middot; {{ company.street }}, {{ company.city }},
+                          {{ company.state }}
+                          {{ company.zipcode }}
                         </p>
                         <p class="footer-legal-line">
-                          &copy; 2026 Sugar &amp; Sprinkle. Baked with love in Pasadena.
+                          &copy; 2026 {{ company.company_name }}. Baked with love in {{ company.city }}.
                         </p>
                         <p class="footer-legal-line footer-credit">
                           Designed by
