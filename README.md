@@ -19,7 +19,7 @@ Responsive transactional HTML email built with table-based layout, inline CSS, e
 - Table-based layout with `role="presentation"` on every layout table so screen readers skip them
 - Email-safe spacing via `cellpadding` / `cellspacing` and nested tables, not CSS box-model
 - No JavaScript dependency
-- Mobile stacking via `@media (max-width: 600px)` and `@media (max-width: 480px)` &mdash; the order-meta 2&times;2 grid collapses, item cards reflow vertically, and padding tightens at the smallest breakpoint
+- Mobile stacking via `@media (max-width: 600px)` and `@media (max-width: 480px)` &mdash; the order-meta 2&times;2 grid collapses to one column, item thumbnails and labels shrink, and section padding tightens at the smallest breakpoint
 - **Outlook (MSO) hardening:** VML `<v:roundrect>` fallback for the Track CTA so the button renders as a real pink pill in Outlook 2007&ndash;2019 instead of a blue underlined link; `mso-line-height-rule: exactly` on every script-font heading to defeat Outlook's leading bug; `mso-hide: all` preheader so Outlook strips the inbox-preview snippet from the visible body
 - Liquid-style variables, a `{% for %}` item loop, and `{% if %}` blocks for a conditional discount row and a delivery-fee row that auto-hides for Pickup orders
 - Accessible alt text on every content image, decorative confetti hidden from Outlook (where `position: absolute` is unsupported)
@@ -50,8 +50,8 @@ If this template shipped to real customers, the next pass would cover:
 
 | File | Purpose |
 | --- | --- |
-| [`index.html`](index.html) | Rendered preview with realistic sample data — what the live demo serves. |
-| [`template.html`](template.html) | Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
+| [`index.html`](index.html) | Rendered preview with realistic sample data &mdash; what the live demo serves. Includes a hosted-preview project colophon (engineering / accessibility / breakpoints, a live Liquid snippet, and desktop + mobile preview frames) gated behind `<!--[if !mso]>` so it never ships with the email. |
+| [`template.html`](template.html) | Shippable Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
 | [`img/`](img/) | Cupcake photography, social icons, and favicon set. |
 | [`COLOPHON.md`](COLOPHON.md) | Engineering notes, accessibility / resilience choices, breakpoints, and targeted email clients. |
 
@@ -155,4 +155,4 @@ To preview the Liquid source, run it through a Liquid renderer (e.g. the [Shopif
 
 ## Credits
 
-Designed and built by [AlphaGeekdom](https://github.com/alphageekdom).
+Designed and built by [AlphaGeekdom](https://www.alphageekdom.com). Cupcake imagery generated with Grok Imagine.
