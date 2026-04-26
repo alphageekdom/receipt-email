@@ -1287,11 +1287,13 @@
                                     </tr>
                                   {% endif %}
 
-                                  <!-- Delivery fee -->
-                                  <tr class="summary-row">
-                                    <td class="summary-label">Delivery fee</td>
-                                    <td class="summary-value">${{ order.delivery_fee }}</td>
-                                  </tr>
+                                  <!-- Delivery fee (hidden for pickup or zero-fee orders) -->
+                                  {% if order.fulfillment_method != 'Pickup' and order.delivery_fee != '0.00' %}
+                                    <tr class="summary-row">
+                                      <td class="summary-label">Delivery fee</td>
+                                      <td class="summary-value">${{ order.delivery_fee }}</td>
+                                    </tr>
+                                  {% endif %}
 
                                   <!-- Tax -->
                                   <tr class="summary-row">
