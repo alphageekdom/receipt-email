@@ -1886,7 +1886,46 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 56px;
-        margin-bottom: 96px;
+        margin-bottom: 64px;
+      }
+      .colophon-code {
+        margin-bottom: 80px;
+      }
+      .colophon-code-kicker {
+        margin: 0 0 14px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #8a3f52;
+      }
+      .colophon-code-snippet {
+        margin: 0 0 18px;
+        padding: 24px 28px;
+        background-color: #fff5f0;
+        border: 1px solid #ead7d0;
+        border-radius: 12px;
+        font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+        font-size: 13px;
+        line-height: 1.7;
+        color: #4a2c3a;
+        white-space: pre;
+        overflow-x: auto;
+      }
+      .colophon-code-link {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #d6336c;
+        text-decoration: none;
+        border-bottom: 1px solid #d6336c;
+        padding-bottom: 2px;
+      }
+      .colophon-code-link:hover {
+        color: #4a2c3a;
+        border-bottom-color: #4a2c3a;
       }
       .colophon-col h3 {
         margin: 0 0 16px;
@@ -2005,7 +2044,9 @@
         .colophon-h2 { font-size: 36px; }
         .colophon-lede { font-size: 15px; }
         .colophon-lede.last { margin-bottom: 48px; }
-        .colophon-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 64px; }
+        .colophon-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+        .colophon-code { margin-bottom: 56px; }
+        .colophon-code-snippet { padding: 18px 20px; font-size: 12px; }
         .colophon-previews { grid-template-columns: 1fr; gap: 32px; }
         .colophon-scroll { max-height: 560px; }
       }
@@ -2076,6 +2117,23 @@
               <li>Yahoo Mail</li>
             </ul>
           </div>
+        </div>
+
+        <div class="colophon-code">
+          <p class="colophon-code-kicker">Liquid templating</p>
+          <pre class="colophon-code-snippet">&#123;% for item in order.items %&#125;
+  &lt;tr class="item &#123;% if forloop.last %&#125;last&#123;% endif %&#125;"&gt;
+    &lt;td&gt;&#123;&#123; item.name &#125;&#125; &mdash; Qty &#123;&#123; item.quantity &#125;&#125;&lt;/td&gt;
+    &lt;td&gt;$&#123;&#123; item.price &#125;&#125;&lt;/td&gt;
+  &lt;/tr&gt;
+&#123;% endfor %&#125;</pre>
+          <a
+            href="https://github.com/alphageekdom/receipt-email/blob/main/template.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Liquid template source on GitHub (opens in new tab)"
+            class="colophon-code-link"
+            >View full template source on GitHub</a>
         </div>
 
         <div class="colophon-previews">
