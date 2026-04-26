@@ -1640,18 +1640,17 @@
                         <tr>
                           <td class="support-card-cell">
                             <p class="support-text">
-                              Questions about order <strong>#{{ order.number }}</strong>?
+                              <strong>Need help with order #{{ order.number }}?</strong>
+                              Reply to this email,
                               <a
                                 href="{{ company.contact_page }}"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 class="support-link"
-                                >Contact our bakers<span class="sr-only"> (opens in new tab)</span></a
-                              >
+                                >contact our bakers<span class="sr-only"> (opens in new tab)</span></a>,
                               or call
-                              <a href="tel:{{ company.phone_e164 }}" class="support-link">
-                                {{- company.phone_display -}}</a
-                              >.
+                              <a href="tel:{{ company.phone_e164 }}" class="support-link">{{- company.phone_display -}}</a>
+                              before your modification deadline.
                             </p>
                           </td>
                         </tr>
