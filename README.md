@@ -44,7 +44,7 @@ If this template shipped to real customers, the next pass would cover:
 
 - **Deliverability hygiene.** SPF, DKIM, and DMARC records on the sending domain so receipts don't land in spam. A bounce-handling pipeline and suppression list so we stop sending to dead addresses.
 
-- **Accessibility hardening.** Add `lang="en"` on `<html>`, replace decorative emoji in icons with proper SVGs (or images with empty `alt`), and verify colour contrast on the pink CTA passes WCAG AA at 4.5:1.
+- **Accessibility hardening.** Replace decorative emoji in the status ribbon with proper SVGs (or images with empty `alt`), and verify colour contrast on the pink CTA passes WCAG AA at 4.5:1.
 
 ## Files
 
@@ -53,7 +53,7 @@ If this template shipped to real customers, the next pass would cover:
 | [`index.html`](index.html) | Rendered preview with realistic sample data — what the live demo serves. |
 | [`template.html`](template.html) | Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
 | [`img/`](img/) | Cupcake photography, social icons, and favicon set. |
-| [`COLOPHON.md`](COLOPHON.md) | Type, palette, layout, tools, and imagery credits. |
+| [`COLOPHON.md`](COLOPHON.md) | Engineering notes, accessibility / resilience choices, breakpoints, and targeted email clients. |
 
 ## Sample data
 
@@ -152,6 +152,10 @@ npx serve .
 ```
 
 To preview the Liquid source, run it through a Liquid renderer (e.g. the [Shopify Liquid CLI](https://shopify.github.io/liquid/)) bound to the sample data above.
+
+## License
+
+[MIT](LICENSE) &mdash; free to fork, learn from, and adapt.
 
 ## Credits
 
