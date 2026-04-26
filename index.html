@@ -801,7 +801,52 @@
         }
       }
 
-      /* ===== SECTION 7: SWEET EXTRAS ===== */
+      /* ===== SECTION 7: SUPPORT CALLOUT ===== */
+
+      .support-cell {
+        padding: 0 32px 32px;
+      }
+      .support-card {
+        background-color: #fff5f0;
+        border: 1px dashed #f0c8d3;
+        border-radius: 10px;
+      }
+      .support-card-cell {
+        padding: 18px 22px;
+        text-align: center;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      }
+      .support-text {
+        font-size: 13px;
+        color: #6d4357;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .support-text strong {
+        color: #4a2c3a;
+      }
+      .support-link {
+        color: #d6336c !important;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid #d6336c;
+        padding-bottom: 1px;
+      }
+
+      /* Support responsive */
+      @media only screen and (max-width: 480px) {
+        .support-cell {
+          padding: 0 18px 22px;
+        }
+        .support-card-cell {
+          padding: 16px 18px;
+        }
+        .support-text {
+          font-size: 12px;
+        }
+      }
+
+      /* ===== SECTION 8: SWEET EXTRAS ===== */
 
       .extras-cell {
         padding: 8px 26px 32px;
@@ -868,51 +913,6 @@
         }
         .extras-card-cell {
           padding: 20px 18px;
-        }
-      }
-
-      /* ===== SECTION 8: SUPPORT CALLOUT ===== */
-
-      .support-cell {
-        padding: 0 32px 32px;
-      }
-      .support-card {
-        background-color: #fff5f0;
-        border: 1px dashed #f0c8d3;
-        border-radius: 10px;
-      }
-      .support-card-cell {
-        padding: 18px 22px;
-        text-align: center;
-        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
-      }
-      .support-text {
-        font-size: 13px;
-        color: #6d4357;
-        line-height: 1.5;
-        margin: 0;
-      }
-      .support-text strong {
-        color: #4a2c3a;
-      }
-      .support-link {
-        color: #d6336c !important;
-        font-weight: 700;
-        text-decoration: none;
-        border-bottom: 1px solid #d6336c;
-        padding-bottom: 1px;
-      }
-
-      /* Support responsive */
-      @media only screen and (max-width: 480px) {
-        .support-cell {
-          padding: 0 18px 22px;
-        }
-        .support-card-cell {
-          padding: 16px 18px;
-        }
-        .support-text {
-          font-size: 12px;
         }
       }
 
@@ -1470,7 +1470,38 @@
                     </td>
                   </tr>
 
-                  <!-- ─── Section 7: Sweet Extras ─── -->
+                  <!-- ─── Section 7: Support Callout ─── -->
+                  <tr>
+                    <td class="support-cell">
+                      <table
+                        role="presentation"
+                        class="support-card"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="support-card-cell">
+                              <p class="support-text">
+                                Questions about order <strong>#{{ order.number }}</strong>?
+                                <a href="{{ company.contact_page }}" target="_blank" class="support-link">
+                                  Contact our bakers
+                                </a>
+                                or call
+                                <a href="tel:{{ company.phone_number }}" class="support-link">
+                                  {{- company.phone_number -}}
+                                </a>.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 8: Sweet Extras ─── -->
                   <tr>
                     <td class="extras-cell">
                       <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -1501,37 +1532,6 @@
                                   </tr>
                                 </tbody>
                               </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-
-                  <!-- ─── Section 8: Support Callout ─── -->
-                  <tr>
-                    <td class="support-cell">
-                      <table
-                        role="presentation"
-                        class="support-card"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="support-card-cell">
-                              <p class="support-text">
-                                Questions about order <strong>#{{ order.number }}</strong>?
-                                <a href="{{ company.contact_page }}" target="_blank" class="support-link">
-                                  Contact our bakers
-                                </a>
-                                or call
-                                <a href="tel:{{ company.phone_number }}" class="support-link">
-                                  {{- company.phone_number -}}
-                                </a>.
-                              </p>
                             </td>
                           </tr>
                         </tbody>
