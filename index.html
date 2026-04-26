@@ -777,6 +777,76 @@
           font-size: 13px;
         }
       }
+
+      /* ===== SECTION 7: SWEET EXTRAS ===== */
+
+      .extras-cell {
+        padding: 8px 26px 32px;
+      }
+      .extras-col {
+        padding: 6px;
+        vertical-align: top;
+      }
+      .extras-card {
+        background-color: #ffffff;
+        border: 1px dashed #f0c8d3;
+        border-radius: 12px;
+      }
+      .extras-card-cell {
+        padding: 22px 20px;
+        text-align: center;
+      }
+
+      /* Card content */
+      .extras-emoji {
+        display: block;
+        font-size: 28px;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+      .extras-title {
+        font-family: 'Caveat', 'Quicksand', cursive;
+        font-size: 22px;
+        font-weight: 700;
+        color: #d6336c;
+        line-height: 1;
+        margin: 0 0 6px;
+      }
+      .extras-text {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #6d4357;
+        line-height: 1.5;
+        margin: 0 0 14px;
+      }
+      .extras-link {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #d6336c !important;
+        border-bottom: 1px solid #d6336c;
+        padding-bottom: 2px;
+        text-decoration: none;
+      }
+
+      /* Extras responsive */
+      @media only screen and (max-width: 600px) {
+        .extras-col {
+          width: 100% !important;
+          display: block !important;
+          padding: 6px 0;
+        }
+      }
+      @media only screen and (max-width: 480px) {
+        .extras-cell {
+          padding: 6px 16px 22px;
+        }
+        .extras-card-cell {
+          padding: 20px 18px;
+        }
+      }
     </style>
   </head>
 
@@ -1189,7 +1259,70 @@
                     </td>
                   </tr>
 
-                  <!-- ─── Section 7: Sweet Extras goes here ─── -->
+                  <!-- ─── Section 7: Sweet Extras ─── -->
+                  <tr>
+                    <td class="extras-cell">
+                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                          <tr>
+                            <!-- Refer a friend -->
+                            <td class="extras-col dw db" width="50%" valign="top">
+                              <table
+                                role="presentation"
+                                class="extras-card"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td class="extras-card-cell" align="center">
+                                      <span class="extras-emoji">&#127873;</span>
+                                      <h4 class="extras-title">Refer a friend</h4>
+                                      <p class="extras-text">
+                                        Send them a sweet treat &mdash; get $5 off your next dozen.
+                                      </p>
+                                      <a href="{{ company.referral_page }}" target="_blank" class="extras-link">
+                                        Share the love
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+
+                            <!-- Sprinkle Club -->
+                            <td class="extras-col dw db" width="50%" valign="top">
+                              <table
+                                role="presentation"
+                                class="extras-card"
+                                width="100%"
+                                cellspacing="0"
+                                cellpadding="0"
+                                border="0"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td class="extras-card-cell" align="center">
+                                      <span class="extras-emoji">&#11088;</span>
+                                      <h4 class="extras-title">Sprinkle Club</h4>
+                                      <p class="extras-text">Earn a free cupcake every 10th order. Members only.</p>
+                                      <a href="{{ company.signup_page }}" target="_blank" class="extras-link">
+                                        Join free
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 8: Footer goes here ─── -->
                 </tbody>
               </table>
             </td>
@@ -1223,6 +1356,8 @@
             city: 'Brooklyn',
             state: 'NY',
             zipcode: '11201',
+            referral_page: 'https://www.sugarandsprinkle.com/refer',
+            signup_page: 'https://www.sugarandsprinkle.com/rewards',
           },
           order: {
             number: 'SS-20471',
