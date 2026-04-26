@@ -16,17 +16,15 @@ Responsive transactional HTML email built with table-based layout, inline CSS, e
 
 ## Email-safe features
 
-- Table-based layout (no flex/grid)
-- Inline-friendly CSS with `<style>` block hoisted into `<head>`
+- Table-based layout with `role="presentation"` on every layout table so screen readers skip them
+- Email-safe spacing via `cellpadding` / `cellspacing` and nested tables, not CSS box-model
 - No JavaScript dependency
-- Responsive mobile stacking via media queries
-- Email-safe spacing (cellpadding / cellspacing / nested tables)
-- Outlook (MSO) conditional comments for VML-rendered CTA and width fallback
-- Accessible image alt text and `role="presentation"` on layout tables
-- Bulletproof CTA button (HTML/CSS + VML fallback)
-- Liquid-style variables and `{% for %}` / `{% if %}` template logic
-- Conditional discount and delivery-fee logic
-- Transactional footer with privacy and unsubscribe links
+- Mobile stacking via `@media (max-width: 600px)` and `@media (max-width: 480px)` &mdash; the order-meta 2&times;2 grid collapses, item cards reflow vertically, and padding tightens at the smallest breakpoint
+- **Outlook (MSO) hardening:** VML `<v:roundrect>` fallback for the Track CTA so the button renders as a real pink pill in Outlook 2007&ndash;2019 instead of a blue underlined link; `mso-line-height-rule: exactly` on every script-font heading to defeat Outlook's leading bug; `mso-hide: all` preheader so Outlook strips the inbox-preview snippet from the visible body
+- Liquid-style variables, a `{% for %}` item loop, and `{% if %}` blocks for a conditional discount row and a delivery-fee row that auto-hides for Pickup orders
+- Accessible alt text on every content image, decorative confetti hidden from Outlook (where `position: absolute` is unsupported)
+- `<style>` block in `<head>` for development; in production it would be pushed inline with juice / premailer to survive clients that strip head styles
+- Transactional footer with explicit privacy and unsubscribe links
 
 ## Files
 
