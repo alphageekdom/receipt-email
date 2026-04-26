@@ -1160,10 +1160,10 @@
                           <tr>
                             <td class="utility-cell" align="left" valign="middle">
                               <a
-                                href="tel:{{ company.phone_number }}"
+                                href="tel:{{ company.phone_e164 }}"
                                 class="utility-phone"
                               >
-                                {{- company.phone_number -}}
+                                {{- company.phone_display -}}
                               </a>
                             </td>
                             <td
@@ -1571,8 +1571,8 @@
                                   Contact our bakers
                                 </a>
                                 or call
-                                <a href="tel:{{ company.phone_number }}" class="support-link">
-                                  {{- company.phone_number -}}
+                                <a href="tel:{{ company.phone_e164 }}" class="support-link">
+                                  {{- company.phone_display -}}
                                 </a>.
                               </p>
                             </td>
@@ -1770,7 +1770,8 @@
           },
           company: {
             company_name: 'Sugar & Sprinkle',
-            phone_number: '1-888-SPRINKL',
+            phone_e164: '+18887774655',
+            phone_display: '1-888-SPRINKL',
             contact_page: 'https://www.sugarandsprinkle.com/contact',
             unsubscribe_page: 'https://www.sugarandsprinkle.com/unsubscribe',
             street: '418 Buttercream Lane',
