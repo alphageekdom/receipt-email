@@ -560,6 +560,14 @@
         color: #4a2c3a;
         white-space: nowrap;
       }
+      .item-unit {
+        display: block;
+        font-size: 11px;
+        font-weight: 500;
+        color: #b56576;
+        letter-spacing: 0.04em;
+        margin-top: 2px;
+      }
 
       /* Items responsive */
       @media only screen and (max-width: 480px) {
@@ -734,6 +742,21 @@
         margin: 0;
       }
 
+      /* Modification deadline note */
+      .pickup-note {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #6d4357;
+        line-height: 1.5;
+        margin: 16px 0 0;
+        padding-top: 14px;
+        border-top: 1px dashed #f0c8d3;
+      }
+      .pickup-note strong {
+        color: #d6336c;
+        font-weight: 700;
+      }
+
       /* CTA pill */
       .pickup-cta-wrap {
         padding-top: 18px;
@@ -848,7 +871,52 @@
         }
       }
 
-      /* ===== SECTION 8: FOOTER ===== */
+      /* ===== SECTION 8: SUPPORT CALLOUT ===== */
+
+      .support-cell {
+        padding: 0 32px 32px;
+      }
+      .support-card {
+        background-color: #fff5f0;
+        border: 1px dashed #f0c8d3;
+        border-radius: 10px;
+      }
+      .support-card-cell {
+        padding: 18px 22px;
+        text-align: center;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      }
+      .support-text {
+        font-size: 13px;
+        color: #6d4357;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .support-text strong {
+        color: #4a2c3a;
+      }
+      .support-link {
+        color: #d6336c !important;
+        font-weight: 700;
+        text-decoration: none;
+        border-bottom: 1px solid #d6336c;
+        padding-bottom: 1px;
+      }
+
+      /* Support responsive */
+      @media only screen and (max-width: 480px) {
+        .support-cell {
+          padding: 0 18px 22px;
+        }
+        .support-card-cell {
+          padding: 16px 18px;
+        }
+        .support-text {
+          font-size: 12px;
+        }
+      }
+
+      /* ===== SECTION 9: FOOTER ===== */
 
       .footer-cell {
         background-color: #4a2c3a;
@@ -1248,7 +1316,10 @@
                                 <p class="item-flavor">{{ item.flavor }}</p>
                                 <span class="item-qty">Qty {{ item.quantity }}</span>
                               </td>
-                              <td class="item-price item-cell">${{ item.price }}</td>
+                              <td class="item-price item-cell">
+                                ${{ item.price }}
+                                <span class="item-unit">${{ item.unit_price }} each</span>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -1366,6 +1437,13 @@
                                 </tbody>
                               </table>
 
+                              <!-- Modification window -->
+                              <p class="pickup-note">
+                                Need to make changes? Let us know by
+                                <strong>{{ order.modification_deadline }}</strong>
+                                and we'll sort it out.
+                              </p>
+
                               <!-- CTA -->
                               <table role="presentation" cellspacing="0" cellpadding="0" border="0">
                                 <tbody>
@@ -1423,7 +1501,38 @@
                     </td>
                   </tr>
 
-                  <!-- ─── Section 8: Footer ─── -->
+                  <!-- ─── Section 8: Support Callout ─── -->
+                  <tr>
+                    <td class="support-cell">
+                      <table
+                        role="presentation"
+                        class="support-card"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="support-card-cell">
+                              <p class="support-text">
+                                Questions about order <strong>#{{ order.number }}</strong>?
+                                <a href="{{ company.contact_page }}" target="_blank" class="support-link">
+                                  Contact our bakers
+                                </a>
+                                or call
+                                <a href="tel:{{ company.phone_number }}" class="support-link">
+                                  {{- company.phone_number -}}
+                                </a>.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 9: Footer ─── -->
                   <tr>
                     <td class="footer-cell" align="center">
                       <!-- Brand mark -->
@@ -1578,6 +1687,7 @@
               amount: '5.00',
             },
             tracking_url: 'https://www.sugarandsprinkle.com/track/SS-20471',
+            modification_deadline: 'Friday, April 25 at 8:00 PM',
             pickup: {
               date: 'Saturday, April 26',
               window: 'Between 11:00 AM – 1:00 PM',
@@ -1588,6 +1698,7 @@
                 name: 'Strawberry Shortcake Dream',
                 flavor: 'Vanilla bean cake · fresh strawberry buttercream',
                 quantity: 6,
+                unit_price: '3.00',
                 price: '18.00',
                 image_url: 'img/strawberry-shortcake-dream.jpg',
               },
@@ -1595,6 +1706,7 @@
                 name: 'Cookies & Cream Cloud',
                 flavor: 'Chocolate cake · cookie crumble frosting',
                 quantity: 4,
+                unit_price: '3.00',
                 price: '12.00',
                 image_url: 'img/cookies-and-cream-cloud.jpg',
               },
@@ -1602,6 +1714,7 @@
                 name: 'Lemon Lavender Bliss',
                 flavor: 'Lemon cake · honey lavender swiss meringue',
                 quantity: 2,
+                unit_price: '3.50',
                 price: '7.00',
                 image_url: 'img/lemon-lavender-bliss.jpg',
               },
