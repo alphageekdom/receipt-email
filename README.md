@@ -153,10 +153,6 @@ npx serve .
 
 To preview the Liquid source, run it through a Liquid renderer (e.g. the [Shopify Liquid CLI](https://shopify.github.io/liquid/)) bound to the sample data above.
 
-## License
-
-[MIT](LICENSE) &mdash; free to fork, learn from, and adapt.
-
 ## Credits
 
 Designed and built by [AlphaGeekdom](https://github.com/alphageekdom).
