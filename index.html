@@ -677,6 +677,106 @@
           letter-spacing: 0.14em;
         }
       }
+
+      /* ===== SECTION 6: PICKUP CARD ===== */
+
+      .pickup-cell {
+        padding: 0 32px 32px;
+      }
+      .pickup-card {
+        background-color: #ffe4ec;
+        background-image: linear-gradient(135deg, #ffe4ec 0%, #ffd6a5 100%);
+        border-radius: 12px;
+      }
+      .pickup-card-cell {
+        padding: 28px 28px;
+      }
+
+      /* Heading */
+      .pickup-kicker {
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #d6336c;
+        margin: 0 0 6px;
+      }
+      .pickup-title {
+        font-family: 'Caveat', 'Quicksand', cursive;
+        font-size: 30px;
+        font-weight: 700;
+        color: #4a2c3a;
+        line-height: 1;
+        margin: 0 0 14px;
+      }
+
+      /* When / Where columns */
+      .pickup-col {
+        vertical-align: top;
+        padding: 10px 0;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+      }
+      .pickup-label {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #b56576;
+        margin-bottom: 4px;
+      }
+      .pickup-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: #4a2c3a;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      /* CTA pill */
+      .pickup-cta-wrap {
+        padding-top: 18px;
+      }
+      .pickup-cta {
+        display: inline-block;
+        background-color: #d6336c;
+        color: #ffffff !important;
+        font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        /* Outlook bulletproof: borders simulate padding */
+        border-top: 2px solid #d6336c;
+        border-bottom: 2px solid #d6336c;
+        border-left: 8px solid #d6336c;
+        border-right: 8px solid #d6336c;
+      }
+
+      /* Pickup responsive */
+      @media only screen and (max-width: 480px) {
+        .pickup-cell {
+          padding: 0 18px 22px;
+        }
+        .pickup-card-cell {
+          padding: 22px 20px;
+        }
+        .pickup-title {
+          font-size: 26px;
+        }
+        .pickup-col {
+          padding: 8px 0;
+          text-align: left;
+        }
+        .pickup-value {
+          font-size: 13px;
+        }
+      }
     </style>
   </head>
 
@@ -1025,7 +1125,71 @@
                     </td>
                   </tr>
 
-                  <!-- ─── Section 6: Pickup Card goes here ─── -->
+                  <!-- ─── Section 6: Pickup Card ─── -->
+                  <tr>
+                    <td class="pickup-cell">
+                      <table
+                        role="presentation"
+                        class="pickup-card"
+                        width="100%"
+                        cellspacing="0"
+                        cellpadding="0"
+                        border="0"
+                      >
+                        <tbody>
+                          <tr>
+                            <td class="pickup-card-cell">
+                              <!-- Heading -->
+                              <p class="pickup-kicker">// {{ order.fulfillment_method }} Details</p>
+                              <h3 class="pickup-title">See you soon, {{ customer.first_name }}!</h3>
+
+                              <!-- When + Where (2-column) -->
+                              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                  <tr>
+                                    <td class="pickup-col dw db" width="50%">
+                                      <span class="pickup-label">When</span>
+                                      <p class="pickup-value">
+                                        {{ order.pickup.date -}}
+                                        <br>
+                                        {{ order.pickup.window }}
+                                      </p>
+                                    </td>
+                                    <td class="pickup-col dw db" width="50%">
+                                      <span class="pickup-label">Where</span>
+                                      <p class="pickup-value">
+                                        {{ company.company_name -}}
+                                        <br>
+                                        {{ company.street -}}
+                                        <br>
+                                        {{ company.city }}, {{ company.state }}
+                                        {{ company.zipcode }}
+                                      </p>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+
+                              <!-- CTA -->
+                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                                <tbody>
+                                  <tr>
+                                    <td class="pickup-cta-wrap">
+                                      <a href="{{ order.tracking_url }}" target="_blank" class="pickup-cta">
+                                        Track my order &rarr;
+                                      </a>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <!-- ─── Section 7: Sweet Extras goes here ─── -->
                 </tbody>
               </table>
             </td>
@@ -1048,13 +1212,17 @@
         .parseAndRender(template.innerHTML, {
           customer: {
             id: 12345,
-            first_name: 'Chad',
+            first_name: 'Lauren',
           },
           company: {
             company_name: 'Sugar & Sprinkle',
             phone_number: '1-888-SPRINKL',
             contact_page: 'https://www.sugarandsprinkle.com/contact',
             support_page: 'https://www.sugarandsprinkle.com/unsubscribe',
+            street: '418 Buttercream Lane',
+            city: 'Brooklyn',
+            state: 'NY',
+            zipcode: '11201',
           },
           order: {
             number: 'SS-20471',
@@ -1069,6 +1237,12 @@
               code: 'FIRSTBITE',
               amount: '5.00',
             },
+            tracking_url: 'https://www.sugarandsprinkle.com/track/SS-20471',
+            pickup: {
+              date: 'Saturday, April 26',
+              window: 'Between 11:00 AM – 1:00 PM',
+            },
+
             items: [
               {
                 name: 'Strawberry Shortcake Dream',
