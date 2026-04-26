@@ -53,6 +53,7 @@ If this template shipped to real customers, the next pass would cover:
 | [`index.html`](index.html) | Rendered preview with realistic sample data — what the live demo serves. |
 | [`template.html`](template.html) | Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
 | [`img/`](img/) | Cupcake photography, social icons, and favicon set. |
+| [`COLOPHON.md`](COLOPHON.md) | Type, palette, layout, tools, and imagery credits. |
 
 ## Sample data
 
