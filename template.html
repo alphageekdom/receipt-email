@@ -165,8 +165,8 @@
       h6 {
         margin-top: 0;
         margin-bottom: 0;
-        Margin-top: 0;
-        Margin-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
         mso-margin-top-alt: 0;
         mso-margin-bottom-alt: 0;
       }
@@ -1168,162 +1168,278 @@
   </head>
 
   <body id="body">
-    <template id="email">
-      <!-- ─── Preheader (hidden inbox preview) ─── -->
-      <div
-        style="
-          display: none;
-          max-height: 0;
-          overflow: hidden;
-          mso-hide: all;
-          font-size: 1px;
-          color: #f4ede4;
-          line-height: 1px;
-        "
-      >
-        Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's your receipt.
-      </div>
-      <div style="display: none; max-height: 0; overflow: hidden">
-        &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
-      </div>
+    <!-- ─── Preheader (hidden inbox preview) ─── -->
+    <div
+      style="
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        mso-hide: all;
+        font-size: 1px;
+        color: #f4ede4;
+        line-height: 1px;
+      "
+    >
+      Hey {{ customer.first_name }} — your cupcakes are in the oven 🧁 Here's your receipt.
+    </div>
+    <div style="display: none; max-height: 0; overflow: hidden">
+      &nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌
+    </div>
 
-      <!-- ─── Outer wrapper (paints page background) ─── -->
-      <table
-        role="presentation"
-        class="wrapper"
-        width="100%"
-        cellspacing="0"
-        cellpadding="0"
-        border="0"
-        align="center"
-      >
-        <tbody>
-          <tr>
-            <td class="wrapper-cell" align="center">
-              <!--[if mso | IE]>
+    <!-- ─── Outer wrapper (paints page background) ─── -->
+    <table
+      role="presentation"
+      class="wrapper"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      align="center"
+    >
+      <tbody>
+        <tr>
+          <td class="wrapper-cell" align="center">
+            <!--[if mso | IE]>
               <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>
+            <![endif]-->
+
+            <!-- ─── Inner email card (600px) ─── -->
+            <table
+              role="presentation"
+              class="email responsive-table"
+              width="600"
+              cellspacing="0"
+              cellpadding="0"
+              border="0"
+              align="center"
+            >
+              <tbody>
+                <!-- ─── Section 1: Header ─── -->
                 <tr>
                   <td>
-              <![endif]-->
-
-              <!-- ─── Inner email card (600px) ─── -->
-              <table
-                role="presentation"
-                class="email responsive-table"
-                width="600"
-                cellspacing="0"
-                cellpadding="0"
-                border="0"
-                align="center"
-              >
-                <tbody>
-                  <!-- ─── Section 1: Header ─── -->
-                  <tr>
-                    <td>
-                      <!-- Utility strip -->
-                      <table
-                        role="presentation"
-                        class="utility-strip"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="utility-cell" align="left" valign="middle">
-                              <a
-                                href="tel:{{ company.phone_e164 }}"
-                                class="utility-phone"
-                              >
-                                {{- company.phone_display -}}
-                              </a>
-                            </td>
-                            <td
-                              class="utility-cell"
-                              align="right"
-                              valign="middle"
+                    <!-- Utility strip -->
+                    <table
+                      role="presentation"
+                      class="utility-strip"
+                      width="100%"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="utility-cell" align="left" valign="middle">
+                            <a
+                              href="tel:{{ company.phone_e164 }}"
+                              class="utility-phone"
                             >
-                              <a
-                                href="{{ order.web_view_url }}"
-                                class="utility-link"
-                                >View online</a
-                              >
-                              <span class="utility-sep">·</span>
-                              <a
-                                href="{{ company.contact_page }}"
-                                class="utility-link"
-                                >Contact</a
-                              >
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+                              {{- company.phone_display -}}
+                            </a>
+                          </td>
+                          <td
+                            class="utility-cell"
+                            align="right"
+                            valign="middle"
+                          >
+                            <a
+                              href="{{ order.web_view_url }}"
+                              class="utility-link"
+                              >View online</a
+                            >
+                            <span class="utility-sep">·</span>
+                            <a
+                              href="{{ company.contact_page }}"
+                              class="utility-link"
+                              >Contact</a
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
 
-                      <!-- Brand block + greeting -->
-                      <table
-                        role="presentation"
-                        class="brand-block"
-                        width="100%"
-                        bgcolor="#ffe4ec"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="brand-cell" align="center">
-                              <!-- Confetti dots (hidden from Outlook — position:absolute unsupported) -->
-                              <!--[if !mso]><!-- -->
-                              <span class="dot d1" aria-hidden="true"></span>
-                              <span class="dot d2" aria-hidden="true"></span>
-                              <span class="dot d3" aria-hidden="true"></span>
-                              <span class="dot d4" aria-hidden="true"></span>
-                              <span class="dot d5" aria-hidden="true"></span>
-                              <span class="dot d6" aria-hidden="true"></span>
-                              <span class="dot d7" aria-hidden="true"></span>
-                              <!--<![endif]-->
+                    <!-- Brand block + greeting -->
+                    <table
+                      role="presentation"
+                      class="brand-block"
+                      width="100%"
+                      bgcolor="#ffe4ec"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="brand-cell" align="center">
+                            <!-- Confetti dots (hidden from Outlook — position:absolute unsupported) -->
+                            <!-- [if !mso]><!-- -->
+                            <span class="dot d1" aria-hidden="true"></span>
+                            <span class="dot d2" aria-hidden="true"></span>
+                            <span class="dot d3" aria-hidden="true"></span>
+                            <span class="dot d4" aria-hidden="true"></span>
+                            <span class="dot d5" aria-hidden="true"></span>
+                            <span class="dot d6" aria-hidden="true"></span>
+                            <span class="dot d7" aria-hidden="true"></span>
+                            <!-- <![endif] -->
 
-                              <!-- Brand wordmark -->
-                              <h1 class="brand-wordmark">
-                                {{ company.company_name }}
-                              </h1>
-                              <div class="brand-tag">Tiny cakes &middot; Big joy</div>
+                            <!-- Brand wordmark -->
+                            <h1 class="brand-wordmark">
+                              {{ company.company_name }}
+                            </h1>
+                            <div class="brand-tag">Tiny cakes &middot; Big joy</div>
 
-                              <!-- Greeting -->
-                              <div class="greeting">
-                                <div class="greeting-kicker">// Order Confirmation</div>
-                                <h2 class="greeting-title">
-                                  Hey {{ customer.first_name }},<br>
-                                  <strong>your cupcakes are in the oven.</strong>
-                                </h2>
-                                <!--[if mso | IE]>
+                            <!-- Greeting -->
+                            <div class="greeting">
+                              <div class="greeting-kicker">// Order Confirmation</div>
+                              <h2 class="greeting-title">
+                                Hey {{ customer.first_name }},<br>
+                                <strong>your cupcakes are in the oven.</strong>
+                              </h2>
+                              <!--[if mso | IE]>
                                 <table role="presentation" width="420" align="center" cellpadding="0" cellspacing="0" border="0">
-                                  <tr>
-                                    <td>
-                                <![endif]-->
-                                <p class="greeting-sub">
-                                  Your bakers are on it &mdash; we'll ping you the moment they're ready for pickup.
-                                </p>
-                                <!--[if mso | IE]>
-                                    </td>
+                                <tr>
+                                  <td>
+                              <![endif]-->
+                              <p class="greeting-sub">
+                                Your bakers are on it &mdash; we'll ping you the moment they're ready for pickup.
+                              </p>
+                              <!--[if mso | IE]>
+                                </td>
                                   </tr>
                                 </table>
-                                <![endif]-->
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
+                              <![endif]-->
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
 
-                  <!-- ─── Section 2: Status Ribbon ─── -->
-                  <tr>
-                    <td>
+                <!-- ─── Section 2: Status Ribbon ─── -->
+                <tr>
+                  <td>
+                    <table
+                      role="presentation"
+                      class="ribbon"
+                      width="100%"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="ribbon-cell">
+                            <table
+                              role="presentation"
+                              width="100%"
+                              cellspacing="0"
+                              cellpadding="0"
+                              border="0"
+                            >
+                              <tbody>
+                                <tr>
+                                  <td class="ribbon-step active" width="28%" aria-current="step">
+                                    <div class="ribbon-icon" aria-hidden="true">&#10003;</div>
+                                    <span class="ribbon-label">
+                                      Confirmed<span class="sr-only"> — current step</span>
+                                    </span>
+                                  </td>
+                                  <td class="ribbon-line-cell" width="8%" aria-hidden="true">
+                                    <div class="ribbon-line">&nbsp;</div>
+                                  </td>
+                                  <td class="ribbon-step next" width="28%">
+                                    <div class="ribbon-icon" aria-hidden="true">&#127874;</div>
+                                    <span class="ribbon-label">Baking</span>
+                                  </td>
+                                  <td class="ribbon-line-cell" width="8%" aria-hidden="true">
+                                    <div class="ribbon-line">&nbsp;</div>
+                                  </td>
+                                  <td class="ribbon-step next" width="28%">
+                                    <div class="ribbon-icon" aria-hidden="true">&#127872;</div>
+                                    <span class="ribbon-label">Ready</span>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- ─── Section 3: Order Meta ─── -->
+                <tr>
+                  <td class="meta-cell">
+                    <table
+                      role="presentation"
+                      class="meta-card"
+                      width="100%"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="meta-card-cell">
+                            <table
+                              role="presentation"
+                              width="100%"
+                              cellspacing="0"
+                              cellpadding="0"
+                              border="0"
+                              style="table-layout: fixed;"
+                            >
+                              <tbody>
+                                <tr class="meta-row">
+                                  <td width="50%">
+                                    <p class="meta-label">Order No.</p>
+                                    <p class="meta-value accent">#{{ order.number }}</p>
+                                  </td>
+                                  <td width="50%">
+                                    <p class="meta-label">Placed</p>
+                                    <p class="meta-value">
+                                      {{ order.placed_at }}
+                                    </p>
+                                  </td>
+                                </tr>
+                                <tr class="meta-row">
+                                  <td width="50%">
+                                    <p class="meta-label">Method</p>
+                                    <p class="meta-value">
+                                      {{ order.fulfillment_method }}
+                                    </p>
+                                  </td>
+                                  <td width="50%">
+                                    <p class="meta-label">Payment</p>
+                                    <p class="meta-value">
+                                      {{ order.payment_method }}
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- ─── Section 4: Items List ─── -->
+                <tr>
+                  <td class="items-cell">
+                    <!-- Heading -->
+                    <h2 class="section-heading">your sweet haul</h2>
+                    <p class="section-sub">// {{ order.items.size }} flavors &middot; baked fresh</p>
+
+                    <!-- Looped items -->
+                    {% for item in order.items %}
                       <table
                         role="presentation"
-                        class="ribbon"
+                        class="item {% if forloop.last %}last{% endif %}"
                         width="100%"
                         cellspacing="0"
                         cellpadding="0"
@@ -1331,272 +1447,162 @@
                       >
                         <tbody>
                           <tr>
-                            <td class="ribbon-cell">
-                              <table
-                                role="presentation"
-                                width="100%"
-                                cellspacing="0"
-                                cellpadding="0"
-                                border="0"
+                            <td class="item-thumb item-cell">
+                              <img
+                                src="{{ item.image_url }}"
+                                alt="{{ item.name }}"
+                                width="72"
+                                height="72"
+                                style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
                               >
-                                <tbody>
-                                  <tr>
-                                    <td class="ribbon-step active" width="28%" aria-current="step">
-                                      <div class="ribbon-icon" aria-hidden="true">&#10003;</div>
-                                      <span class="ribbon-label">
-                                        Confirmed<span class="sr-only"> — current step</span>
-                                      </span>
-                                    </td>
-                                    <td class="ribbon-line-cell" width="8%" aria-hidden="true">
-                                      <div class="ribbon-line">&nbsp;</div>
-                                    </td>
-                                    <td class="ribbon-step next" width="28%">
-                                      <div class="ribbon-icon" aria-hidden="true">&#127874;</div>
-                                      <span class="ribbon-label">Baking</span>
-                                    </td>
-                                    <td class="ribbon-line-cell" width="8%" aria-hidden="true">
-                                      <div class="ribbon-line">&nbsp;</div>
-                                    </td>
-                                    <td class="ribbon-step next" width="28%">
-                                      <div class="ribbon-icon" aria-hidden="true">&#127872;</div>
-                                      <span class="ribbon-label">Ready</span>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                            </td>
+                            <td class="item-body item-cell">
+                              <p class="item-name">{{ item.name }}</p>
+                              <p class="item-flavor">{{ item.flavor }}</p>
+                              <span class="item-qty">Qty {{ item.quantity }}</span>
+                            </td>
+                            <td class="item-price item-cell">
+                              ${{ item.price }}
+                              <span class="item-unit">${{ item.unit_price }} each</span>
                             </td>
                           </tr>
                         </tbody>
                       </table>
-                    </td>
-                  </tr>
+                    {% endfor %}
+                  </td>
+                </tr>
 
-                  <!-- ─── Section 3: Order Meta ─── -->
-                  <tr>
-                    <td class="meta-cell">
-                      <table
-                        role="presentation"
-                        class="meta-card"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="meta-card-cell">
-                              <table
-                                role="presentation"
-                                width="100%"
-                                cellspacing="0"
-                                cellpadding="0"
-                                border="0"
-                                style="table-layout: fixed;"
-                              >
-                                <tbody>
-                                  <tr class="meta-row">
-                                    <td width="50%">
-                                      <p class="meta-label">Order No.</p>
-                                      <p class="meta-value accent">#{{ order.number }}</p>
-                                    </td>
-                                    <td width="50%">
-                                      <p class="meta-label">Placed</p>
-                                      <p class="meta-value">
-                                        {{ order.placed_at }}
-                                      </p>
-                                    </td>
+                <!-- ─── Section 5: Order Summary ─── -->
+                <tr>
+                  <td class="summary-cell">
+                    <table
+                      role="presentation"
+                      class="summary-card"
+                      width="100%"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="summary-card-cell">
+                            <table aria-label="Order summary" width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                                <!-- Subtotal -->
+                                <tr class="summary-row">
+                                  <td class="summary-label">Subtotal</td>
+                                  <td class="summary-value">${{ order.subtotal }}</td>
+                                </tr>
+
+                                <!-- Discount (conditional) -->
+                                {% if order.discount %}
+                                  <tr class="summary-row discount">
+                                    <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
+                                    <td class="summary-value">&minus;${{ order.discount.amount }}</td>
                                   </tr>
-                                  <tr class="meta-row">
-                                    <td width="50%">
-                                      <p class="meta-label">Method</p>
-                                      <p class="meta-value">
-                                        {{ order.fulfillment_method }}
-                                      </p>
-                                    </td>
-                                    <td width="50%">
-                                      <p class="meta-label">Payment</p>
-                                      <p class="meta-value">
-                                        {{ order.payment_method }}
-                                      </p>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
+                                {% endif %}
 
-                  <!-- ─── Section 4: Items List ─── -->
-                  <tr>
-                    <td class="items-cell">
-                      <!-- Heading -->
-                      <h2 class="section-heading">your sweet haul</h2>
-                      <p class="section-sub">// {{ order.items.size }} flavors &middot; baked fresh</p>
-
-                      <!-- Looped items -->
-                      {% for item in order.items %}
-                        <table
-                          role="presentation"
-                          class="item {% if forloop.last %}last{% endif %}"
-                          width="100%"
-                          cellspacing="0"
-                          cellpadding="0"
-                          border="0"
-                        >
-                          <tbody>
-                            <tr>
-                              <td class="item-thumb item-cell">
-                                <img
-                                  src="{{ item.image_url }}"
-                                  alt="{{ item.name }}"
-                                  width="72"
-                                  height="72"
-                                  style="display: block; width: 72px; height: 72px; background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
-                                >
-                              </td>
-                              <td class="item-body item-cell">
-                                <p class="item-name">{{ item.name }}</p>
-                                <p class="item-flavor">{{ item.flavor }}</p>
-                                <span class="item-qty">Qty {{ item.quantity }}</span>
-                              </td>
-                              <td class="item-price item-cell">
-                                ${{ item.price }}
-                                <span class="item-unit">${{ item.unit_price }} each</span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      {% endfor %}
-                    </td>
-                  </tr>
-
-                  <!-- ─── Section 5: Order Summary ─── -->
-                  <tr>
-                    <td class="summary-cell">
-                      <table
-                        role="presentation"
-                        class="summary-card"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="summary-card-cell">
-                              <table aria-label="Order summary" width="100%" cellspacing="0" cellpadding="0" border="0">
-                                <tbody>
-                                  <!-- Subtotal -->
+                                <!-- Delivery fee (hidden for pickup or zero-fee orders) -->
+                                {% if order.fulfillment_method != 'Pickup' and order.delivery_fee != '0.00' %}
                                   <tr class="summary-row">
-                                    <td class="summary-label">Subtotal</td>
-                                    <td class="summary-value">${{ order.subtotal }}</td>
+                                    <td class="summary-label">Delivery fee</td>
+                                    <td class="summary-value">${{ order.delivery_fee }}</td>
                                   </tr>
+                                {% endif %}
 
-                                  <!-- Discount (conditional) -->
-                                  {% if order.discount %}
-                                    <tr class="summary-row discount">
-                                      <td class="summary-label">Sweet deal ({{ order.discount.code }})</td>
-                                      <td class="summary-value">&minus;${{ order.discount.amount }}</td>
-                                    </tr>
-                                  {% endif %}
+                                <!-- Tax -->
+                                <tr class="summary-row">
+                                  <td class="summary-label">Tax</td>
+                                  <td class="summary-value">${{ order.tax }}</td>
+                                </tr>
 
-                                  <!-- Delivery fee (hidden for pickup or zero-fee orders) -->
-                                  {% if order.fulfillment_method != 'Pickup' and order.delivery_fee != '0.00' %}
-                                    <tr class="summary-row">
-                                      <td class="summary-label">Delivery fee</td>
-                                      <td class="summary-value">${{ order.delivery_fee }}</td>
-                                    </tr>
-                                  {% endif %}
+                                <!-- Divider -->
+                                <tr>
+                                  <td colspan="2">
+                                    <div class="summary-divider">&nbsp;</div>
+                                  </td>
+                                </tr>
 
-                                  <!-- Tax -->
-                                  <tr class="summary-row">
-                                    <td class="summary-label">Tax</td>
-                                    <td class="summary-value">${{ order.tax }}</td>
-                                  </tr>
+                                <!-- Total -->
+                                <tr class="summary-row total">
+                                  <td class="summary-total-label">Total</td>
+                                  <td class="summary-total-value">${{ order.total }}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
 
-                                  <!-- Divider -->
-                                  <tr>
-                                    <td colspan="2">
-                                      <div class="summary-divider">&nbsp;</div>
-                                    </td>
-                                  </tr>
+                <!-- ─── Section 6: Pickup Card ─── -->
+                <tr>
+                  <td class="pickup-cell">
+                    <table
+                      role="presentation"
+                      class="pickup-card"
+                      width="100%"
+                      bgcolor="#ffe4ec"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="pickup-card-cell">
+                            <!-- Heading -->
+                            <p class="pickup-kicker">// {{ order.fulfillment_method }} Details</p>
+                            <h3 class="pickup-title">See you soon, {{ customer.first_name }}!</h3>
 
-                                  <!-- Total -->
-                                  <tr class="summary-row total">
-                                    <td class="summary-total-label">Total</td>
-                                    <td class="summary-total-value">${{ order.total }}</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
+                            <!-- When + Where (2-column) -->
+                            <table
+                              role="presentation"
+                              width="100%"
+                              cellspacing="0"
+                              cellpadding="0"
+                              border="0"
+                              style="table-layout: fixed;"
+                            >
+                              <tbody>
+                                <tr>
+                                  <td class="pickup-col dw db" width="50%">
+                                    <span class="pickup-label">When</span>
+                                    <p class="pickup-value">
+                                      {{ order.pickup.date -}}
+                                      <br>
+                                      {{ order.pickup.window }}
+                                    </p>
+                                  </td>
+                                  <td class="pickup-col dw db" width="50%">
+                                    <span class="pickup-label">Where</span>
+                                    <p class="pickup-value">
+                                      {{ company.company_name -}}
+                                      <br>
+                                      {{ company.street -}}
+                                      <br>
+                                      {{ company.city }}, {{ company.state }}
+                                      {{ company.zipcode }}
+                                    </p>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
 
-                  <!-- ─── Section 6: Pickup Card ─── -->
-                  <tr>
-                    <td class="pickup-cell">
-                      <table
-                        role="presentation"
-                        class="pickup-card"
-                        width="100%"
-                        bgcolor="#ffe4ec"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="pickup-card-cell">
-                              <!-- Heading -->
-                              <p class="pickup-kicker">// {{ order.fulfillment_method }} Details</p>
-                              <h3 class="pickup-title">See you soon, {{ customer.first_name }}!</h3>
+                            <!-- Modification window -->
+                            <p class="pickup-note">
+                              Need to make changes? Let us know by
+                              <strong>{{ order.modification_deadline }}</strong>
+                              and we'll sort it out.
+                            </p>
 
-                              <!-- When + Where (2-column) -->
-                              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;">
-                                <tbody>
-                                  <tr>
-                                    <td class="pickup-col dw db" width="50%">
-                                      <span class="pickup-label">When</span>
-                                      <p class="pickup-value">
-                                        {{ order.pickup.date -}}
-                                        <br>
-                                        {{ order.pickup.window }}
-                                      </p>
-                                    </td>
-                                    <td class="pickup-col dw db" width="50%">
-                                      <span class="pickup-label">Where</span>
-                                      <p class="pickup-value">
-                                        {{ company.company_name -}}
-                                        <br>
-                                        {{ company.street -}}
-                                        <br>
-                                        {{ company.city }}, {{ company.state }}
-                                        {{ company.zipcode }}
-                                      </p>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-
-                              <!-- Modification window -->
-                              <p class="pickup-note">
-                                Need to make changes? Let us know by
-                                <strong>{{ order.modification_deadline }}</strong>
-                                and we'll sort it out.
-                              </p>
-
-                              <!-- CTA -->
-                              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
-                                <tbody>
-                                  <tr>
-                                    <td class="pickup-cta-wrap">
-                                      <!--[if mso]>
+                            <!-- CTA -->
+                            <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                              <tbody>
+                                <tr>
+                                  <td class="pickup-cta-wrap">
+                                    <!--[if mso]>
                                       <v:roundrect
                                         xmlns:v="urn:schemas-microsoft-com:vml"
                                         xmlns:w="urn:schemas-microsoft-com:office:word"
@@ -1608,318 +1614,248 @@
                                         <w:anchorlock/>
                                         <center style="color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;letter-spacing:2px;">TRACK MY ORDER &rarr;</center>
                                       </v:roundrect>
-                                      <![endif]-->
-                                      <!--[if !mso]><!-- -->
-                                      <a href="{{ order.tracking_url }}" target="_blank" rel="noopener noreferrer" class="pickup-cta">
-                                        Track my order &rarr;<span class="sr-only"> (opens in new tab)</span>
-                                      </a>
-                                      <!--<![endif]-->
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-
-                  <!-- ─── Section 7: Support Callout ─── -->
-                  <tr>
-                    <td class="support-cell">
-                      <table
-                        role="presentation"
-                        class="support-card"
-                        width="100%"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="support-card-cell">
-                              <p class="support-text">
-                                Questions about order <strong>#{{ order.number }}</strong>?
-                                <a href="{{ company.contact_page }}" target="_blank" rel="noopener noreferrer" class="support-link">
-                                  Contact our bakers<span class="sr-only"> (opens in new tab)</span>
-                                </a>
-                                or call
-                                <a href="tel:{{ company.phone_e164 }}" class="support-link">
-                                  {{- company.phone_display -}}
-                                </a>.
-                              </p>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-
-                  <!-- ─── Section 8: Sweet Extras ─── -->
-                  <tr>
-                    <td class="extras-cell">
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
-                        <tbody>
-                          <tr>
-                            <!-- Refer a friend -->
-                            <td class="extras-col" valign="top">
-                              <table
-                                role="presentation"
-                                class="extras-card"
-                                width="100%"
-                                cellspacing="0"
-                                cellpadding="0"
-                                border="0"
-                              >
-                                <tbody>
-                                  <tr>
-                                    <td class="extras-card-cell" align="center">
-                                      <span class="extras-emoji" aria-hidden="true">&#127873;</span>
-                                      <h3 class="extras-title">Refer a friend</h3>
-                                      <p class="extras-text">
-                                        Send them a sweet treat &mdash; get $5 off your next dozen.
-                                      </p>
-                                      <a href="{{ company.referral_page }}" target="_blank" rel="noopener noreferrer" class="extras-link">
-                                        Share the love<span class="sr-only"> (opens in new tab)</span>
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </td>
-                  </tr>
-
-                  <!-- ─── Section 9: Footer ─── -->
-                  <tr>
-                    <td class="footer-cell" align="center" bgcolor="#4a2c3a" style="background-color:#4a2c3a;">
-                      <!-- Brand mark -->
-                      <p class="footer-wordmark">{{ company.company_name }}</p>
-                      <p class="footer-tag">Tiny cakes &middot; Big joy</p>
-
-                      <!-- Social row -->
-                      <table
-                        role="presentation"
-                        class="footer-social"
-                        cellspacing="0"
-                        cellpadding="0"
-                        border="0"
-                        align="center"
-                      >
-                        <tbody>
-                          <tr>
-                            <td class="footer-social-cell">
-                              <a
-                                href="{{ company.social.instagram }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Instagram (opens in new tab)"
-                                class="footer-social-link"
-                              >
-                                <img
-                                  src="img/white-instagram.png"
-                                  width="18"
-                                  height="18"
-                                  alt=""
-                                  class="footer-social-icon"
-                                >
-                              </a>
-                            </td>
-                            <td class="footer-social-cell">
-                              <a
-                                href="{{ company.social.tiktok }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="TikTok (opens in new tab)"
-                                class="footer-social-link"
-                              >
-                                <img
-                                  src="img/white-tiktok.png"
-                                  width="18"
-                                  height="18"
-                                  alt=""
-                                  class="footer-social-icon"
-                                >
-                              </a>
-                            </td>
-                            <td class="footer-social-cell">
-                              <a
-                                href="{{ company.social.pinterest }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Pinterest (opens in new tab)"
-                                class="footer-social-link"
-                              >
-                                <img
-                                  src="img/white-pinterest.png"
-                                  width="18"
-                                  height="18"
-                                  alt=""
-                                  class="footer-social-icon"
-                                >
-                              </a>
-                            </td>
-                            <td class="footer-social-cell">
-                              <a
-                                href="{{ company.social.facebook }}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="Facebook (opens in new tab)"
-                                class="footer-social-link"
-                              >
-                                <img
-                                  src="img/white-facebook.png"
-                                  width="18"
-                                  height="18"
-                                  alt=""
-                                  class="footer-social-icon"
-                                >
-                              </a>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <!-- Link row -->
-                      <p class="footer-links">
-                        <a href="{{ company.menu_page }}" class="footer-link">Menu</a>
-                        <span class="footer-link-sep">&middot;</span>
-                        <a href="{{ order.tracking_url }}" class="footer-link">Track order</a>
-                        <span class="footer-link-sep">&middot;</span>
-                        <a href="{{ company.contact_page }}" class="footer-link">Help</a>
-                      </p>
-
-                      <!-- Legal -->
-                      <div class="footer-legal">
-                        <p class="footer-legal-line">
-                          You're getting this because you placed an order at {{ company.company_name }}.
-                        </p>
-                        <p class="footer-legal-line">
-                          Read our
-                          <a href="{{ company.privacy_page }}" class="footer-legal-link">Privacy Policy</a>
-                          or
-                          <a href="{{ company.unsubscribe_page }}" class="footer-legal-link">unsubscribe</a>.
-                        </p>
-                        <p class="footer-legal-line">
-                          {{ company.company_name }} &middot; {{ company.street }}, {{ company.city }},
-                          {{ company.state }}
-                          {{ company.zipcode }}
-                        </p>
-                        <p class="footer-legal-line">
-                          &copy; 2026 {{ company.company_name }}. Baked with love in {{ company.city }}.
-                        </p>
-                        <p class="footer-legal-line footer-credit">
-                          Designed by
-                          <a href="https://github.com/alphageekdom" target="_blank" rel="noopener noreferrer" aria-label="Designed by AlphaGeekdom (opens in new tab)" class="footer-credit-link"
-                            >AlphaGeekdom</a
-                          >
-                        </p>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <!--[if mso | IE]>
+                                    <![endif]-->
+                                    <!-- [if !mso]><!-- -->
+                                    <a
+                                      href="{{ order.tracking_url }}"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      class="pickup-cta"
+                                    >
+                                      Track my order &rarr;<span class="sr-only"> (opens in new tab)</span>
+                                    </a>
+                                    <!-- <![endif] -->
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </td>
                 </tr>
+
+                <!-- ─── Section 7: Support Callout ─── -->
+                <tr>
+                  <td class="support-cell">
+                    <table
+                      role="presentation"
+                      class="support-card"
+                      width="100%"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="support-card-cell">
+                            <p class="support-text">
+                              Questions about order <strong>#{{ order.number }}</strong>?
+                              <a
+                                href="{{ company.contact_page }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="support-link"
+                                >Contact our bakers<span class="sr-only"> (opens in new tab)</span></a
+                              >
+                              or call
+                              <a href="tel:{{ company.phone_e164 }}" class="support-link">
+                                {{- company.phone_display -}}</a
+                              >.
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- ─── Section 8: Sweet Extras ─── -->
+                <tr>
+                  <td class="extras-cell">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                      <tbody>
+                        <tr>
+                          <!-- Refer a friend -->
+                          <td class="extras-col" valign="top">
+                            <table
+                              role="presentation"
+                              class="extras-card"
+                              width="100%"
+                              cellspacing="0"
+                              cellpadding="0"
+                              border="0"
+                            >
+                              <tbody>
+                                <tr>
+                                  <td class="extras-card-cell" align="center">
+                                    <span class="extras-emoji" aria-hidden="true">&#127873;</span>
+                                    <h3 class="extras-title">Refer a friend</h3>
+                                    <p class="extras-text">
+                                      Send them a sweet treat &mdash; get $5 off your next dozen.
+                                    </p>
+                                    <a
+                                      href="{{ company.referral_page }}"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      class="extras-link"
+                                    >
+                                      Share the love<span class="sr-only"> (opens in new tab)</span>
+                                    </a>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- ─── Section 9: Footer ─── -->
+                <tr>
+                  <td class="footer-cell" align="center" bgcolor="#4a2c3a" style="background-color:#4a2c3a;">
+                    <!-- Brand mark -->
+                    <p class="footer-wordmark">{{ company.company_name }}</p>
+                    <p class="footer-tag">Tiny cakes &middot; Big joy</p>
+
+                    <!-- Social row -->
+                    <table
+                      role="presentation"
+                      class="footer-social"
+                      cellspacing="0"
+                      cellpadding="0"
+                      border="0"
+                      align="center"
+                    >
+                      <tbody>
+                        <tr>
+                          <td class="footer-social-cell">
+                            <a
+                              href="{{ company.social.instagram }}"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Instagram (opens in new tab)"
+                              class="footer-social-link"
+                            >
+                              <img
+                                src="img/white-instagram.png"
+                                width="18"
+                                height="18"
+                                alt=""
+                                class="footer-social-icon"
+                              >
+                            </a>
+                          </td>
+                          <td class="footer-social-cell">
+                            <a
+                              href="{{ company.social.tiktok }}"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="TikTok (opens in new tab)"
+                              class="footer-social-link"
+                            >
+                              <img
+                                src="img/white-tiktok.png"
+                                width="18"
+                                height="18"
+                                alt=""
+                                class="footer-social-icon"
+                              >
+                            </a>
+                          </td>
+                          <td class="footer-social-cell">
+                            <a
+                              href="{{ company.social.pinterest }}"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Pinterest (opens in new tab)"
+                              class="footer-social-link"
+                            >
+                              <img
+                                src="img/white-pinterest.png"
+                                width="18"
+                                height="18"
+                                alt=""
+                                class="footer-social-icon"
+                              >
+                            </a>
+                          </td>
+                          <td class="footer-social-cell">
+                            <a
+                              href="{{ company.social.facebook }}"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Facebook (opens in new tab)"
+                              class="footer-social-link"
+                            >
+                              <img
+                                src="img/white-facebook.png"
+                                width="18"
+                                height="18"
+                                alt=""
+                                class="footer-social-icon"
+                              >
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <!-- Link row -->
+                    <p class="footer-links">
+                      <a href="{{ company.menu_page }}" class="footer-link">Menu</a>
+                      <span class="footer-link-sep">&middot;</span>
+                      <a href="{{ order.tracking_url }}" class="footer-link">Track order</a>
+                      <span class="footer-link-sep">&middot;</span>
+                      <a href="{{ company.contact_page }}" class="footer-link">Help</a>
+                    </p>
+
+                    <!-- Legal -->
+                    <div class="footer-legal">
+                      <p class="footer-legal-line">
+                        You're getting this because you placed an order at {{ company.company_name }}.
+                      </p>
+                      <p class="footer-legal-line">
+                        Read our
+                        <a href="{{ company.privacy_page }}" class="footer-legal-link">Privacy Policy</a>
+                        or
+                        <a href="{{ company.unsubscribe_page }}" class="footer-legal-link">unsubscribe</a>.
+                      </p>
+                      <p class="footer-legal-line">
+                        {{ company.company_name }} &middot; {{ company.street }}, {{ company.city }},
+                        {{ company.state }}
+                        {{ company.zipcode }}
+                      </p>
+                      <p class="footer-legal-line">
+                        &copy; 2026 {{ company.company_name }}. Baked with love in {{ company.city }}.
+                      </p>
+                      <p class="footer-legal-line footer-credit">
+                        Designed by
+                        <a
+                          href="https://www.alphageekdom.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Designed by AlphaGeekdom (opens in new tab)"
+                          class="footer-credit-link"
+                          >AlphaGeekdom</a
+                        >
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <!--[if mso | IE]>
+              </td>
+                </tr>
               </table>
-              <![endif]-->
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </template>
-
-    <div id="result"></div>
-
-    <!-- LiquidJS browser build (dev only) -->
-    <script src="https://cdn.jsdelivr.net/npm/liquidjs/dist/liquid.browser.umd.js"></script>
-
-    <script>
-      const template = document.querySelector('#email');
-      const result = document.querySelector('#result');
-      const engine = new liquidjs.Liquid();
-
-      engine
-        .parseAndRender(template.innerHTML, {
-          customer: {
-            id: 12345,
-            first_name: 'Lauren',
-          },
-          company: {
-            company_name: 'Sugar & Sprinkle',
-            phone_e164: '+18887774655',
-            phone_display: '1-888-SPRINKL',
-            contact_page: 'https://www.sugarandsprinkle.com/contact',
-            unsubscribe_page: 'https://www.sugarandsprinkle.com/unsubscribe',
-            street: '418 Buttercream Lane',
-            city: 'Brooklyn',
-            state: 'NY',
-            zipcode: '11201',
-            referral_page: 'https://www.sugarandsprinkle.com/refer',
-            menu_page: 'https://www.sugarandsprinkle.com/menu',
-            privacy_page: 'https://www.sugarandsprinkle.com/privacy',
-            social: {
-              instagram: 'https://www.instagram.com/sugarandsprinkle',
-              tiktok: 'https://www.tiktok.com/@sugarandsprinkle',
-              pinterest: 'https://www.pinterest.com/sugarandsprinkle',
-              facebook: 'https://www.facebook.com/sugarandsprinkle',
-            },
-          },
-          order: {
-            number: 'SS-20471',
-            placed_at: 'April 25, 2026 · 2:14 PM',
-            fulfillment_method: 'Pickup',
-            payment_method: 'Visa ending 4421',
-            subtotal: '37.00',
-            delivery_fee: '0.00',
-            tax: '2.84',
-            total: '34.84',
-            discount: {
-              code: 'FIRSTBITE',
-              amount: '5.00',
-            },
-            tracking_url: 'https://www.sugarandsprinkle.com/track/SS-20471',
-            web_view_url: 'https://www.sugarandsprinkle.com/receipts/SS-20471',
-            modification_deadline: 'Friday, April 25 at 8:00 PM',
-            pickup: {
-              date: 'Saturday, April 26',
-              window: 'Between 11:00 AM – 1:00 PM',
-            },
-
-            items: [
-              {
-                name: 'Strawberry Shortcake Dream',
-                flavor: 'Vanilla bean cake · fresh strawberry buttercream',
-                quantity: 6,
-                unit_price: '3.00',
-                price: '18.00',
-                image_url: 'img/strawberry-shortcake-dream.jpg',
-              },
-              {
-                name: 'Cookies & Cream Cloud',
-                flavor: 'Chocolate cake · cookie crumble frosting',
-                quantity: 4,
-                unit_price: '3.00',
-                price: '12.00',
-                image_url: 'img/cookies-and-cream-cloud.jpg',
-              },
-              {
-                name: 'Lemon Lavender Bliss',
-                flavor: 'Lemon cake · honey lavender swiss meringue',
-                quantity: 2,
-                unit_price: '3.50',
-                price: '7.00',
-                image_url: 'img/lemon-lavender-bliss.jpg',
-              },
-            ],
-          },
-        })
-        .then((html) => (result.innerHTML = html));
-    </script>
+            <![endif]-->
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
