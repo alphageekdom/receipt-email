@@ -1121,6 +1121,12 @@
                               valign="middle"
                             >
                               <a
+                                href="{{ order.web_view_url }}"
+                                class="utility-link"
+                                >View online</a
+                              >
+                              <span class="utility-sep">·</span>
+                              <a
                                 href="{{ company.contact_page }}"
                                 class="utility-link"
                                 >Contact</a
@@ -1309,6 +1315,7 @@
                                   title="{{ item.name }}"
                                   width="72"
                                   height="72"
+                                  style="background-color: #ffe4ec; color: #4a2c3a; font-family: 'Quicksand', Arial, Helvetica, sans-serif; font-size: 11px; font-weight: 600; text-align: center;"
                                 >
                               </td>
                               <td class="item-body item-cell">
@@ -1687,6 +1694,7 @@
               amount: '5.00',
             },
             tracking_url: 'https://www.sugarandsprinkle.com/track/SS-20471',
+            web_view_url: 'https://www.sugarandsprinkle.com/receipts/SS-20471',
             modification_deadline: 'Friday, April 25 at 8:00 PM',
             pickup: {
               date: 'Saturday, April 26',
