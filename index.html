@@ -1270,6 +1270,7 @@
                                 cellspacing="0"
                                 cellpadding="0"
                                 border="0"
+                                style="table-layout: fixed;"
                               >
                                 <tbody>
                                   <tr class="meta-row">
@@ -1285,13 +1286,13 @@
                                     </td>
                                   </tr>
                                   <tr class="meta-row">
-                                    <td>
+                                    <td width="50%">
                                       <p class="meta-label">Method</p>
                                       <p class="meta-value">
                                         {{ order.fulfillment_method }}
                                       </p>
                                     </td>
-                                    <td>
+                                    <td width="50%">
                                       <p class="meta-label">Payment</p>
                                       <p class="meta-value">
                                         {{ order.payment_method }}
@@ -1436,7 +1437,7 @@
                               <h3 class="pickup-title">See you soon, {{ customer.first_name }}!</h3>
 
                               <!-- When + Where (2-column) -->
-                              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
+                              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="table-layout: fixed;">
                                 <tbody>
                                   <tr>
                                     <td class="pickup-col dw db" width="50%">
