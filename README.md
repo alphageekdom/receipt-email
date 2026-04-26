@@ -121,11 +121,11 @@ The values rendered in [`index.html`](index.html) correspond to this template pa
 
 ## Tested preview widths
 
-- 320 px — small mobile
-- 375 px — standard mobile (iPhone 14/15)
-- 414 px — large mobile
+- 390 px — iPhone 12 Pro (mobile screenshots below)
 - 600 px — email container width
-- 700 px+ — desktop preview
+- 1440 px — desktop preview (desktop screenshots below)
+
+The full list of CSS breakpoints — including the smaller mobile breakpoint at 480 px — is in [`COLOPHON.md`](COLOPHON.md).
 
 ## Screenshots
 
