@@ -1,0 +1,116 @@
+{{ company.company_name | upcase }} — ORDER RECEIPT
+
+Order #{{ order.number }} · {{ order.placed_at }}
+
+
+HEY {{ customer.first_name | upcase }} — YOUR CUPCAKES ARE IN THE OVEN.
+
+Your bakers are on it — we'll ping you the moment
+they're ready for pickup.
+
+
+ORDER STATUS
+
+  [✓]  Confirmed (current)
+  [ ]  Baking
+  [ ]  Ready
+
+
+ORDER DETAILS
+
+  Order No.   #{{ order.number }}
+  Placed      {{ order.placed_at }}
+  Method      {{ order.fulfillment_method }}
+  Payment     {{ order.payment_method }}
+
+
+YOUR SWEET HAUL
+{{ order.items.size }} flavors · baked fresh
+
+{% for item in order.items %}  {{ item.name }}
+  {{ item.flavor }}
+  Qty {{ item.quantity }} · ${{ item.unit_price }} each — ${{ item.price }}
+
+{% endfor %}  ----------------------------------------
+  Subtotal                          ${{ order.subtotal }}
+{% if order.discount %}  Sweet deal ({{ order.discount.code }})               -${{ order.discount.amount }}
+{% endif %}{% if order.fulfillment_method != 'Pickup' and order.delivery_fee != '0.00' %}  Delivery fee                       ${{ order.delivery_fee }}
+{% endif %}  Tax                                ${{ order.tax }}
+  ----------------------------------------
+  Total                             ${{ order.total }}
+
+
+{% if order.fulfillment_method == 'Pickup' %}PICKUP DETAILS — SEE YOU SOON, {{ customer.first_name | upcase }}!
+
+  When:   {{ order.pickup.date }}, {{ order.pickup.window }}
+  Where:  {{ company.company_name }}
+          {{ company.street }}
+          {{ company.city }}, {{ company.state }} {{ company.zipcode }}
+
+Need to make changes? Contact us by {{ order.modification_deadline }}
+and we'll do our best to help.
+
+{% else %}DELIVERY DETAILS
+
+  When:   {{ order.pickup.date }}, {{ order.pickup.window }}
+  Where:  {{ order.delivery_address }}
+
+Need to make changes? Contact us by {{ order.modification_deadline }}
+and we'll do our best to help.
+
+{% endif %}Track my order →
+{{ order.tracking_url }}
+
+
+NEED HELP WITH ORDER #{{ order.number }}?
+
+Reply to this email, contact our bakers, or call
+{{ company.phone_display }} before your modification deadline.
+
+Contact our bakers →
+{{ company.contact_page }}
+
+
+REFER A FRIEND
+
+Send them a sweet treat — get $5 off your next
+dozen.
+
+Share the love →
+{{ company.referral_page }}
+
+
+—
+
+{{ company.company_name | upcase }}
+{{ company.street }}
+{{ company.city }}, {{ company.state }} {{ company.zipcode }}
+{{ company.phone_display }}
+
+Tiny cakes · Big joy
+
+
+You're receiving this transactional email because
+you placed an order with {{ company.company_name }}. This
+email confirms your order details. Promotional
+preferences can be updated separately.
+
+Menu:        {{ company.menu_page }}
+Track order: {{ order.tracking_url }}
+Help:        {{ company.contact_page }}
+Privacy:     {{ company.privacy_page }}
+Unsubscribe: {{ company.unsubscribe_page }}
+
+© {{ 'now' | date: '%Y' }} {{ company.company_name }}. Baked with love in {{ company.city }}.
+
+Designed by AlphaGeekdom — https://www.alphageekdom.com
+
+
+—
+
+{{ company.company_name }} is a fictional brand created as
+an HTML email development project. No order,
+customer, transaction, product, pickup window, or
+business detail referenced in this email is real.
+
+Cupcake imagery generated with Grok Imagine.

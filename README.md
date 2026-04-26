@@ -34,7 +34,7 @@ If this template shipped to real customers, the next pass would cover:
 
 - **CSS inlining.** The `<style>` block lives in `<head>` for development legibility. A pre-send pass through [juice](https://github.com/Automattic/juice) or [premailer](https://github.com/premailer/premailer) would push every rule inline so the email survives clients that strip head styles (e.g. Outlook.com web).
 
-- **Plain-text alternative.** Real transactional sends should be `multipart/alternative` with both HTML and a hand-written plain-text version. Plain-text helps deliverability (some filters penalise HTML-only mail) and gives screen readers and text-mode clients a clean path.
+- **Plain-text alternative.** [`index.txt`](index.txt) and [`template.txt`](template.txt) are the plain-text counterparts. A production send wires them up as the `multipart/alternative` text part alongside the HTML &mdash; helps deliverability (some filters penalise HTML-only mail) and gives screen readers and text-mode clients a clean path.
 
 - **Tracking and attribution.** Add UTM parameters to every CTA, route clicks through a tracked redirect, and embed a 1&times;1 pixel for open tracking. Even on transactional mail, open and click data drives copy and design iteration.
 
@@ -52,6 +52,8 @@ If this template shipped to real customers, the next pass would cover:
 | --- | --- |
 | [`index.html`](index.html) | Rendered preview with realistic sample data &mdash; what the live demo serves. Includes a hosted-preview project colophon (engineering / accessibility / breakpoints, a live Liquid snippet, and desktop + mobile preview frames) gated behind `<!--[if !mso]>` so it never ships with the email. |
 | [`template.html`](template.html) | Shippable Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
+| [`index.txt`](index.txt) | Plain-text alternative of the rendered receipt with the same sample data. Pair with `index.html` in a `multipart/alternative` send. |
+| [`template.txt`](template.txt) | Plain-text Liquid template that mirrors `template.html` &mdash; same `{% for %}` items loop, `{% if order.discount %}` row, and pickup-vs-delivery branch. |
 | [`img/`](img/) | Cupcake photography, social icons, and favicon set. |
 | [`COLOPHON.md`](COLOPHON.md) | Engineering notes, accessibility / resilience choices, breakpoints, and targeted email clients. |
 
