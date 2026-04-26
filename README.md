@@ -54,7 +54,7 @@ If this template shipped to real customers, the next pass would cover:
 | [`template.html`](template.html) | Shippable Liquid source with `{{ }}` variables and `{% %}` control tags. Drop into a transactional email service (Shopify, Klaviyo, Postmark) and bind to real order data. |
 | [`index.txt`](index.txt) | Plain-text alternative of the rendered receipt with the same sample data. Pair with `index.html` in a `multipart/alternative` send. |
 | [`template.txt`](template.txt) | Plain-text Liquid template that mirrors `template.html` &mdash; same `{% for %}` items loop, `{% if order.discount %}` row, and pickup-vs-delivery branch. |
-| [`img/`](img/) | Cupcake photography, social icons, and favicon set. |
+| [`images/`](images/) | Cupcake photography, social icons, and favicon set. |
 | [`COLOPHON.md`](COLOPHON.md) | Engineering notes, accessibility / resilience choices, breakpoints, and targeted email clients. |
 
 ## Sample data
@@ -98,7 +98,7 @@ The values rendered in [`index.html`](index.html) correspond to this template pa
         "quantity": 4,
         "price": "16.00",
         "unit_price": "4.00",
-        "image_url": "img/strawberry-shortcake-dream.jpg"
+        "image_url": "images/strawberry-shortcake-dream.jpg"
       },
       {
         "name": "Lemon Lavender Bliss",
@@ -106,7 +106,7 @@ The values rendered in [`index.html`](index.html) correspond to this template pa
         "quantity": 3,
         "price": "13.50",
         "unit_price": "4.50",
-        "image_url": "img/lemon-lavender-bliss.jpg"
+        "image_url": "images/lemon-lavender-bliss.jpg"
       },
       {
         "name": "Cookies & Cream Cloud",
@@ -114,7 +114,7 @@ The values rendered in [`index.html`](index.html) correspond to this template pa
         "quantity": 3,
         "price": "12.50",
         "unit_price": "4.17",
-        "image_url": "img/cookies-and-cream-cloud.jpg"
+        "image_url": "images/cookies-and-cream-cloud.jpg"
       }
     ]
   }
