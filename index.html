@@ -1091,6 +1091,36 @@
         font-weight: 700;
         letter-spacing: 0.12em;
       }
+
+      /* ===== DARK MODE DEFENSES (Outlook.com / O365 web) ===== */
+      /* color-scheme: light only is honored by Apple Mail but ignored by
+         Outlook.com, which remaps colors via [data-ogsc]/[data-ogsb]
+         attributes. Lock the footer's dark plum + light text so the
+         section doesn't end up light-on-light when Outlook inverts. */
+      [data-ogsc] .footer-cell,
+      [data-ogsb] .footer-cell {
+        background-color: #4a2c3a !important;
+        color: #ffe4ec !important;
+      }
+      [data-ogsc] .footer-wordmark {
+        color: #ffffff !important;
+      }
+      [data-ogsc] .footer-tag,
+      [data-ogsc] .footer-links,
+      [data-ogsc] .footer-link,
+      [data-ogsc] .footer-legal-link,
+      [data-ogsc] .footer-social-link {
+        color: #f0c8d3 !important;
+      }
+      [data-ogsc] .footer-legal-line {
+        color: #b09199 !important;
+      }
+      [data-ogsc] .footer-credit-link {
+        color: #d6336c !important;
+      }
+      [data-ogsb] .footer-social-link {
+        background-color: #6d4357 !important;
+      }
     </style>
   </head>
 
@@ -1673,7 +1703,7 @@
 
                   <!-- ─── Section 9: Footer ─── -->
                   <tr>
-                    <td class="footer-cell" align="center">
+                    <td class="footer-cell" align="center" bgcolor="#4a2c3a" style="background-color:#4a2c3a;">
                       <!-- Brand mark -->
                       <h4 class="footer-wordmark">Sugar &amp; Sprinkle</h4>
                       <p class="footer-tag">Tiny cakes &middot; Big joy</p>
