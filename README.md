@@ -26,6 +26,26 @@ Responsive transactional HTML email built with table-based layout, inline CSS, e
 - `<style>` block in `<head>` for development; in production it would be pushed inline with juice / premailer to survive clients that strip head styles
 - Transactional footer with explicit privacy and unsubscribe links
 
+## Production considerations
+
+If this template shipped to real customers, the next pass would cover:
+
+- **Image delivery via CDN.** The cupcake images are checked into the repo at ~6 KB each &mdash; fine for a portfolio demo, but a production deploy would serve them from an image CDN (Cloudinary, imgix, or similar) at 2&times; the display size, with WebP / AVIF in a `<picture>` tag and a JPEG fallback for clients that don't support them.
+
+- **CSS inlining.** The `<style>` block lives in `<head>` for development legibility. A pre-send pass through [juice](https://github.com/Automattic/juice) or [premailer](https://github.com/premailer/premailer) would push every rule inline so the email survives clients that strip head styles (e.g. Outlook.com web).
+
+- **Plain-text alternative.** Real transactional sends should be `multipart/alternative` with both HTML and a hand-written plain-text version. Plain-text helps deliverability (some filters penalise HTML-only mail) and gives screen readers and text-mode clients a clean path.
+
+- **Tracking and attribution.** Add UTM parameters to every CTA, route clicks through a tracked redirect, and embed a 1&times;1 pixel for open tracking. Even on transactional mail, open and click data drives copy and design iteration.
+
+- **Pre-send rendering tests.** Run every change through Litmus or Email on Acid against the top ~20 client/version combinations (Gmail web, Gmail iOS, Outlook 2016, Outlook 365, Apple Mail, etc.) before shipping. Email rendering is inconsistent across clients in ways no local preview catches.
+
+- **Dark-mode CSS.** Wrap brand-colour overrides in `@media (prefers-color-scheme: dark)` so the pink-on-cream palette doesn't get auto-inverted into something ugly by Apple Mail or Outlook macOS.
+
+- **Deliverability hygiene.** SPF, DKIM, and DMARC records on the sending domain so receipts don't land in spam. A bounce-handling pipeline and suppression list so we stop sending to dead addresses.
+
+- **Accessibility hardening.** Add `lang="en"` on `<html>`, replace decorative emoji in icons with proper SVGs (or images with empty `alt`), and verify colour contrast on the pink CTA passes WCAG AA at 4.5:1.
+
 ## Files
 
 | File | Purpose |
